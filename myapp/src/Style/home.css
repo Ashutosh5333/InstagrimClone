@@ -1,0 +1,13 @@
+.Home{
+    border: 1px solid red;
+    display: flex;
+     justify-content: space-around;
+     font-weight: 600;
+     font-size: 2em;
+   font-family: sans-serif;
+   font-style: italic;
+}
+
+.Home > div{
+    text-decoration: none;
+}
