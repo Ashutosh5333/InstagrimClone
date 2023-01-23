@@ -38,6 +38,39 @@ const AdddataFail = () => {
   }
 }
 
+// ======================= User data =======================  //
+const getuserdataReq = () =>{
+   return {
+      type: types.USER_DATA_REQUEST
+   }
+} 
+const getuserdataSucess = (payload) => {
+   return {
+      type :types.USER_DATA_SUCCESS,
+      payload,
+   }
+}
+const getuserdataFail = () => {
+  return {
+      type :types.USER_DATA_FAILURE
+  }
+}
+
+// ============    Get User Data   =================  //
+
+
+export const GetUserData = (dispatch) => {
+      dispatch(getuserdataReq)
+      return axios.get(`https://sore-cyan-llama-robe.cyclic.app/signupdata`)
+      .then((res)=>{
+      return   dispatch(getuserdataSucess(res.data))
+      })
+      .catch((e)=>{
+      return    dispatch(getuserdataFail())
+      })
+}
+
+
 
 const  ADDProducts =(newdata) => (dispatch) => {
   dispatch(AdddataReq)

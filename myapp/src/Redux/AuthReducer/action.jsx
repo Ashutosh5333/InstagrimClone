@@ -39,6 +39,7 @@ const getLoginFail = () => {
   }
 }
 
+
 export const  Signupdata = (payload) => (dispatch) => {
   dispatch(getsignReq())
   return axios.post(`https://sore-cyan-llama-robe.cyclic.app/signup`,payload)

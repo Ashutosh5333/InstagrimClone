@@ -3,7 +3,8 @@ import * as types  from "./actionTypes"
 const initialState = {
     isLoading:false,
     isERROR:false,
-    token:""
+    token:"",
+    userdata:[]
 }
 
 
@@ -15,7 +16,6 @@ const reducer = (state=initialState,{type,payload})=>{
             return {
                 ...state,
                 isLoading:true,
-                isError:false,
             }
         
         case  types.GET_SIGNUP_SUCCESS : {
@@ -30,12 +30,11 @@ const reducer = (state=initialState,{type,payload})=>{
         case  types.GET_SIGNUP_FAILURE : 
             return {
                 ...state,
-                isLoading:true,
-                isError:false,
+                isLoading:false,
+                isError:true,
                 token:""
             }
-        
-
+  
         case  types.GET_LOGIN_SUCCESS : 
             return {
                 ...state,
