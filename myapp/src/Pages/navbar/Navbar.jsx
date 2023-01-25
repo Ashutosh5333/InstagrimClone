@@ -7,10 +7,13 @@ import Instagramlogo from "../../assets/Instagramlogo.png"
 import { GetUserData } from '../../Redux/AppReducer/action';
 import { useDispatch, useSelector } from 'react-redux';
 import Searchbar from './Searchbar';
+import { Suggestions } from './../Suggestions';
 
 
 const Navbar = () => {
-
+  const [query,setQuery] = useState("")
+  const [Suggestions,Setsuggetsion]= useState([])
+ 
   const dispatch = useDispatch()
   const Data = useSelector((store) => store.AppReducer.UserData)
   //  console.log(Data) 
@@ -20,7 +23,27 @@ const Navbar = () => {
     },[])
     // =========== 
 
-  
+   const queryHandler = (val) =>{
+           setQuery(val)
+   }
+
+
+         
+    useEffect(()=>{
+      if(query===""){
+        Setsuggetsion([])
+       }else{
+         let inputText = query.toLowerCase()
+         let newSuggestion =  Data.filter((item) =>{
+            return  item.email.toLowerCase().indexOf(inputText) !== (-1) ? true
+            :false;
+         }).map((item)=> (item.email))
+          Setsuggetsion(newSuggestion)
+        //  console.log("suggetsion",newSuggestion)
+        }
+      },[query])
+      
+    // console.log(Suggestions)
 
   return (
     <Box w='100%' p={4} border="1px solid black" color='Black'>
@@ -30,16 +53,32 @@ const Navbar = () => {
            </Flex>
          
          {/* For Searchbar */}
-             
-              <Searchbar Data={Data} />
+             {/* <Flex > */}
 
+              <Searchbar
+               queryHandler={queryHandler}
+               Suggestions={Suggestions}
+              />
+             {/* {
+                  Suggestions.map((item,index) =>{
+                       <Box key={index}>{item}</Box>
+                  })
+                }
+      <Box border="1px solid black">
+                {
+                  Suggestions.map((item,index) =>{
+                       <Box key={index}>{item}</Box>
+                  })
+                }
+       </Box> */}
+
+           {/* </Flex> */}
        
         {/* ==================== */}
 
            <Flex  mr={20} justifyContent={'left'}>  
                 <Text mt={10} color='black' alignItems={"center"} h="50">
               
-            
                 <FaRegHeart/>
                 </Text>
            </Flex>
