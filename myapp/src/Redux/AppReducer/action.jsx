@@ -65,7 +65,7 @@ export const GetUserData = (dispatch) => {
       .then((res)=>{
       return   dispatch(getuserdataSucess(res.data))
       })
-      .catch((e)=>{
+      .catch((e)=>{  
       return    dispatch(getuserdataFail())
       })
 }
