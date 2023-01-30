@@ -1,18 +1,15 @@
 import React, { useEffect } from 'react'
 import "./Style/Dash.css"
-import { useDispatch, useSelector } from 'react-redux';
-import { GetUserData } from './../Redux/AppReducer/action';
 import { Navigate } from 'react-router-dom';
 import { Button } from '@chakra-ui/react';
 import { Sidebar } from './Sidebar';
+import { Product } from '../Components/Dashboard/Product';
 
 const Dashboard = () => {
-        const dispatch = useDispatch()
-      const Data = useSelector((store) => store.AppReducer.UserData)
-      //  console.log(Data) 
-
+      
+     
         useEffect(()=>{
-        // dispatch(GetUserData)
+       
         },[])
    
          const handleLogOut =()=>{
@@ -31,7 +28,9 @@ const Dashboard = () => {
            <Sidebar/>
        </div>
 
-       <div className='database'> Dashboard </div>
+       <div className='database'> 
+          <Product/>
+       </div>
           
        <div className='Suggest'> Suggestions</div>
 
