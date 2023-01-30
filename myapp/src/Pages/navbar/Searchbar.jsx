@@ -5,9 +5,7 @@ import {BsSearch} from "react-icons/bs"
 
 const Searchbar = ({queryHandler,Suggestions}) => {
   const [inputtext,SetinputText]= useState("")
-  const [active ,SetActive] = useState(0)
- console.log(Suggestions)
-
+ 
   const handleInputTextChange = (e) =>{
     SetinputText(e.target.value)
   }
@@ -16,7 +14,7 @@ useEffect(()=>{
   queryHandler(inputtext)
 },[inputtext,queryHandler])
 
-   console.log(inputtext)
+  
 
 
 
@@ -55,19 +53,3 @@ useEffect(()=>{
 }
 
 export default Searchbar
-
-
-// const handleFilter = (event) => {
-//   const searchWord = event.target.value;
-//   setWordEntered(searchWord);
-//   const newFilter = Data.filter((value) => {
-//     // console.log(value.name)
-//     // return value&&value?.email.toLowerCase().includes(searchWord.toLowerCase());
-//   });
-
-//   if (searchWord === "") {
-//     setFilteredData([]);
-//   } else {
-//     setFilteredData(newFilter);
-//   }
-// };

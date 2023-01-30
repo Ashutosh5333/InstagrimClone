@@ -1,4 +1,5 @@
 import {FormControl, Box,  FormLabel,  Input,  Heading,  Button,} from '@chakra-ui/react'
+import { useToast } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import {useDispatch} from "react-redux"
 import { useNavigate }from "react-router-dom"
@@ -7,6 +8,7 @@ import { Signupdata } from '../Redux/AuthReducer/action'
 const Signup = () => {
   const dispatch = useDispatch()
   const navigate= useNavigate()
+  const toast=useToast()
 
    const [post ,SetPost]=useState({
        email:"",
@@ -18,7 +20,7 @@ const Signup = () => {
         const {name,value}=e.target
         SetPost({...post,[name]:value})
     }
-//  console.log(post)
+
 
     const handleSubmit = () => {
          dispatch(Signupdata(post))
@@ -26,11 +28,23 @@ const Signup = () => {
            console.log(res.payload)
            console.log("res",res)
             if(res.type === "GET_SIGNUP_SUCCESS" && res.payload.data !== "user is alredy present" ){
-                alert("user created Successfully Account")
+               
+                  toast({
+                    position : 'top',
+                    colorScheme : 'green', 
+                    status : "success",
+                    title:"user created Successfully Account"
+                })
                     navigate("/login")
             }
             else{
-              alert(res.payload.data)
+            
+              toast({
+                position : 'top',
+                colorScheme : 'green', 
+                status : "success",
+                title:res.payload.data
+            })
             }
          })
     }

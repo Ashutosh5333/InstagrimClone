@@ -1,13 +1,12 @@
-import React, { useCallback, useEffect, useState } from 'react'
-import { Box, Flex, Input, isChakraTheme, Text } from '@chakra-ui/react';
-import {BsSearch} from "react-icons/bs"
+import React, {  useEffect, useState } from 'react'
+import { Box, Flex, Text } from '@chakra-ui/react';
+
 import {FaRegHeart} from "react-icons/fa"
 
-import Instagramlogo from "../../assets/Instagramlogo.png"
 import { GetUserData } from '../../Redux/AppReducer/action';
 import { useDispatch, useSelector } from 'react-redux';
 import Searchbar from './Searchbar';
-import { Suggestions } from './../Suggestions';
+
 
 
 const Navbar = () => {
@@ -39,11 +38,10 @@ const Navbar = () => {
             :false;
          }).map((item)=> (item.email))
           Setsuggetsion(newSuggestion)
-        //  console.log("suggetsion",newSuggestion)
+     
         }
       },[query])
-      
-    // console.log(Suggestions)
+   
 
   return (
     <Box w='100%' p={4} border="1px solid black" color='Black'>
@@ -59,18 +57,7 @@ const Navbar = () => {
                queryHandler={queryHandler}
                Suggestions={Suggestions}
               />
-             {/* {
-                  Suggestions.map((item,index) =>{
-                       <Box key={index}>{item}</Box>
-                  })
-                }
-      <Box border="1px solid black">
-                {
-                  Suggestions.map((item,index) =>{
-                       <Box key={index}>{item}</Box>
-                  })
-                }
-       </Box> */}
+           
 
            {/* </Flex> */}
        

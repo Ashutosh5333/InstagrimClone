@@ -1,4 +1,5 @@
 import { FormControl,  FormLabel,  Input,  Box,  Heading,  Button}from '@chakra-ui/react'
+import { useToast } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import {useNavigate} from "react-router-dom"
@@ -9,6 +10,7 @@ import { Loginupdata } from '../Redux/AuthReducer/action';
 const Login = () => {
  const dispatch= useDispatch()
  const navigate= useNavigate()
+ const toast = useToast()
 
    const [post ,SetPost] = useState({
      email:"",
@@ -24,12 +26,25 @@ const Login = () => {
   const handleSubmit = () =>{
       dispatch(Loginupdata(post))
       .then((res) =>{
-        // console.log(res.payload.data.token)
+     
          if(res.type === "GET_LOGIN_SUCCESS"){
              if(res.payload.data.msg !== "Login sucessfull"){
-               alert("wrong Credential")
+                toast({
+                  position : 'top',
+                  colorScheme : 'red',
+                  bg:"red",
+                  status : "success",
+                  description:"Wrong credential"
+                })
+          
              }else{
-              alert("Login Successfully")
+              toast({
+                position : 'top',
+                colorScheme : 'green', 
+                status : "success",
+                title:"Login Successfully"
+              })
+            
               localStorage.setItem("token", JSON.stringify(res.payload.data.token))
               navigate("/dash")
              }
