@@ -1,7 +1,7 @@
 import { Box, Flex, Input, Text } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import {BsSearch} from "react-icons/bs"
-// return value&&value?.email.toLowerCase().includes(searchWord.toLowerCase());
+
 
 const Searchbar = ({queryHandler,Suggestions}) => {
   const [inputtext,SetinputText]= useState("")
@@ -71,14 +71,6 @@ useEffect(()=>{
 
 </Box>
 
-{/*       
-      <Box border="1px solid black">
-                {
-                  Suggestions.map((item,index) =>{
-                       <Box key={index}>{item}</Box>
-                  })
-                }
-       </Box> */}
 
      
 
