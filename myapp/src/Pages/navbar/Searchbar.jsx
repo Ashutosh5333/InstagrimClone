@@ -22,15 +22,16 @@ useEffect(()=>{
 
   return (
      <> 
-      <Box width={{base : '60%', md : '60%', lg :'40%'}}
+      <Box width={{base : '70%', md : '60%', lg :'40%'}}
       //  border={'1px solid yellow'} 
        height="50px"
+       marginRight={"20px"}
        > 
 
     <Flex 
     border={'1px solid black'}
      padding='5px' alignItems='center'
-  
+     
      >
 
     <Text ml='10px'><BsSearch/></Text>
@@ -39,8 +40,6 @@ useEffect(()=>{
           onChange={handleInputTextChange}
        outline="none"    
       //  border={'1px solid blue'}
-      fontSize= "var(--system-16-font-size)"  
-       background="rgb(var(--ig-highlight-background))"
        borderRadius='0px' 
        placeholder='SEARCH' 
        variant="unstyled" padding='5px'/>
