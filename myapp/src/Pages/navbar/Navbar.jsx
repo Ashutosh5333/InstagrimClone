@@ -89,17 +89,3 @@ const Navbar = () => {
 export default Navbar
 
 
-{/* 
-         <Flex width={{base : '40%', md : '60%', lg :'40%'}} border={'1px solid black'} padding='5px' alignItems='center'>
-                <Text ml='10px'><BsSearch/></Text>
-                <Input     
-                // value={inputtext}   
-                //  onChange={handleInputChange}
-                outline="none"    
-                fontSize= "var(--system-16-font-size)"  
-                  background="rgb(var(--ig-highlight-background))"
-                   borderRadius='0px' border='0px' 
-                   placeholder='SEARCH' 
-                   variant="unstyled" padding='5px'/>
-            </Flex> */}
-               
