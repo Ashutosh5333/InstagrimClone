@@ -1,4 +1,4 @@
-import { Box, Flex, Image, Text, Wrap, WrapItem } from "@chakra-ui/react";
+import { Box, Flex, Image, Input, Text, Wrap, WrapItem } from "@chakra-ui/react";
 import { Avatar, AvatarBadge, AvatarGroup } from '@chakra-ui/react'
 import React from "react";
 import { AiOutlineEllipsis } from "react-icons/ai";
@@ -26,10 +26,12 @@ export const Product = () => {
         <Box border={"1px solid black"} p={4} gap="10px">
 
           <Flex display={"flex"} justifyContent="space-between">
-            <Flex border={"1px solid green"}>
-              <Wrap>
+            <Flex 
+            // border={"1px solid green"}
+            >
+              <Wrap  >
                 <WrapItem>
-                  <Avatar
+                  <Avatar mr={8}
                     name="Dan Abrahmov"
                     src="https://bit.ly/dan-abramov"
                   />
@@ -37,11 +39,17 @@ export const Product = () => {
               </Wrap>
               <Image />
 
-              <Text p={4}> The viral gyan </Text>
+              <Text 
+              //  border={"1px solid red"}
+                alignItems="center" m="auto" fontWeight={600}
+               width={{ base: "80%", md: "60%", lg: "90%" }}> The viral gyan </Text>
+
             </Flex>
 
             {/* -------------- */}
-            <Flex border={"1px solid green"}>
+            <Flex 
+            // border={"1px solid green"}
+            >
               <Text fontSize={"30px"}>
              
                 <DotModal />
@@ -69,13 +77,13 @@ export const Product = () => {
             </Box>
           </Flex>
 
-          <br />
 
           {/* ------------- bottom line save ------------------ */}
-
+          <br />
           <Flex
+          
             border={"1px solid black"}
-            p={4}
+            p={2}
             margin={"auto"}
             width="80%"
             display={"flex"}
@@ -100,6 +108,21 @@ export const Product = () => {
             <Flex fontSize={"25px"}>
               <FaRegBookmark />
             </Flex>
+          </Flex>
+          <br />
+          <Box border={"1px solid black"}  p={2}
+            margin={"auto"}
+            width="80%" gap={10} >
+              <Text> Liked by <span> Aadil_khan </span> and <span> 110 others </span> </Text>
+               
+              <Text> <span>Ashutosh lakshakar</span> Be your own kind of beautiful  </Text>
+          </Box>
+          <br />
+          <Flex  border={"1px solid black"}  p={2}
+            margin={"auto"}
+            width="80%"
+            display={"flex"}>
+               <Input placeholder="Add a comment......." border={"none"} />
           </Flex>
 
         </Box>

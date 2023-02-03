@@ -19,29 +19,30 @@ export const DotModal = () => {
   <Text fontSize={"30px"} onClick={onOpen}>
               <AiOutlineEllipsis />
     </Text>
+    {/* width={{ base: "40%", md: "80%", lg: "90%" }} */}
 
-  <Modal finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose}>
+  <Modal   finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose}>
     <ModalOverlay />
-    <ModalContent>
+    <ModalContent width={{ base: "80%", md: "80%", lg: "90%" }}>
       {/* <ModalHeader>Modal Title</ModalHeader> */}
       {/* <ModalCloseButton /> */}
       <ModalBody>
-             <Box border="1px solid black"  textAlign={"center"}>
-               <Text p={5}> Report </Text>
+             <Box textAlign={"center"}     >
+               <Text color={"red"} fontWeight="600" p={5}> Report </Text>
                <Divider orientation='horizontal' />
-               <Text p={5}> Unfollow </Text>
+               <Text p={5} color={"red"} fontWeight="600" > Unfollow </Text>
                <Divider orientation='horizontal' />
-               <Text p={5}> Add To favorites </Text>
+               <Text p={5}  fontWeight="600" > Add To favorites </Text>
                <Divider orientation='horizontal' />
-               <Text p={5}> Go to post </Text>
+               <Text p={5}  fontWeight="600" > Go to post </Text>
                <Divider orientation='horizontal' />
-               <Text p={5}> Share to... </Text>
+               <Text p={5}  fontWeight="600" > Share to... </Text>
                <Divider orientation='horizontal' />
-               <Text p={5}> Copy Link </Text>
+               <Text p={5}  fontWeight="600" > Copy Link </Text>
                <Divider orientation='horizontal' />
-               <Text p={5}> Embeded </Text>
+               <Text p={5}  fontWeight="600" > Embeded </Text>
                <Divider orientation='horizontal' />
-               <Text p={5}   onClick={onClose}> 
+               <Text p={5}   fontWeight="600"  onClick={onClose}> 
                      Cancel
                </Text>
 
