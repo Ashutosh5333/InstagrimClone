@@ -4,6 +4,7 @@ import { Navigate } from 'react-router-dom';
 import { Button } from '@chakra-ui/react';
 import { Sidebar } from './Sidebar';
 import { Product } from '../Components/Dashboard/Product';
+import Side from './Side';
 
 const Dashboard = () => {
       
@@ -17,15 +18,16 @@ const Dashboard = () => {
               Navigate("/login")
          }
 
-
   return (
       <>   
           {/* <Button onClick={handleLogOut}> logout </Button> */}
           
        <div className='dashboard'>
 
-       <div className='Sidebar'> Sidebar 
-           <Sidebar/>
+       <div className='Sidebar'>
+           {/* Sidebar  */}
+           {/* <Sidebar/> */}
+            <Side/>
        </div>
 
        <div className='database'> 

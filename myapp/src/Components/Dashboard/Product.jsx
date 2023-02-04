@@ -79,12 +79,12 @@ export const Product = () => {
 
 
           {/* ------------- bottom line save ------------------ */}
-          <br />
+          {/* <br /> */}
           <Flex
-          
-            border={"1px solid black"}
-            p={2}
+            // border={"1px solid black"}
+            // p={2}
             margin={"auto"}
+            mt="10px"
             width="80%"
             display={"flex"}
             justifyContent="space-between"
@@ -102,24 +102,30 @@ export const Product = () => {
                 <FiNavigation />
               </Box>
             </Flex>
-
             {/* ---------------------- */}
 
             <Flex fontSize={"25px"}>
               <FaRegBookmark />
             </Flex>
           </Flex>
-          <br />
-          <Box border={"1px solid black"}  p={2}
+
+          {/* <br /> */}
+          <Box 
+          // border={"1px solid black"} 
+          //  p={2}
             margin={"auto"}
-            width="80%" gap={10} >
-              <Text> Liked by <span> Aadil_khan </span> and <span> 110 others </span> </Text>
+            width="80%"    mt="10px" gap={10} >
+              <Text textAlign={"left"}> Liked by <span style={{fontSize:"15px",fontWeight:"600"}} > Aadil_khan </span> and <span style={{fontSize:"15px",fontWeight:"600"}} > 110 others </span> </Text>
                
-              <Text> <span>Ashutosh lakshakar</span> Be your own kind of beautiful  </Text>
+              <Text textAlign={"left"}> <span style={{fontSize:"15px",fontWeight:"600"}} >Ashutosh lakshakar</span> Be your own kind of beautiful  </Text>
           </Box>
-          <br />
-          <Flex  border={"1px solid black"}  p={2}
+
+          {/* <br /> */}
+          <Flex  
+          // border={"1px solid black"}  
+          // p={2}
             margin={"auto"}
+            mt="10px"
             width="80%"
             display={"flex"}>
                <Input placeholder="Add a comment......." border={"none"} />
@@ -130,5 +136,6 @@ export const Product = () => {
         {/* ======== */}
       </Box>
     </>
-  );
-};
+  )
+
+}
