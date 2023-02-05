@@ -5,6 +5,7 @@ import { Button } from '@chakra-ui/react';
 import { Sidebar } from './Sidebar';
 import { Product } from '../Components/Dashboard/Product';
 import Side from './Side';
+import { Suggestions } from './Suggestions';
 
 const Dashboard = () => {
       
@@ -34,7 +35,10 @@ const Dashboard = () => {
           <Product/>
        </div>
           
-       <div className='Suggest'> Suggestions</div>
+       <div className='Suggest'> 
+         Suggestions
+        <Suggestions/>
+       </div>
 
     </div>
     </>
