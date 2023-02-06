@@ -36,7 +36,7 @@ export const DotModal = () => {
                <Divider orientation='horizontal' />
                <Text p={5}  fontWeight="600" > Go to post </Text>
                <Divider orientation='horizontal' />
-               <Text p={5}  fontWeight="600" > Share to... </Text>
+               <Text p={5}  fontWeight="600" > Share to  </Text>
                <Divider orientation='horizontal' />
                <Text p={5}  fontWeight="600" > Copy Link </Text>
                <Divider orientation='horizontal' />

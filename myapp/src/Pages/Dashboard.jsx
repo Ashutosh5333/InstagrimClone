@@ -36,7 +36,7 @@ const Dashboard = () => {
        </div>
           
        <div className='Suggest'> 
-         Suggestions
+         {/* Suggestions */}
         <Suggestions/>
        </div>
 
