@@ -13,60 +13,123 @@ const Side = () => {
   
     return (
     <>
-     <Box border={"1px solid yellow"} display="flex" gap={2}   >
+     <Box 
+    //  border={"1px solid yellow"} 
+          p={1}
+          display="flex" gap={2}  
+           position="fixed" 
+          //  position="sticky"
+          >
           
                 {/* <br/> */}
 
-          <Box  border={"1px solid blue"} gap="8px"  width={"150%"} > 
+          <Box 
+          //  border={"5px solid blue"} 
+              gap="8px"  width={"60%"}  > 
 
-               <Box border="1px solid yellow" display={"flex"} t={8} gap="8px" justifyContent={"space-around"}> 
-              <Box fontSize={"2.2em"} > <BsInstagram/> </Box>
+               <Box 
+              //  border="1px solid yellow"  
+               p={1}
+               display={"flex"}  gap="8px" justifyContent={"space-between"}> 
+              <Box fontSize={"2.2em"} 
+                  > <BsInstagram/> </Box>
                 <Box  >   </Box>
                </Box>
 
-               <Box border="1px solid yellow" display={"flex"} mt={8} gap="8px" justifyContent={"space-around"}> 
+               <Box 
+              //  border="1px solid yellow"
+                p={1}
+                display={"flex"} mt={6} gap="8px" justifyContent={"space-between"}> 
                <Box fontSize={"2.2em"} > <AiFillHome/> </Box>
-                <Box   fontSize="1.1em" fontWeight={"600"} textAlign="start" alignItems={"center"} > Home </Box>
+                
+                <Box   fontSize="1.1em" fontWeight={"600"} margin={"auto"} > 
+                <Text textAlign={"left"}>Home </Text>  
+                </Box>
                </Box>
 
-               <Box border="1px solid yellow" display={"flex"} mt={8} gap="8px" justifyContent={"space-around"}> 
+               <Box 
+              //  border="1px solid yellow" 
+                p={1}
+                display={"flex"} mt={6} gap="8px" justifyContent={"space-between"}> 
                <Box fontSize={"2.2em"} > <BsSearch/> </Box>
-                <Box   textAlign="start"  fontSize="1.1em"  > Search </Box>
+                <Box  
+                // border={"2px solid red"}   
+                fontSize="1.1em" margin={"auto"}  >
+                <Text textAlign="left">Search </Text>
+                  </Box>
                </Box>
 
-               <Box border="1px solid yellow" display={"flex"} mt={8} gap="8px" justifyContent={"space-around"}> 
-               <Box fontSize={"2.2em"}  textAlign="start"  > <MdExplore/> </Box>
-
-                <Box   textAlign="start" fontSize="1.1em" > Explore </Box>
+               <Box 
+              //   border="1px solid yellow"
+                p={1}
+                display={"flex"} mt={6} gap="8px" justifyContent={"space-between"}> 
+               <Box fontSize={"2.2em"}  > <MdExplore/> </Box>
+                <Box 
+                //  border={"2px solid red"}  
+                fontSize="1.1em"  margin={"auto"} >
+                <Text textAlign={"left"}>  Explore</Text>
+                  </Box>
                </Box>
-               <Box border="1px solid yellow" display={"flex"} mt={8} gap="8px" justifyContent={"space-around"}> 
+
+               <Box 
+                // border="1px solid yellow"
+                p={1}
+                display={"flex"} mt={6} gap="8px" justifyContent={"space-between"}> 
                <Box fontSize={"2.2em"} > <TfiVideoClapper/> </Box>
-                <Box   textAlign="start" fontSize="1.1em"  > Reels </Box>
+                <Box  
+                // border={"2px solid red"} 
+                margin="auto" fontSize="1.1em" > 
+                <Text  textAlign={"left"}>  Reels </Text> 
+                  </Box>
                </Box>
 
-               <Box border="1px solid yellow" display={"flex"} mt={8} gap="8px" justifyContent={"space-around"}> 
+               <Box 
+                // border="1px solid yellow"
+                p={1}
+                display={"flex"} mt={6} gap="8px" justifyContent={"space-between"}> 
                <Box fontSize={"2.2em"} > <MdOutlineCreateNewFolder/> </Box>
-                <Box  fontSize="1.1em" alignItems="flex-start"  > Create </Box>
+                <Box   fontSize="1.1em" margin={"auto"}  >
+                <Text 
+                //  border={"2px solid red"} 
+                textAlign="left" > Create  </Text>
+                  </Box>
                </Box>
 
-               <Box border="1px solid yellow" display={"flex"} mt={8} gap="8px" justifyContent={"space-around"}> 
+               <Box 
+                // border="1px solid yellow"
+                p={1}
+                display={"flex"} mt={6} gap="8px" justifyContent={"space-between"}> 
                <Box fontSize={"2.2em"} > <AiOutlineHeart/> </Box>
-                <Box   alignItems="flex-start" fontSize="1.1em" > Notifications </Box>
+                <Box    fontSize="1.1em" margin={"auto"} >
+                <Text 
+                //  border={"2px solid red"} 
+                 textAlign="left"> Notifications  </Text>
+                </Box>
+
                </Box>
 
-               {/* <Box border="1px solid yellow" display={"flex"} ap="8px" justifyContent={"space-around"}> 
-               <Box fontSize={"2.2em"} > <MdOutlineCreateNewFolder/> </Box>
-                <Box  > Instagram </Box>
-               </Box> */}
+  
 
-               <Box border="1px solid yellow" display={"flex"} mt={8} gap="8px" justifyContent={"space-around"}> 
+               <Box 
+                // border="1px solid yellow" 
+               p={1}
+               display={"flex"} mt={6} gap="8px" justifyContent={"space-between"}> 
                <Box fontSize={"2.2em"} > <CgProfile/> </Box>
-                <Box  fontSize="1.1em" textAlign="start"   > Profile </Box>
+                <Box  fontSize="1.1em" margin={"auto"}   >
+                <Text textAlign={"left"}> Profile </Text>
+                  </Box>
                </Box>
 
-               <Box border="1px solid yellow" display={"flex"} mt={8} gap="8px" justifyContent={"space-around"}> 
+               <Box 
+              //  border="1px solid yellow" 
+               p={1}
+               display={"flex"} mt={6} gap="8px" justifyContent={"space-between"}> 
                <Box fontSize={"2.2em"}  > <AiOutlineMenu/> </Box>
-                <Box   textAlign="start" fontSize="1.1em" > Menu </Box>
+                <Box 
+                //  border={"2px solid red"} 
+                fontSize="1.1em" margin={"auto"}> 
+                <Text textAlign={"left"}> Menu </Text>
+                  </Box>
                </Box>
          
 
