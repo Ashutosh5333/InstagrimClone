@@ -5,6 +5,7 @@ import Login from './../Pages/Login';
 import Signup from './../Pages/Signup';
 import Dashboard from './../Pages/Dashboard';
 import PrivateRoute from '../Components/PrivateRoute';
+import Explore from '../Components/Explore';
 
 export const AllRoutes = () => {
 
@@ -15,8 +16,7 @@ export const AllRoutes = () => {
         <Route path="/" element={<Home/>} />
         <Route path="/login" element={<Login/>} />
         <Route path="/sign" element={<Signup/>} />
-    
-
+        <Route path='/explore' element={<Explore/>} />
         <Route path="/dash" element={
           <PrivateRoute>
         <Dashboard/>

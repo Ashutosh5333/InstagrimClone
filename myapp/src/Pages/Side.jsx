@@ -7,6 +7,8 @@ import {TfiVideoClapper} from "react-icons/tfi"
 import {BiMessageRoundedDetail} from "react-icons/bi"
 import {CgProfile} from "react-icons/cg"
 import { Text } from '@chakra-ui/react';
+import SideSearchmodel from '../Components/modal/SideSearchmodel'
+import {Link} from "react-router-dom"
 
 
 const Side = () => {
@@ -51,7 +53,8 @@ const Side = () => {
               //  border="1px solid yellow" 
                 p={1}
                 display={"flex"} mt={6} gap="8px" justifyContent={"space-between"}> 
-               <Box fontSize={"2.2em"} > <BsSearch/> </Box>
+               {/* <Box fontSize={"2.2em"} > <BsSearch/> </Box> */}
+               <Box fontSize={"2.2em"} > <SideSearchmodel/> </Box>
                 <Box  
                 // border={"2px solid red"}   
                 fontSize="1.1em" margin={"auto"}  >
@@ -63,7 +66,9 @@ const Side = () => {
               //   border="1px solid yellow"
                 p={1}
                 display={"flex"} mt={6} gap="8px" justifyContent={"space-between"}> 
+                 <Link to="/explore">
                <Box fontSize={"2.2em"}  > <MdExplore/> </Box>
+                 </Link>
                 <Box 
                 //  border={"2px solid red"}  
                 fontSize="1.1em"  margin={"auto"} >
