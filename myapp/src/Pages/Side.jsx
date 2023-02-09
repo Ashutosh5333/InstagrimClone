@@ -9,6 +9,9 @@ import {CgProfile} from "react-icons/cg"
 import { Text } from '@chakra-ui/react';
 import SideSearchmodel from '../Components/modal/SideSearchmodel'
 import {Link} from "react-router-dom"
+import Create from '../Components/Create'
+import Notifications from '../Components/Notifications'
+import Menu from '../Components/Menu'
 
 
 const Side = () => {
@@ -80,11 +83,16 @@ const Side = () => {
                 // border="1px solid yellow"
                 p={1}
                 display={"flex"} mt={6} gap="8px" justifyContent={"space-between"}> 
+              <Link to="/reel"> 
                <Box fontSize={"2.2em"} > <TfiVideoClapper/> </Box>
+               </Link>
+
                 <Box  
                 // border={"2px solid red"} 
                 margin="auto" fontSize="1.1em" > 
+               
                 <Text  textAlign={"left"}>  Reels </Text> 
+                 
                   </Box>
                </Box>
 
@@ -92,8 +100,15 @@ const Side = () => {
                 // border="1px solid yellow"
                 p={1}
                 display={"flex"} mt={6} gap="8px" justifyContent={"space-between"}> 
-               <Box fontSize={"2.2em"} > <MdOutlineCreateNewFolder/> </Box>
+
+               <Box fontSize={"2.2em"} > 
+                 <Create/>
+               {/* <MdOutlineCreateNewFolder/>  */}
+               
+               </Box>
+                
                 <Box   fontSize="1.1em" margin={"auto"}  >
+
                 <Text 
                 //  border={"2px solid red"} 
                 textAlign="left" > Create  </Text>
@@ -104,7 +119,12 @@ const Side = () => {
                 // border="1px solid yellow"
                 p={1}
                 display={"flex"} mt={6} gap="8px" justifyContent={"space-between"}> 
-               <Box fontSize={"2.2em"} > <AiOutlineHeart/> </Box>
+               <Box fontSize={"2.2em"} > 
+
+               {/* <AiOutlineHeart/>  */}
+               <Notifications/>
+
+               </Box>
                 <Box    fontSize="1.1em" margin={"auto"} >
                 <Text 
                 //  border={"2px solid red"} 
@@ -129,7 +149,12 @@ const Side = () => {
               //  border="1px solid yellow" 
                p={1}
                display={"flex"} mt={6} gap="8px" justifyContent={"space-between"}> 
-               <Box fontSize={"2.2em"}  > <AiOutlineMenu/> </Box>
+               <Box fontSize={"2.2em"}  >    
+
+               {/* <AiOutlineMenu/> */}
+               <Menu/> 
+
+               </Box>
                 <Box 
                 //  border={"2px solid red"} 
                 fontSize="1.1em" margin={"auto"}> 
@@ -141,34 +166,7 @@ const Side = () => {
           
           </Box>
 
-        {/* ----------------- */}
-
-          {/* <Box  border={"1px solid Brown"} width="50%">  */}
-          
-          {/* <Box fontSize={"1.2em"}  > Insta </Box>
-
-          <Box fontSize={"1.2em"}  > Home </Box>
-
-          <Box fontSize={"1.2em"}  > Search </Box>
-
-          <Box fontSize={"1.2em"}  > Explore </Box>
-
-          <Box fontSize={"1.2em"}  > Reels </Box>
-
-          <Box fontSize={"1.2em"}  > Message </Box>
-
-          <Box fontSize={"1.2em"}  > Notifications </Box>
-
-          <Box fontSize={"1.2em"}  > Create </Box>
-
-          <Box fontSize={"1.2em"}  > Profile </Box>
-
-          <Box fontSize={"1.2em"}  > More </Box> */}
-
-          {/* <Box fontSize={"1.2em"}  > Home </Box> */}
-
-          {/* </Box> */}
-    
+       
      </Box>
     </>
   )
