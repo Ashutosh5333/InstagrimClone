@@ -10,6 +10,7 @@ import Reels from '../Components/Reels';
 import Messanger from '../Components/Messanger';
 import Notifications from '../Components/Notifications';
 import Menu from '../Components/Menu';
+import Profile from '../Components/Profile';
 
 export const AllRoutes = () => {
 
@@ -25,6 +26,7 @@ export const AllRoutes = () => {
         <Route  path="/msng" element={<Messanger/>} />
         <Route  path="/notify" element={<Notifications/>} />
         <Route path="/menu" element={<Menu/>} />
+        <Route path="/profile" element={<Profile/>} />
         
         <Route path="/dash" element={
           <PrivateRoute>

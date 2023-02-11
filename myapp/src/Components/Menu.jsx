@@ -12,6 +12,7 @@ import {
     Button,
     Box,
     ButtonGroup,
+    Tooltip,
   } from '@chakra-ui/react'
 import { AiOutlineMenu } from 'react-icons/ai'
 
@@ -32,7 +33,11 @@ const Menu = () => {
         {/* <Button>Trigger</Button> */}
 
         <Box>   
+        
+        {/* <Tooltip label="Right" placement="right"> */}
+
         <AiOutlineMenu/> 
+            {/* </Tooltip> */}
        
         </Box>
       
