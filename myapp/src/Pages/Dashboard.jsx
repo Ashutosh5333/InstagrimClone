@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import "./Style/Dash.css"
 import { Navigate } from 'react-router-dom';
-import { Button } from '@chakra-ui/react';
+import { Button, Divider } from '@chakra-ui/react';
 import { Sidebar } from './Sidebar';
 import { Product } from '../Components/Dashboard/Product';
 import Side from './Side';
@@ -30,6 +30,7 @@ const Dashboard = () => {
            {/* <Sidebar/> */}
             <Side/>
        </div>
+            <Divider orientation='vertical' />
 
        <div className='database'> 
           <Product/>

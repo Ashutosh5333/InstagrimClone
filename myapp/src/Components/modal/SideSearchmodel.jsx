@@ -10,9 +10,9 @@ const SideSearchmodel = () => {
     <>
     
       <Text onClick={onOpen}>
-    <Tooltip hasArrow label='Right' placement='auto'>
            <BsSearch/>      
-    </Tooltip>
+    {/* <Tooltip hasArrow label='Right' placement='auto'> */}
+    {/* </Tooltip> */}
 
       </Text>
       <Drawer
@@ -20,9 +20,11 @@ const SideSearchmodel = () => {
         placement='left'
         onClose={onClose}
         finalFocusRef={btnRef}
+        // border="1px solid green" p={4} 
       >
         <DrawerOverlay />
-        <DrawerContent>
+
+        <DrawerContent  border="1px solid green"   >
           <DrawerCloseButton />
           <DrawerHeader>Create your account</DrawerHeader>
 
@@ -38,8 +40,8 @@ const SideSearchmodel = () => {
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
-    
     </>
+    
 
   )
 }
