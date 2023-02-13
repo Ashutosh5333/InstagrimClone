@@ -1,5 +1,5 @@
 import React from 'react'
-import {    Modal,    ModalOverlay,    ModalContent,    ModalHeader,    ModalFooter,    ModalBody,    ModalCloseButton, useDisclosure, Box, Button, Text,  } from '@chakra-ui/react'
+import {    Modal,    ModalOverlay,    ModalContent,       ModalBody,    useDisclosure, Box, Text,  } from '@chakra-ui/react'
 import { AiOutlineEllipsis } from "react-icons/ai";
 import { Divider } from '@chakra-ui/react'
 
@@ -19,13 +19,12 @@ export const DotModal = () => {
   <Text fontSize={"30px"} onClick={onOpen}>
               <AiOutlineEllipsis />
     </Text>
-    {/* width={{ base: "40%", md: "80%", lg: "90%" }} */}
+   
 
   <Modal   finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose}>
     <ModalOverlay />
     <ModalContent width={{ base: "80%", md: "80%", lg: "90%" }}>
-      {/* <ModalHeader>Modal Title</ModalHeader> */}
-      {/* <ModalCloseButton /> */}
+    
       <ModalBody>
              <Box textAlign={"center"}     >
                <Text color={"red"} fontWeight="600" p={5}> Report </Text>

@@ -15,6 +15,7 @@ const Signup = () => {
    const [post ,SetPost]=useState({
        email:"",
        password:"",
+       name:""
    })
 
     
@@ -37,7 +38,7 @@ const Signup = () => {
                     status : "success",
                     title:"user created Successfully Account"
                 })
-                    navigate("/login")
+                    // navigate("/login")
             }
             else{
             
@@ -92,7 +93,8 @@ const Signup = () => {
         <FormControl>
           {/* <FormLabel variant="filled" my="10px"   >Full Name </FormLabel> */}
           <Input type="name" placeholder="Full Name" 
-          
+             name="name"
+             onChange={handleChange} 
            isRequired/>
         </FormControl>
         <br/>

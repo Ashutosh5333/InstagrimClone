@@ -38,6 +38,9 @@ const AdddataFail = () => {
   }
 }
 
+ const token = JSON.parse(localStorage.getItem("token"))
+   // console.log(token)
+
 // ======================= User data =======================  //
 const getuserdataReq = () =>{
    return {
@@ -56,12 +59,16 @@ const getuserdataFail = () => {
   }
 }
 
-// ============    Get User Data   =================  //
-
+// ============    Get User Data searchbar  =================  //
 
 export const GetUserData = (dispatch) => {
       dispatch(getuserdataReq)
-      return axios.get(`https://sore-cyan-llama-robe.cyclic.app/signupdata`)
+      return axios.get(`https://sore-cyan-llama-robe.cyclic.app/signupdata` ,{
+         headers:{
+            "Content-Type":"application/json",
+            "Authorization":`Bearer ${token}`
+          },
+      })
       .then((res)=>{
       return   dispatch(getuserdataSucess(res.data))
       })
@@ -85,11 +92,16 @@ const  ADDProducts =(newdata) => (dispatch) => {
 
   const getData = (dispatch) => {
       dispatch(getdataReq())
-  return axios.get(`https://sore-cyan-llama-robe.cyclic.app/data`)
+  return axios.get(`https://sore-cyan-llama-robe.cyclic.app/product`,{
+       headers:{
+         "Content-Type":"application/json",
+         "Authorization":`Bearer ${token}`
+       },
+  })
     .then((res)=>{
-        dispatch(getdataSucess(res.data))
+    return    dispatch(getdataSucess(res.data))
     }).catch((e)=>{
-        dispatch(getdataFail())
+     return    dispatch(getdataFail())
     })
   }
 

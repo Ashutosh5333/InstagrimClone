@@ -3,6 +3,7 @@ import {Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, 
 import { MdOutlineCreateNewFolder } from 'react-icons/md'
 import {TiTickOutline} from "react-icons/ti"
 import {BiArrowBack} from "react-icons/bi"
+// import "./style/create.css"
 
 const Create = () => {
 
@@ -48,8 +49,17 @@ const Create = () => {
                  <Input placeholder='Write a caption' height="80px"  
                  border="none" />
                </Box>
-              <Box border="1px solid black" > 
-               
+
+              <Box 
+               // border="1px solid black"
+                borderRadius={10}
+               margin={"auto"} mt="4" fontWeight={"500"} color="#fff" fontSize={"1em"}  backgroundColor={"blue.500"}  > 
+                <label style={{margin:"auto" , textAlign:"center"  }}  > 
+                      <h4 > Select from gallery  </h4>
+                
+               <input type="file" style={{display:"none" , margin:"auto" }}    />
+                </label>
+
               </Box>
                {/* ------------------- */}
 
@@ -170,12 +180,7 @@ const Create = () => {
 
           <ModalFooter>
             
-            {/* <Button colorScheme='blue' mr={3} onClick={onClose}>
-              Close
-            </Button> */}
-            
-            {/* <Button variant='ghost'>Secondary Action</Button> */}
-
+       
           </ModalFooter>
         </ModalContent>
       </Modal>

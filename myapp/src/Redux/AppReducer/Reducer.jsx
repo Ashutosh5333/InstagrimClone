@@ -1,7 +1,7 @@
 import * as types from "./actionTypes"
 
  const intailState = {
-     BugData:[],
+     productData:[],
      isLoading:false,
      isError:false,
      UserData:[]
@@ -22,7 +22,7 @@ export const reducer = ( state=intailState,action ) => {
               ...state,
               isLoading: false,
               isError: false,
-              BugData: payload,
+              productData: payload,
             };
       
           case types.GET_DATA_FAILURE:
@@ -30,7 +30,7 @@ export const reducer = ( state=intailState,action ) => {
               ...state,
               isLoading: false,
               isError: true,
-              BugData: [],
+              productData: [],
             };
                    // ============= userdata 
                    case  types.USER_DATA_REQUEST : 
