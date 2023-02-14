@@ -1,19 +1,49 @@
-import React from 'react'
-import {Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton,  Box,  Text,Button, useDisclosure,Input, Switch, Divider,} from '@chakra-ui/react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux';
+import {Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, Box,  Text,Button, useDisclosure,Input, Switch, Divider,} from '@chakra-ui/react'
 import { MdOutlineCreateNewFolder } from 'react-icons/md'
 import {TiTickOutline} from "react-icons/ti"
 import {BiArrowBack} from "react-icons/bi"
 // import "./style/create.css"
+import { ADDProducts } from '../Redux/AppReducer/action'
+
 
 const Create = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const dispatch = useDispatch()
+  const  [data ,SetData] = useState([])
+ const [post ,newPost] = useState({
+   description:"",
+   image:"",
+ })
 
-    const { isOpen, onOpen, onClose } = useDisclosure()
+
+
+  const handleChange = (e) =>{
+      const {name,value} =e.target
+       newPost({...post,[name]:value})
+      
+  }
+  
+
+ const handleSubmit = () =>{
+  dispatch(ADDProducts(post))
+     .then((res)=>{
+       console.log(res)
+     }).catch((err) =>{
+       console.log(err)
+     })
+}
+
+   useEffect(() =>{
+    
+   },[])
+
 
 
   return (
     <>
-      {/* <Button onClick={onOpen}>Open Modal</Button> */}
-
+   
        <Box onClick={onOpen} >
        <MdOutlineCreateNewFolder/> 
        </Box> 
@@ -25,7 +55,7 @@ const Create = () => {
         <ModalOverlay />
 
         <ModalContent  >
-          {/* <ModalHeader>Modal Title</ModalHeader> */}
+       
            <Box 
           //  border={"1px solid red"} 
            display="flex" justifyContent={"space-between"}>
@@ -33,21 +63,21 @@ const Create = () => {
             <BiArrowBack/>
             </Box>
               <Text fontWeight={"600"} fontSize="25px" fontFamily={"sans-serif"} fontStyle={"italic"} > New Post  </Text>
-             <Box fontSize={"35px"} color="blue">
+             <Button fontSize={"35px"} color="blue" onClick={handleSubmit} >
             <TiTickOutline  />
-             </Box>
+             </Button>
            </Box>
 
           <ModalBody >
-            <Box 
-            // border={"1px solid red"}
-             >
+            <Box>
 
               <Box 
               //  border="1px solid black" 
                  height="80px" >  
                  <Input placeholder='Write a caption' height="80px"  
-                 border="none" />
+                 border="none"  
+                 name="description"
+                  onChange={handleChange} />
                </Box>
 
               <Box 
@@ -57,8 +87,18 @@ const Create = () => {
                 <label style={{margin:"auto" , textAlign:"center"  }}  > 
                       <h4 > Select from gallery  </h4>
                 
-               <input type="file" style={{display:"none" , margin:"auto" }}    />
+               {/* <input type="file" style={{display:"none" , margin:"auto" }}  
+                name="image"
+                onChange={handleChange}
+                 /> */}
+
+                  
+
                 </label>
+                <input type="text" 
+                name="image"
+                onChange={handleChange}
+                 />
 
               </Box>
                {/* ------------------- */}

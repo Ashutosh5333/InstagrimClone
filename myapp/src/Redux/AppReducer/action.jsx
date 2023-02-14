@@ -81,7 +81,12 @@ export const GetUserData = (dispatch) => {
 
 const  ADDProducts =(newdata) => (dispatch) => {
   dispatch(AdddataReq)
-  return axios.post(`https://sore-cyan-llama-robe.cyclic.app/create`,newdata)
+  return axios.post(`https://sore-cyan-llama-robe.cyclic.app/product/create`,newdata ,{
+   headers:{
+      "Content-Type":"application/json",
+      "Authorization":`Bearer ${token}`
+    },
+  })
    .then((res) => {
     return   dispatch(AdddataSucess(res.data));
    }).catch((e)=> {
