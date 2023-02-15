@@ -14,10 +14,13 @@ import { getData } from "../../Redux/AppReducer/action";
 
 export const Product = () => {
    const dispatch = useDispatch()
+
+   const Data = useSelector((store) => store.AppReducer.UserData)
+   console.log("Data", Data)
+
    const  userdetail =useSelector((store) => store.AppReducer.productData)
      console.log( "userdetail",userdetail)
-
-    
+ 
       useEffect(() =>{
        dispatch(getData) 
       },[])
@@ -34,117 +37,123 @@ export const Product = () => {
         m="auto"
         width={{ base: "100%", md: "80%", lg: "90%" }}
       >
+      {
+        
+      Data._id ==userdetail.userId  &&  Data.length > 0 && Data.map((el) =>{
+        return     <Box border={"1px solid black"} p={4} gap="10px">
 
-        <Box border={"1px solid black"} p={4} gap="10px">
+<Flex display={"flex"} justifyContent="space-between">
+  
+  <Flex 
+  // border={"1px solid green"}
+  >
+    <Wrap  >
+      <WrapItem>
+        <Avatar mr={8}
+          name="Dan Abrahmov"
+          src="https://bit.ly/dan-abramov"
+        />
+      </WrapItem>
+    </Wrap>
+    <Image />
 
-          <Flex display={"flex"} justifyContent="space-between">
-            <Flex 
-            // border={"1px solid green"}
-            >
-              <Wrap  >
-                <WrapItem>
-                  <Avatar mr={8}
-                    name="Dan Abrahmov"
-                    src="https://bit.ly/dan-abramov"
-                  />
-                </WrapItem>
-              </Wrap>
-              <Image />
+    <Text 
+    //  border={"1px solid red"}
+      alignItems="center" m="auto" fontWeight={600}
+     width={{ base: "80%", md: "60%", lg: "90%" }}>{el.name}</Text>
+  </Flex>
 
-              <Text 
-              //  border={"1px solid red"}
-                alignItems="center" m="auto" fontWeight={600}
-               width={{ base: "80%", md: "60%", lg: "90%" }}> The viral gyan </Text>
-            </Flex>
+  {/* ----^^^^ upper section ^^^---------- */}
 
-            {/* ----^^^^ upper section ^^^---------- */}
+  <Flex 
+  // border={"1px solid green"}
+  >
+    <Text fontSize={"30px"}>
+   
+      <DotModal />
+    </Text>
+  </Flex>
+</Flex>
 
-            <Flex 
-            // border={"1px solid green"}
-            >
-              <Text fontSize={"30px"}>
-             
-                <DotModal />
-              </Text>
-            </Flex>
-          </Flex>
+{/* "Top " */}
 
-          {/* "Top " */}
-          
-          <br />
+<br />
 
-          <Flex border={"1px solid gray"} margin={"auto"} width="80%">
-            <Box
-              justifyContent={"center"}
-              alignItems="center"
-              margin={"auto"}
-              height={"30%"}>
-              <Image
-                src={Ashu}
-                alt="image"
-                height="500px"
-                m={"auto"}
-                justifyContent={"center"}
-                alignItems="center"
-              />
-            </Box>
-          </Flex>
+<Flex border={"1px solid gray"} margin={"auto"} width="80%">
+  <Box
+    justifyContent={"center"}
+    alignItems="center"
+    margin={"auto"}
+    height={"30%"}>
+    <Image
+      src={Ashu}
+      alt="image"
+      height="500px"
+      m={"auto"}
+      justifyContent={"center"}
+      alignItems="center"
+    />
+  </Box>
+</Flex>
 
 
-          {/* ------------- bottom line save ------------------ */}
-          {/* <br /> */}
-          <Flex
-            // border={"1px solid black"}
-            // p={2}
-            margin={"auto"}
-            mt="10px"
-            width="80%"
-            display={"flex"}
-            justifyContent="space-between"
-          >
-            <Flex>
-              <Box
-                fontSize={"25px"}
-                display={"flex"}
-                justifyContent="space-between"
-                gap="20px"
-              >
-                <TfiHeart />
+{/* ------------- bottom line save ------------------ */}
+{/* <br /> */}
+<Flex
+  // border={"1px solid black"}
+  // p={2}
+  margin={"auto"}
+  mt="10px"
+  width="80%"
+  display={"flex"}
+  justifyContent="space-between"
+>
+  <Flex>
+    <Box
+      fontSize={"25px"}
+      display={"flex"}
+      justifyContent="space-between"
+      gap="20px"
+    >
+      <TfiHeart />
 
-                <FaRegComment />
-                <FiNavigation />
-              </Box>
-            </Flex>
-            {/* ---------------------- */}
+      <FaRegComment />
+      <FiNavigation />
+    </Box>
+  </Flex>
+  {/* ---------------------- */}
 
-            <Flex fontSize={"25px"}>
-              <FaRegBookmark />
-            </Flex>
-          </Flex>
+  <Flex fontSize={"25px"}>
+    <FaRegBookmark />
+  </Flex>
+</Flex>
 
-          {/* <br /> */}
-          <Box 
-          // border={"1px solid black"} 
-          //  p={2}
-            margin={"auto"}
-            width="80%"    mt="10px" gap={10} >
-              <Text textAlign={"left"}> Liked by <span style={{fontSize:"15px",fontWeight:"600"}} > Aadil_khan </span> and <span style={{fontSize:"15px",fontWeight:"600"}} > 110 others </span> </Text>
-               
-              <Text textAlign={"left"}> <span style={{fontSize:"15px",fontWeight:"600"}} >Ashutosh lakshakar</span> Be your own kind of beautiful  </Text>
-          </Box>
+{/* <br /> */}
+<Box 
+// border={"1px solid black"} 
+//  p={2}
+  margin={"auto"}
+  width="80%"    mt="10px" gap={10} >
+    <Text textAlign={"left"}> Liked by <span style={{fontSize:"15px",fontWeight:"600"}} > Aadil_khan </span> and <span style={{fontSize:"15px",fontWeight:"600"}} > 110 others </span> </Text>
+     
+    <Text textAlign={"left"}> <span style={{fontSize:"15px",fontWeight:"600"}} >Ashutosh lakshakar</span> Be your own kind of beautiful  </Text>
+</Box>
 
-          {/* <br /> */}
-          <Flex  
-          // border={"1px solid black"}  
-          // p={2}
-            margin={"auto"}
-            mt="10px"
-            width="80%"
-            display={"flex"}>
-               <Input placeholder="Add a comment......." border={"none"} />
-          </Flex>
+{/* <br /> */}
+<Flex  
+// border={"1px solid black"}  
+// p={2}
+  margin={"auto"}
+  mt="10px"
+  width="80%"
+  display={"flex"}>
+     <Input placeholder="Add a comment......." border={"none"} />
+</Flex>
 
-        </Box>
+</Box>
+      })}
+
+    
 
         {/* ======== */}
 

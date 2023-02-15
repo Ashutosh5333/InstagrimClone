@@ -14,7 +14,7 @@ useEffect(()=>{
   queryHandler(inputtext)
 },[inputtext,queryHandler])
 
- console.log("suggets",Suggestions)
+//  console.log("suggets",Suggestions)
   
 
 
