@@ -38,6 +38,7 @@ export const ImageSlide = () => {
                 infinite={true}
                 // className="owl-carousel owl-theme skill-slider"
                 >  */}
+                
         <Box>  
         <Wrap>
          <WrapItem>
