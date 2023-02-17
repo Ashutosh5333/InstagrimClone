@@ -16,7 +16,7 @@ export const Product = () => {
    const dispatch = useDispatch()
 
    const Data = useSelector((store) => store.AppReducer.UserData)
-   console.log("Data", Data)
+  //  console.log("Data", Data)
 
    const  userdetail =useSelector((store) => store.AppReducer.productData)
      console.log( "userdetail",userdetail)
@@ -39,7 +39,7 @@ export const Product = () => {
       >
       {
         
-      Data._id ==userdetail.userId  &&  Data.length > 0 && Data.map((el) =>{
+        userdetail.length > 0 && userdetail.map((el) =>{
         return     <Box border={"1px solid black"} p={4} gap="10px">
 
 <Flex display={"flex"} justifyContent="space-between">
@@ -50,8 +50,8 @@ export const Product = () => {
     <Wrap  >
       <WrapItem>
         <Avatar mr={8}
-          name="Dan Abrahmov"
-          src="https://bit.ly/dan-abramov"
+          name={el.postedby.name}
+          src={el.image}
         />
       </WrapItem>
     </Wrap>
@@ -60,7 +60,7 @@ export const Product = () => {
     <Text 
     //  border={"1px solid red"}
       alignItems="center" m="auto" fontWeight={600}
-     width={{ base: "80%", md: "60%", lg: "90%" }}>{el.name}</Text>
+     width={{ base: "80%", md: "60%", lg: "90%" }}>{el.postedby.name}</Text>
   </Flex>
 
   {/* ----^^^^ upper section ^^^---------- */}
@@ -86,7 +86,7 @@ export const Product = () => {
     margin={"auto"}
     height={"30%"}>
     <Image
-      src={Ashu}
+      src={el.image}
       alt="image"
       height="500px"
       m={"auto"}
@@ -136,7 +136,7 @@ export const Product = () => {
   width="80%"    mt="10px" gap={10} >
     <Text textAlign={"left"}> Liked by <span style={{fontSize:"15px",fontWeight:"600"}} > Aadil_khan </span> and <span style={{fontSize:"15px",fontWeight:"600"}} > 110 others </span> </Text>
      
-    <Text textAlign={"left"}> <span style={{fontSize:"15px",fontWeight:"600"}} >Ashutosh lakshakar</span> Be your own kind of beautiful  </Text>
+    <Text textAlign={"left"}> <span style={{fontSize:"15px",fontWeight:"600"}} >{el.postedby.name}</span> {el.description}</Text>
 </Box>
 
 {/* <br /> */}
