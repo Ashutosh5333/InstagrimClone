@@ -1,10 +1,10 @@
 import { Box, Tooltip } from "@chakra-ui/react";
 import React from "react";
-import { BsInstagram, BsSearch } from "react-icons/bs";
-import { AiFillHome, AiOutlineHeart, AiOutlineMenu } from "react-icons/ai";
-import { MdExplore, MdOutlineCreateNewFolder } from "react-icons/md";
+import { BsInstagram } from "react-icons/bs";
+import { AiFillHome} from "react-icons/ai";
+import { MdExplore} from "react-icons/md";
 import { TfiVideoClapper } from "react-icons/tfi";
-import { BiMessageRoundedDetail } from "react-icons/bi";
+
 import { CgProfile } from "react-icons/cg";
 import { Text } from "@chakra-ui/react";
 import SideSearchmodel from "../Components/modal/SideSearchmodel";
@@ -49,7 +49,7 @@ const Side = () => {
             //  border="1px solid yellow"
              borderRadius={"10px"}
              _hover={{
-          bgGradient: 'linear(to-r, gray.200, gray.200)',}}
+            bgGradient: 'linear(to-r, gray.200, gray.200)',}}
             width="100%"
             p={1}
             display={"flex"}

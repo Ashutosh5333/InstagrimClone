@@ -1,8 +1,7 @@
 import React from "react";
 import { Avatar, Box, Button, Text, Wrap, WrapItem } from "@chakra-ui/react";
 import {MdOutlineSettings} from "react-icons/md"
-import { ImageSlide } from "./StoriesSlider/ImageSlide";
-import Slider from "./StoriesSlider/Slider";
+
 
 const Profile = () => {
   return (
@@ -99,8 +98,7 @@ const Profile = () => {
         {/* ---------------- */}
 
         <Box border="1px solid green"> 
-        
-         <Slider/>
+       
          
         </Box>
 

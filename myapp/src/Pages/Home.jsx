@@ -1,10 +1,10 @@
 import React from 'react'
 import {Link} from "react-router-dom"
 import "../Style/home.css"
-
+import {  Button, useColorMode } from '@chakra-ui/react';
 
 const Home = () => {
-
+  const {colorMode, toggleColorMode}= useColorMode()
 
   return (
     <div className='Home'>
@@ -20,6 +20,11 @@ const Home = () => {
       <Link to="/dash">
          <div>Dashboard </div>
       </Link>
+        <div>
+          <Button  onClick={toggleColorMode}> 
+          {colorMode === "light" ? "Dark" : "Light" }
+          </Button>
+        </div>
     
     </div>
   )

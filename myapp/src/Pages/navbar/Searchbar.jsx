@@ -14,7 +14,6 @@ useEffect(()=>{
   queryHandler(inputtext)
 },[inputtext,queryHandler])
 
-//  console.log("suggets",Suggestions)
   
 
 
@@ -42,20 +41,21 @@ useEffect(()=>{
       //  border={'1px solid blue'}
        borderRadius='0px' 
        placeholder='SEARCH' 
-       variant="unstyled" padding='5px'/>
+       variant="unstyled" 
+       padding='5px'/>
      
 
 </Flex>
 
      <Box 
-     border={".5px solid black"} 
+     border={"5px solid black"} 
   bg='white'
 
   zIndex={2}
   textAlign='center'
   rounded='lg'
   color='black.800'
-  // boxShadow='xl' 
+
   boxShadow='lg'
      > 
 

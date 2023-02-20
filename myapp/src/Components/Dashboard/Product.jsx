@@ -155,7 +155,7 @@ export const Product = () => {
 
     
 
-        {/* ======== */}
+        {/* ===  Static page    ===== */}
 
         <Box border={"1px solid black"} p={4} gap="10px">
 

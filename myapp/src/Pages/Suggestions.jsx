@@ -48,7 +48,7 @@ export const Suggestions = () => {
         </Box>
 
         {/* ============ */}
-          {/* suggets */}
+        
 
           <Box
             // border={"1px solid blue"}

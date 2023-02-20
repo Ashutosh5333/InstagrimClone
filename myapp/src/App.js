@@ -1,5 +1,5 @@
 
-import './App.css';
+import "./App.css"
 import Navbar from './Pages/navbar/Navbar';
 import { AllRoutes } from './Routes/AllRoutes';
 

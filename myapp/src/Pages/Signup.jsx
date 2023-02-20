@@ -1,11 +1,10 @@
-import {FormControl, Box,  FormLabel,  Input,  Heading,  Button, Text,} from '@chakra-ui/react'
-import { Divider } from '@chakra-ui/react'
+import {FormControl, Box, Input,  Heading,  Button, Text,} from '@chakra-ui/react'
 import { useToast } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import {useDispatch} from "react-redux"
 import { useNavigate }from "react-router-dom"
 import { Signupdata } from '../Redux/AuthReducer/action'
-import "./Style/Signup.css"
+
 
 const Signup = () => {
   const dispatch = useDispatch()
@@ -28,8 +27,7 @@ const Signup = () => {
     const handleSubmit = () => {
          dispatch(Signupdata(post))
          .then((res)=>{
-           console.log(res.payload)
-           console.log("res",res)
+         
             if(res.type === "GET_SIGNUP_SUCCESS" && res.payload.data !== "user is alredy present" ){
                
                   toast({
@@ -38,7 +36,7 @@ const Signup = () => {
                     status : "success",
                     title:"user created Successfully Account"
                 })
-                    // navigate("/login")
+                    navigate("/login")
             }
             else{
             
@@ -82,7 +80,7 @@ const Signup = () => {
          <br/>
          <br/>
         <FormControl>
-          {/* <FormLabel variant="filled" my="10px"   >Email </FormLabel> */}
+         
           <Input type="email" placeholder="Email" 
           
           onChange={handleChange} 
@@ -91,7 +89,7 @@ const Signup = () => {
         </FormControl>
         <br/>
         <FormControl>
-          {/* <FormLabel variant="filled" my="10px"   >Full Name </FormLabel> */}
+        
           <Input type="name" placeholder="Full Name" 
              name="name"
              onChange={handleChange} 
@@ -99,7 +97,7 @@ const Signup = () => {
         </FormControl>
         <br/>
         <FormControl>
-          {/* <FormLabel variant="filled" my="10px"   >UserName</FormLabel> */}
+      
           <Input type="text" placeholder="UserName" 
     
            isRequired/>
@@ -107,7 +105,7 @@ const Signup = () => {
        
         <br/>
         <FormControl>
-          {/* <FormLabel variant="filled" my="10px">Password</FormLabel> */}
+    
           <Input type='password' placeholder="Password"
            
           onChange={handleChange} 

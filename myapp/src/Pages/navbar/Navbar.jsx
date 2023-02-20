@@ -20,6 +20,7 @@ const Navbar = () => {
     useEffect(()=>{
     dispatch(GetUserData)
     },[])
+    
     // =========== 
 
    const queryHandler = (val) =>{
@@ -44,10 +45,10 @@ const Navbar = () => {
    
 
   return (
-    <Box w='100%' p={4} border="1px solid black" color='Black'>
+    <Box w='100%' p={4} border="1px solid green" color='Black'>
 
       <Flex h={38} m="auto"
-      //  width={{base : "70%", md :'80%', lg : '90%'}}
+     
          alignItems={'center'} justifyContent={'space-between'}>
            <Flex  padding='5px' 
             width={{base : "40%", md :'23%', lg : '20%'}} 
@@ -55,8 +56,7 @@ const Navbar = () => {
                <h4 style={{fontSize:"25px", fontWeight:"500", fontStyle:"italic" }}> Instagram </h4>
            </Flex>
          
-         {/* For Searchbar */}
-             {/* <Flex > */}
+         
 
               <Searchbar
                queryHandler={queryHandler}
@@ -64,8 +64,6 @@ const Navbar = () => {
               />
            
 
-           {/* </Flex> */}
-       
         {/* ==================== */}
 
            <Flex  mr={10} justifyContent={'right'}>  
@@ -77,8 +75,7 @@ const Navbar = () => {
         
 
            
-         
-
+        
       </Flex>
    
   </Box>
