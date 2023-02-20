@@ -11,33 +11,81 @@ import { ADDProducts } from '../Redux/AppReducer/action'
 const Create = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const dispatch = useDispatch()
-  const  [data ,SetData] = useState([])
+
+   const [description ,SetDescription] = useState("")
+   const [ image ,SetImage] = useState("")
+   const [url ,SetUrl] = useState("")
+   const [title ,SetTitle] = useState("")
+
  const [post ,newPost] = useState({
    description:"",
    image:"",
  })
+ const token = JSON.parse(localStorage.getItem("token"))
 
-
-
-  const handleChange = (e) =>{
-      const {name,value} =e.target
-       newPost({...post,[name]:value})
-      
-  }
-  
-
- const handleSubmit = () =>{
-  dispatch(ADDProducts(post))
-     .then((res)=>{
-       console.log(res)
-     }).catch((err) =>{
+ useEffect(() =>{
+     if(url){
+      fetch("https://sore-cyan-llama-robe.cyclic.app/product/create",{
+        method:"post",
+        headers:{
+          "Content-Type":"application/json",
+          "Authorization":`Bearer ${token}`
+        },
+        body:JSON.stringify({
+          description,
+          pic:url,
+        })
+     }) .then(res =>res.json())
+     .then(dat =>{
+       console.log(dat)
+     }).catch(err =>{
        console.log(err)
      })
+     }
+ },[url])
+
+
+   const postDetails = () =>{
+      const data = new FormData()
+      data.append("file",image)
+      data.append("upload_preset","insta-Clone")
+      data.append("cloud_name","dgvfiwlap")
+      fetch("https://api.cloudinary.com/v1_1/dgvfiwlap/image/upload",{
+        method:"post",
+        body:data
+      })
+      .then(res =>res.json())
+      .then(data =>{
+         SetUrl(data.url)
+        console.log(data.url)
+      }).catch(err =>{
+        console.log(err)
+      })
+      
+   }
+
+  // const handleChange = (e) =>{
+  //     const {name,value} =e.target
+  //      newPost({...post,[name]:value})
+  // }
+  // console.log("url",url)
+  
+
+  // const payload={
+  //   description,
+  //   pic:url
+  // }
+ const handleSubmit = () =>{
+  postDetails()
+  // dispatch(ADDProducts(payload))
+  //    .then((res)=>{
+  //      console.log(res)
+  //    }).catch((err) =>{
+  //      console.log(err)
+  //    })
 }
 
-   useEffect(() =>{
-    
-   },[])
+  
 
 
 
@@ -77,7 +125,9 @@ const Create = () => {
                  <Input placeholder='Write a caption' height="80px"  
                  border="none"  
                  name="description"
-                  onChange={handleChange} />
+                  // onChange={handleChange}
+                  onChange={(e) =>SetDescription(e.target.value)}
+                   />
                </Box>
 
               <Box 
@@ -87,19 +137,15 @@ const Create = () => {
                 <label style={{margin:"auto" , textAlign:"center"  }}  > 
                       <h4 > Select from gallery  </h4>
                 
-               {/* <input type="file" style={{display:"none" , margin:"auto" }}  
+               <input type="file" style={{display:"none" , margin:"auto" }}  
                 name="image"
-                onChange={handleChange}
-                 /> */}
-
-                  
-
-                </label>
-                <input type="text" 
-                name="image"
-                onChange={handleChange}
+                // onChange={handleChange}
+                  onChange={(e) =>SetImage(e.target.files[0])}
                  />
 
+                  
+                </label>
+            
               </Box>
                {/* ------------------- */}
 

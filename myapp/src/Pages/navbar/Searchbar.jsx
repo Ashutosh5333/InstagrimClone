@@ -48,7 +48,7 @@ useEffect(()=>{
 </Flex>
 
      <Box 
-     border={"5px solid black"} 
+     border={"1px solid black"} 
   bg='white'
 
   zIndex={2}
