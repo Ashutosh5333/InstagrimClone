@@ -39,7 +39,7 @@
 
 }
 
-@media screen and (max-width:1050px) {
+@media screen and (max-width:1250px) {
     .Suggest{
         display: none;
        }
@@ -48,6 +48,10 @@
         /* width: auto; */
         width: 80%;
        }
+       .sidename{
+        /* border: 1px solid red; */
+        display: none;
+       } 
 }
 
 

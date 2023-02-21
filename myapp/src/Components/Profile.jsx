@@ -1,6 +1,8 @@
 import React from "react";
-import { Avatar, Box, Button, Text, Wrap, WrapItem } from "@chakra-ui/react";
+import { Avatar, Box, Button, Divider, Text, Wrap, WrapItem } from "@chakra-ui/react";
 import {MdOutlineSettings} from "react-icons/md"
+import Stories from "./StoriesSlider/Stories";
+import Collection from "./Collections/Collection";
 
 
 const Profile = () => {
@@ -24,7 +26,7 @@ const Profile = () => {
                 <Avatar m="auto" ml="20px"
                   size="2xl"
                   name="Segun Adebayo"
-                  src="https://bit.ly/sage-adebayo"
+                  src="https://bit.ly/ryan-florence"
                 />
               </WrapItem>
             </Wrap>
@@ -81,11 +83,11 @@ const Profile = () => {
              <Box  border="1px solid black" width={{ base: "60%", md: "90%", lg: "80%" }} margin={"auto"}>
 
               <Box  border="1px solid yellow">
-                 <Text textAlign={"start"}> programmer with the ability to learn quickly </Text>
-                 <Text textAlign={"start"}> programmer with the ability to learn quickly </Text>
-                 <Text textAlign={"start"}> programmer with the ability to learn quickly </Text>
-                 <Text textAlign={"start"}> programmer with the ability to learn quickly </Text>
-                 <Text textAlign={"start"}> programmer with the ability to learn quickly </Text>
+                 <Text textAlign={"start"}> 👑Official Account🖤 </Text>
+                 <Text textAlign={"start"}> 💟Wish Me On 11 January🎂 </Text>
+                 <Text textAlign={"start"}> ⚡My Life My Rules💪</Text>
+                 <Text textAlign={"start"}> 🎶Music ka Diwana💥 </Text>
+                 <Text textAlign={"start"}>🕉️Mahadev Bhakt🕉️</Text>
               </Box>
 
             
@@ -98,13 +100,20 @@ const Profile = () => {
         {/* ---------------- */}
 
         <Box border="1px solid green"> 
-       
-         
+
+         <Stories/>
+
         </Box>
+
+       <Divider orientation='horizontal' />
 
         {/* ----------------------- */}
 
-        <Box border="1px solid yellow"> Collections </Box>
+        <Box border="1px solid yellow"> 
+        
+         <Collection/>
+        
+         </Box>
       </Box>
     </>
   );

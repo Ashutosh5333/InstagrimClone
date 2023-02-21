@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import Create from "../Components/Create";
 import Notifications from "../Components/Notifications";
 import Menu from "../Components/Menu";
+ import "./Style/Dash.css"
 
 const Side = () => {
   return (
@@ -22,7 +23,6 @@ const Side = () => {
         display="flex"
         gap={2}
         position="fixed"
-        //  position="sticky"
       >
    
 
@@ -62,7 +62,7 @@ const Side = () => {
               <AiFillHome />{" "}
             </Box>
 
-            <Box fontSize="1.1em" fontWeight={"600"} margin={"auto"}>
+            <Box className="sidename" fontSize="1.1em" fontWeight={"600"} margin={"auto"}>
               <Text textAlign={"left"}>Home </Text>
             </Box>
           </Box>
@@ -83,7 +83,7 @@ const Side = () => {
             <Box fontSize={"2.2em"}>
               <SideSearchmodel />
             </Box>
-            <Box
+            <Box  className="sidename" 
               // border={"2px solid red"}
               fontSize="1.1em"
               margin={"auto"}
@@ -109,7 +109,7 @@ const Side = () => {
                 <MdExplore />
               </Box>
             </Link>
-            <Box
+            <Box  className="sidename" 
               //  border={"2px solid red"}
               fontSize="1.1em"
               margin={"auto"}
@@ -137,7 +137,7 @@ const Side = () => {
               </Box>
             </Link>
 
-            <Box
+            <Box  className="sidename" 
               // border={"2px solid red"}
               margin="auto"
               fontSize="1.1em"
@@ -162,7 +162,7 @@ const Side = () => {
               <Create />
             </Box>
 
-            <Box fontSize="1.1em" margin={"auto"}>
+            <Box  className="sidename"  fontSize="1.1em" margin={"auto"}>
               <Text
                 //  border={"2px solid red"}
                 textAlign="left"
@@ -187,7 +187,7 @@ const Side = () => {
             <Box fontSize={"2.2em"}>
               <Notifications />
             </Box>
-            <Box fontSize="1.1em" margin={"auto"}>
+            <Box  className="sidename"  fontSize="1.1em" margin={"auto"}>
               <Text
                 //  border={"2px solid red"}
                 textAlign="left"
@@ -215,7 +215,7 @@ const Side = () => {
             </Box>
             </Link>
 
-            <Box fontSize="1.1em" margin={"auto"}>
+            <Box  className="sidename"  fontSize="1.1em" margin={"auto"}>
               <Text textAlign={"left"}> Profile </Text>
             </Box>
           </Box>
@@ -238,7 +238,7 @@ const Side = () => {
             </Box>
             <Box
               //  border={"2px solid red"}
-              fontSize="1.1em"
+              fontSize="1.1em"  className="sidename" 
               margin={"auto"}
             >
               <Text textAlign={"left"}> Menu </Text>
