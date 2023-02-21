@@ -1,4 +1,4 @@
-import { Box, Flex, Image, Input, Text, Wrap, WrapItem } from "@chakra-ui/react";
+import { Box, Button, Flex, Image, Input, Text, Wrap, WrapItem } from "@chakra-ui/react";
 import { Avatar } from '@chakra-ui/react'
 import React, { useEffect } from "react";
 import { AiOutlineEllipsis } from "react-icons/ai";
@@ -10,20 +10,26 @@ import Ashu from "../../assets/Ashu.jpg";
 import { DotModal } from "../modal/DotModal";
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { getData } from "../../Redux/AppReducer/action";
+import { getData, getDeleteData } from "../../Redux/AppReducer/action";
 
 export const Product = () => {
    const dispatch = useDispatch()
 
    const Data = useSelector((store) => store.AppReducer.UserData)
-  //  console.log("Data", Data)
+ 
 
    const  userdetail =useSelector((store) => store.AppReducer.productData)
-     console.log( "userdetail",userdetail)
+    //  console.log( "userdetail",userdetail)
  
       useEffect(() =>{
        dispatch(getData) 
       },[])
+
+      const handleDelete = (_id) =>{
+        dispatch(getDeleteData(_id)).then((res) =>{
+          console.log("dlete data")
+        })
+      }
 
 
   return (
@@ -69,8 +75,8 @@ export const Product = () => {
   // border={"1px solid green"}
   >
     <Text fontSize={"30px"}>
-   
-      <DotModal />
+       {/* <Button onClick={() => handleDelete(el._id)}> Del </Button> */}
+      <DotModal handleDelete={handleDelete} />
     </Text>
   </Flex>
 </Flex>
@@ -86,7 +92,7 @@ export const Product = () => {
     margin={"auto"}
     height={"30%"}>
     <Image
-      src={el.image}
+      src={el.pic}
       alt="image"
       height="500px"
       m={"auto"}

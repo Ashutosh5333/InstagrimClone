@@ -59,6 +59,24 @@ const getuserdataFail = () => {
   }
 }
 
+// --------------- Delete ----------------  //
+
+const DeleteDatareq = () =>{
+   return {
+      type: types.DELETE_DATA_REQUEST
+   }
+} 
+const Deletedatasucess = (payload) => {
+   return {
+      type :types.DELETE_DATA_SUCCESS,
+   }
+}
+const Deletedatafai = () => {
+  return {
+      type :types.DELETE_DATA_FAILURE
+  }
+  }
+
 // ============    Get User Data searchbar  =================  //
 
 export const GetUserData = (dispatch) => {
@@ -109,6 +127,25 @@ const  ADDProducts =(newdata) => (dispatch) => {
      return    dispatch(getdataFail())
     })
   }
+
+
+   // -------------- Delete data -------------  //
+
+    
+ export  const getDeleteData =(_id) => (dispatch) => {
+   dispatch(DeleteDatareq())
+return axios.delete(`https://sore-cyan-llama-robe.cyclic.app/product/delete/${_id}`,{
+    headers:{
+      "Content-Type":"application/json",
+      "Authorization":`Bearer ${token}`
+    },
+})
+ .then((res)=>{
+ return    dispatch(Deletedatasucess())
+ }).catch((e)=>{
+  return    dispatch(Deletedatafai())
+ })
+}
 
 
 

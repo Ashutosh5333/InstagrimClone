@@ -1,13 +1,23 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {    Modal,    ModalOverlay,    ModalContent,       ModalBody,    useDisclosure, Box, Text,  } from '@chakra-ui/react'
 import { AiOutlineEllipsis } from "react-icons/ai";
 import { Divider } from '@chakra-ui/react'
+import { useSelector, useDispatch } from 'react-redux';
+import { getDeleteData } from '../../Redux/AppReducer/action';
+import {useParams} from "react-router-dom"
 
-
-export const DotModal = () => {
-
+export const DotModal = ({handleDelete}) => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const finalRef = React.useRef(null)
+     const dispatch = useDispatch()
+      const params = useParams()
+    const {_id} = params
+    //  console.log(_id)
+     const Deletedata = useSelector((store) => store.AppReducer.productData)
+    //  console.log("dletedata" ,Deletedata)
+
+    
+     
 
     return (
     <> 
@@ -32,6 +42,8 @@ export const DotModal = () => {
                <Text p={5} color={"red"} fontWeight="600" > Unfollow </Text>
                <Divider orientation='horizontal' />
                <Text p={5}  fontWeight="600" > Add To favorites </Text>
+               <Divider orientation='horizontal' />
+               <Text p={5}  fontWeight="600" onClick={() =>handleDelete(Deletedata._id)} > Delete </Text>
                <Divider orientation='horizontal' />
                <Text p={5}  fontWeight="600" > Go to post </Text>
                <Divider orientation='horizontal' />

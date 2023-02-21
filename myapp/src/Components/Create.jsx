@@ -69,12 +69,11 @@ const Create = () => {
   //      newPost({...post,[name]:value})
   // }
   // console.log("url",url)
-  
-
   // const payload={
   //   description,
   //   pic:url
   // }
+  
  const handleSubmit = () =>{
   postDetails()
   // dispatch(ADDProducts(payload))
