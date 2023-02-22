@@ -1,0 +1,112 @@
+/* .Editprofile{
+     border: 1px solid red;
+} */
+
+
+@media screen and (max-width:850px) {
+     .Editprofile{
+         flex-direction: column;
+         gap: 10px;
+         position: relative;
+         right: 10%;
+     }
+     .button{
+         width: 250px;
+        /* padding: 10px 20px; */
+         margin-top: 10px;
+         border-radius: 10px;
+     }
+     .Edit{
+        flex-direction: column;
+         text-align: start;
+     }
+     .follwer{
+        border: 1px solid green;
+        display: none;
+    }
+     .setting{
+        display: none; 
+        /* position: absolute;
+        top: 11%;
+         left: 80%;  */
+     }
+     .username{
+        position: relative;
+        right: 20%;
+     }
+     .profileimage{
+        /* border: 1px solid rgb(20, 3, 3); */
+        position: relative;
+        /* top: -100px; */
+         top: 20px;
+
+        right: -5%;
+        margin: auto;
+    }
+    .wishme{
+        display: none;
+    }
+    /* .wish{
+        font-size: 1rem;
+    } */
+    .desc{
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width:750px) {
+    .Editprofile{
+        flex-direction: column;
+        gap: 10px;
+        position: relative;
+        right: 10%;
+    }
+    .button{
+        width: 100px;
+       /* padding: 10px 20px; */
+        margin-top: 10px;
+        border-radius: 10px;
+    }
+    .Edit{
+       flex-direction: column;
+        text-align: start;
+    }
+    .follwer{
+       border: 1px solid green;
+       display: none;
+   }
+    .setting{
+       /* display: none;  */
+       position: absolute;
+       top: 11%;
+        left: 80%; 
+        justify-content: right;
+    }
+    .username{
+       position: relative;
+       right: 20%; 
+    }
+    .textname{
+        font-size: .6rem;
+        font-weight: 600;
+    }
+    .wishme{
+        display: none;
+    }
+    
+}
+
+@media screen and (max-width:667px) {
+    .profileimage{
+        border: 1px solid red;
+        position: relative;
+        top: 20px;
+    }
+
+}
+@media screen and (min-width:850px) {
+    .wish{
+         display: none;
+    }
+    
+}
