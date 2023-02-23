@@ -1,0 +1,104 @@
+.side{
+     border:"1px solid black"
+}
+
+.container{
+     border: 1px solid blueviolet;
+}
+
+.textname{
+   font-weight: 600;
+}
+
+
+/* ------------ phone screen ----------- */
+
+
+/* ---------------- Medium screen  ----------------- */
+
+@media screen and (max-width:1024px) {  
+   .textname{
+      /* border: 1px solid rebeccapurple; */
+      font-size: .8rem;
+       font-weight: 600;
+   }
+  
+     .side{
+        display: none;
+    }
+    .container{
+        margin: auto;
+    }
+   
+   
+}
+
+@media screen and (max-width:750px) {
+   .textname{
+      /* border: 1px solid rebeccapurple; */
+      font-size: 1.2rem;
+      margin-top: 30px;
+       font-weight: 600;
+   }
+   .username{
+        width: 100%;
+   }
+   .Edit{
+      flex-direction: column;
+   }
+   .bothbutton{
+      flex-direction: column;
+      margin-top: 10px;
+   }
+   .editbutton{
+      width: 300px;
+      border-radius: 5px;
+   }
+   .side{
+      display: none;
+  }
+  .container{
+      margin: auto;
+  }
+  .setting{
+    display: none;
+  }
+  .wishme{
+    display: none;
+  }
+ 
+}
+
+/* ---------- only for wish section ------- */
+
+@media screen and (min-width:750px) {
+   .wish{
+       display: none;
+   }
+}
+
+
+
+
+  /* -----------  small  ----------- */
+
+
+@media screen and (max-width:667px) {
+   .textname{
+       /* border: 1px solid rebeccapurple; */
+         width: 100%;
+         font-size: .7rem;
+    }
+
+    .editbutton{
+      width: 120px;
+      border-radius: 5px;
+   }
+   .follwer{
+      display: none;
+   }
+   .wish{
+       font-size: 10px;
+   }
+   
+}
