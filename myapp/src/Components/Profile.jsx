@@ -131,7 +131,7 @@ const Profile = () => {
 
                 <Box className="setting" margin="auto">
                   <Text
-                    fontSize={"20px"}
+                    fontSize={"25px"}
                     margin="auto"
                     justifyContent={"center"}
                   >
@@ -149,15 +149,15 @@ const Profile = () => {
                 justifyContent="space-evenly"
                 gap={10}
               >
-                <Box className="follwer" margin="auto">
+                <Box className="follwer" margin="auto" fontSize={"1rem"}>
                   <Text> <span style={{fontWeight:"600"}}> 25 </span>  Post </Text>
                 </Box>
 
-                <Box className="follwer" margin="auto">
+                <Box className="follwer" margin="auto" fontSize={"1rem"} >
                   <Text> <span style={{fontWeight:"600"}}> 865 </span>  Followers </Text>
                 </Box>
 
-                <Box className="follwer" margin="auto">
+                <Box className="follwer" margin="auto" fontSize={"1rem"}>
                   <Text> <span style={{fontWeight:"600"}}> 50 </span> Following </Text>
                 </Box>
               </Box>
