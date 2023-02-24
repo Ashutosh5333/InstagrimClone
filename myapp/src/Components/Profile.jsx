@@ -5,19 +5,10 @@ import Stories from "./StoriesSlider/Stories";
 import Collection from "./Collections/Collection";
 import "./style/prof.css";
 import Side from './../Pages/Side';
-import { useDispatch, useSelector } from "react-redux";
-import { GetMypost } from "../Redux/AppReducer/action";
 
 
 const Profile = () => {
-  const dispatch = useDispatch()
-  const  Mypost = useSelector((store) => store.AppReducer.Mypost)
-   console.log("Mypost", Mypost)
-
-     useEffect(() =>{
-       dispatch(GetMypost)
-     },[])
-
+ 
 
 
 
@@ -33,7 +24,8 @@ const Profile = () => {
         width={{ base: "90%", md: "80%", lg: "100%" }}
         m="auto"
       >
-        <Box border="1px solid gray"
+        <Box 
+        // border="1px solid gray"
          width="15%" className="side">
             <Side />
         </Box>

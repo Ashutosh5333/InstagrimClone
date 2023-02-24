@@ -4,6 +4,7 @@ import { AiOutlineTable } from "react-icons/ai";
 import { FaRegBookmark } from "react-icons/fa";
 import { TfiVideoClapper } from "react-icons/tfi";
 import { CgProfile } from "react-icons/cg";
+import { Mypost } from "./Mypost";
 
 const Collection = () => {
   const colors = useColorModeValue(
@@ -102,7 +103,9 @@ const Collection = () => {
         </TabList>
 
         <TabPanels p="2rem">
-          <TabPanel> My Post </TabPanel>
+          <TabPanel>
+            <Mypost/>
+           </TabPanel>
           <TabPanel> my Reels</TabPanel>
           <TabPanel>Saved data </TabPanel>
           <TabPanel>Tagged Data </TabPanel>

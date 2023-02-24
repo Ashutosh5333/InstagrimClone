@@ -3,13 +3,13 @@ import {    Modal,    ModalOverlay,    ModalContent,       ModalBody,    useDisc
 import { AiOutlineEllipsis } from "react-icons/ai";
 import { Divider } from '@chakra-ui/react'
 
-import {useParams} from "react-router-dom"
+
 
 export const DotModal = ({handleDelete}) => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const finalRef = React.useRef(null)
     
-      const params = useParams()
+     
   
     
    
