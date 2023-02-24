@@ -16,9 +16,6 @@ useEffect(()=>{
 
   
 
-
-// width={{base : '60%', md : '60%', lg :'40%'}} 
-
   return (
      <> 
       <Box width={{base : '70%', md : '60%', lg :'40%'}}
@@ -60,8 +57,8 @@ useEffect(()=>{
      > 
 
        {
-        Suggestions.length> 0 && Suggestions.map((item)=>{
-          return <Box ml={"30px"} textAlign={"left"} >{item}</Box>
+        Suggestions.length> 0 && Suggestions.map((item,index)=>{
+          return <Box ml={"30px"} textAlign={"left"} key={index} >{item}</Box>
         })
        }
 

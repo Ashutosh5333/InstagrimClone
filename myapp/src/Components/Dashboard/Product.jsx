@@ -15,11 +15,8 @@ import { getData, getDeleteData } from "../../Redux/AppReducer/action";
 export const Product = () => {
    const dispatch = useDispatch()
 
-   const Data = useSelector((store) => store.AppReducer.UserData)
- 
-
    const  userdetail =useSelector((store) => store.AppReducer.productData)
-     console.log( "userdetail",userdetail)
+    //  console.log( "userdetail",userdetail)
  
       useEffect(() =>{
        dispatch(getData) 
@@ -46,7 +43,7 @@ export const Product = () => {
       {
         
         userdetail.length > 0 && userdetail.map((el) =>{
-        return     <Box border={"1px solid black"} p={4} gap="10px">
+        return     <Box border={"1px solid black"} key={el._id} p={4} gap="10px">
 
 <Flex display={"flex"} justifyContent="space-between">
   

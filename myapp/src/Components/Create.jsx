@@ -64,24 +64,11 @@ const Create = () => {
       
    }
 
-  // const handleChange = (e) =>{
-  //     const {name,value} =e.target
-  //      newPost({...post,[name]:value})
-  // }
-  // console.log("url",url)
-  // const payload={
-  //   description,
-  //   pic:url
-  // }
+
   
  const handleSubmit = () =>{
   postDetails()
-  // dispatch(ADDProducts(payload))
-  //    .then((res)=>{
-  //      console.log(res)
-  //    }).catch((err) =>{
-  //      console.log(err)
-  //    })
+ 
 }
 
   
@@ -96,7 +83,6 @@ const Create = () => {
        </Box> 
 
     
-       {/* width={{ base: "40%", md: "80%", lg: "90%" }} */}
 
       <Modal isOpen={isOpen} onClose={onClose} size="2xl" >
         <ModalOverlay />

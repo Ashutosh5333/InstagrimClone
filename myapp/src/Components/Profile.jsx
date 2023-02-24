@@ -1,16 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Avatar,  Box,  Button,  Divider,  Text,  Wrap,  WrapItem,} from "@chakra-ui/react";
 import { MdOutlineSettings } from "react-icons/md";
 import Stories from "./StoriesSlider/Stories";
 import Collection from "./Collections/Collection";
 import "./style/prof.css";
 import Side from './../Pages/Side';
+import { useDispatch, useSelector } from "react-redux";
+import { GetMypost } from "../Redux/AppReducer/action";
+
 
 const Profile = () => {
+  const dispatch = useDispatch()
+  const  Mypost = useSelector((store) => store.AppReducer.Mypost)
+   console.log("Mypost", Mypost)
+
+     useEffect(() =>{
+       dispatch(GetMypost)
+     },[])
+
+
+
+
   return (
     <>
       <Box
-        border="1px solid red"
+        // border="1px solid red"
         className="container"
         height={"100vh"}
         display="flex"
@@ -19,18 +33,21 @@ const Profile = () => {
         width={{ base: "90%", md: "80%", lg: "100%" }}
         m="auto"
       >
-        <Box border="1px solid blue" width="15%" className="side">
+        <Box border="1px solid gray"
+         width="15%" className="side">
             <Side />
         </Box>
 
         {/* -------- Side bar -------- */}
 
-        <Box border="1px solid black" width="85%" margin={"auto"} >
+        <Box 
+        // border="1px solid black" 
+        width="85%" margin={"auto"} >
           
           {/* --------------- */}
 
           <Box
-            border="1px solid green"
+            // border="1px solid green"
             display="flex"
             justifyContent={"space-between"}
             gap="10px"
@@ -189,13 +206,19 @@ const Profile = () => {
 
           {/* ----------------- */}
 
-          <Box border="1px solid brown" mt="20px">
+          <Divider orientation="horizontal" />
+
+          <Box 
+          // border="1px solid brown" 
+          mt="20px">
           <Stories />
           </Box>
 
           <Divider orientation="horizontal" />
 
-          <Box border="1px solid darkpink" mt="20px" >
+          <Box 
+          // border="1px solid darkpink" 
+          mt="20px" >
           <Collection />
           </Box>
 

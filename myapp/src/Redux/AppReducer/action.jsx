@@ -38,10 +38,30 @@ const AdddataFail = () => {
   }
 }
 
+         //  --------- My Post --------  //
+
+const MydatapostReq = () =>{
+   return {
+      type: types.MYPOST_DATA_REQUEST,
+   }
+} 
+const MyAdddataPostSucess = (payload) => {
+   return {
+      type :types.MYPOST_DATA_SUCCESS,
+      payload,
+   }
+}
+const MyAdddataPostFail = () => {
+  return { 
+      type :types.MYPOST_DATA_FAILURE
+  }
+}
+
  const token = JSON.parse(localStorage.getItem("token"))
-   // console.log(token)
+
 
 // ======================= User data =======================  //
+
 const getuserdataReq = () =>{
    return {
       type: types.USER_DATA_REQUEST
@@ -77,7 +97,9 @@ const Deletedatafai = () => {
   }
   }
 
-// ============    Get User Data searchbar  =================  //
+
+  // ============    Get User Data searchbar  =================  //
+
 
 export const GetUserData = (dispatch) => {
       dispatch(getuserdataReq)
@@ -146,6 +168,28 @@ return axios.delete(`https://sore-cyan-llama-robe.cyclic.app/product/delete/${_i
   return    dispatch(Deletedatafai())
  })
 }
+
+
+// ---------------- My post -------------- //
+
+export const GetMypost = (dispatch) => {
+   dispatch(MydatapostReq)
+   return axios.get(`https://sore-cyan-llama-robe.cyclic.app/mypost` ,{
+      headers:{
+         "Content-Type":"application/json",
+         "Authorization":`Bearer ${token}`
+       },
+   })
+   .then((res)=>{
+   return   dispatch(MyAdddataPostSucess(res.data))
+   })
+   .catch((e)=>{  
+   return    dispatch(MyAdddataPostFail())
+   })
+}
+
+
+
 
 
 

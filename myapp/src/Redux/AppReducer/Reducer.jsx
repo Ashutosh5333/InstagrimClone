@@ -4,7 +4,8 @@ import * as types from "./actionTypes"
      productData:[],
      isLoading:false,
      isError:false,
-     UserData:[]
+     UserData:[],
+     Mypost:[]
  }
 
 
@@ -55,8 +56,28 @@ export const reducer = ( state=intailState,action ) => {
                        isError:true,
                        UserData:[]
                    }
-               
-       // ================
+     
+               case  types.MYPOST_DATA_REQUEST : 
+               return {
+                   ...state,
+                   isLoading:true,
+               }
+           
+           case  types.MYPOST_DATA_SUCCESS: 
+               return {
+                   ...state,
+                   isLoading:false,
+                   isError:false,
+                   Mypost:payload
+               }
+           case  types.MYPOST_DATA_FAILURE : 
+               return {
+                   ...state,
+                   isLoading:false,
+                   isError:true,
+                   Mypost:[]
+               }
+
        
 
           default:

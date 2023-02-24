@@ -39,8 +39,11 @@ const Side = () => {
             justifyContent={"space-between"}
           >
             <Box fontSize={"2.2em"}>
-              {" "}
-              <BsInstagram />{" "}
+                <Link to="/dash">
+
+              <BsInstagram />
+                </Link>
+
             </Box>
             <Box> </Box>
           </Box>
