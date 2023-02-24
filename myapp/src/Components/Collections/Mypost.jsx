@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { GetMypost } from '../../Redux/AppReducer/action';
 import { Box, Image, SimpleGrid } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 
 export const Mypost = () => {
   const dispatch = useDispatch()
@@ -24,7 +25,9 @@ export const Mypost = () => {
              {
               data.length>0 && data.map((el) =>{
                 return <Box key={el._id} > 
+                       <Link to='/profiledata'> 
                      <Image src={el.pic} style={{width:"90%" ,height:"40vh" }} />
+                       </Link>
                      
                  </Box>
               })

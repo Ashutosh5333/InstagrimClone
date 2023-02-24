@@ -11,6 +11,7 @@ import Messanger from '../Components/Messanger';
 import Notifications from '../Components/Notifications';
 import Menu from '../Components/Menu';
 import Profile from '../Components/Profile';
+import MypostFull from '../Components/Collections/MypostFull';
 
 export const AllRoutes = () => {
 
@@ -27,6 +28,7 @@ export const AllRoutes = () => {
         <Route  path="/notify" element={<Notifications/>} />
         <Route path="/menu" element={<Menu/>} />
         <Route path="/profile" element={<Profile/>} />
+        <Route path='/profiledata'  element={<MypostFull/>} />
         
         <Route path="/dash" element={
           <PrivateRoute>
