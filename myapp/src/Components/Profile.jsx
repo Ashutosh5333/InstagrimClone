@@ -1,15 +1,24 @@
 import React, { useEffect } from "react";
-import { Avatar,  Box,  Button,  Divider,  Text,  Wrap,  WrapItem,} from "@chakra-ui/react";
+import {  Avatar,  Box,  Button,  Divider,  Text,  Wrap,  WrapItem,} from "@chakra-ui/react";
 import { MdOutlineSettings } from "react-icons/md";
 import Stories from "./StoriesSlider/Stories";
 import Collection from "./Collections/Collection";
 import "./style/prof.css";
-import Side from './../Pages/Side';
-
+import Side from "./../Pages/Side";
+import { useDispatch, useSelector } from "react-redux";
+import { GetMypost } from "../Redux/AppReducer/action";
 
 const Profile = () => {
- 
+  const dispatch = useDispatch()
+  const  userdetail = useSelector((store) => store.AppReducer.Mypost)
+   console.log("Mypost", userdetail)
+    // console.log(userdetail.postedby.name)
+     const data = userdetail.postedby
+      // console.log("data", data)
 
+     useEffect(() =>{
+       dispatch(GetMypost)
+     },[])
 
 
   return (
@@ -24,37 +33,38 @@ const Profile = () => {
         width={{ base: "90%", md: "80%", lg: "100%" }}
         m="auto"
       >
-        <Box 
-        // border="1px solid gray"
-         width="15%" className="side">
-            <Side />
+        <Box
+          // border="1px solid gray"
+          width="15%"
+          className="side"
+        >
+          <Side />
         </Box>
 
         {/* -------- Side bar -------- */}
 
-        <Box 
-        // border="1px solid black" 
-        width="85%" margin={"auto"} >
-          
-          {/* --------------- */}
-
-          <Box
+        <Box
+          // border="1px solid black"
+          width="85%"
+          margin={"auto"}
+        >
+         
+         {
+             userdetail.length> 0 && userdetail.map((el) =>{
+              return <Box key={el._id}
             // border="1px solid green"
             display="flex"
             justifyContent={"space-between"}
             gap="10px"
-             className="partion"
+            className="partion"
           >
             {/*------------- partition of profile section ----------- */}
-            
-
 
             <Box
               // border="1px solid blue"
               width={{ base: "90%", md: "40%", lg: "30%" }}
             >
-               
-               {/* --------------------- Image section -------------------  */}
+              {/* --------------------- Image section -------------------  */}
 
               <Box
                 // border="1px solid red"
@@ -74,8 +84,8 @@ const Profile = () => {
                       // m="auto"
                       ml=".6em"
                       size={{ base: "xl", md: "xl", lg: "2xl" }}
-                      name="Segun Adebayo"
-                      src="https://bit.ly/ryan-florence"
+                      name={el.postedby.name}
+                      src={el.image}
                     />
                   </WrapItem>
                 </Wrap>
@@ -89,7 +99,9 @@ const Profile = () => {
                 justifyContent={"center"}
               >
                 <Box className="wish">
-                <Text textAlign={"start"} fontWeight="600">  Ashutosh </Text>
+                  <Text textAlign={"start"} fontWeight="600">
+                    {el.postedby.name}
+                  </Text>
                   <Text textAlign={"start"}> 👑Official Account🖤 </Text>
                   <Text textAlign={"start"}> 💟Wish Me On 11 January🎂 </Text>
                   <Text textAlign={"start"}> ⚡My Life My Rules💪</Text>
@@ -97,9 +109,8 @@ const Profile = () => {
                   <Text textAlign={"start"}>🕉️Mahadev Bhakt🕉️</Text>
                 </Box>
               </Box>
-              
-              {/* - */}
 
+              {/* - */}
             </Box>
 
             {/* ------------------- profile ------------------ */}
@@ -108,6 +119,7 @@ const Profile = () => {
               // border="1px solid red"
               width={{ base: "90%", md: "80%", lg: "100%" }}
             >
+             
               <Box
                 className="Edit"
                 // border="1px solid red"
@@ -122,7 +134,6 @@ const Profile = () => {
                   <Text className="textname">_Ashutoshlakshkara7985</Text>
                 </Box>
 
-                {/* <br/> */}
                 <Box
                   display={"flex"}
                   justifyContent="space-between"
@@ -159,15 +170,30 @@ const Profile = () => {
                 gap={10}
               >
                 <Box className="follwer" margin="auto" fontSize={"1rem"}>
-                  <Text> <span style={{fontWeight:"600"}}> 25 </span>  Post </Text>
-                </Box>
-
-                <Box className="follwer" margin="auto" fontSize={"1rem"} >
-                  <Text> <span style={{fontWeight:"600"}}> 865 </span>  Followers </Text>
+                  <Text>
+                    {" "}
+                    <span style={{ fontWeight: "600" }}> 25 </span> Post{" "}
+                  </Text>
                 </Box>
 
                 <Box className="follwer" margin="auto" fontSize={"1rem"}>
-                  <Text> <span style={{fontWeight:"600"}}> 50 </span> Following </Text>
+                  <Text>
+                    {" "}
+                    <span style={{ fontWeight: "600" }}>
+                      {" "}
+                      865{" "}
+                    </span> Followers{" "}
+                  </Text>
+                </Box>
+
+                <Box className="follwer" margin="auto" fontSize={"1rem"}>
+                  <Text>
+                    {" "}
+                    <span style={{ fontWeight: "600" }}>
+                      {" "}
+                      50{" "}
+                    </span> Following{" "}
+                  </Text>
                 </Box>
               </Box>
 
@@ -178,7 +204,9 @@ const Profile = () => {
                 mt="10px"
               >
                 <Box className="wishme">
-                <Text textAlign={"start"} fontWeight="600">  Ashutosh </Text>
+                  <Text textAlign={"start"} fontWeight="600">
+                  {el.postedby.name}
+                  </Text>
                   <Text textAlign={"start"}> 👑Official Account🖤 </Text>
                   <Text textAlign={"start"}> 💟Wish Me On 11 January🎂 </Text>
                   <Text textAlign={"start"}> ⚡My Life My Rules💪</Text>
@@ -188,39 +216,37 @@ const Profile = () => {
               </Box>
             </Box>
 
-
-  
-        
-
             {/* --------------------- Data upar part ---------------- */}
-
           </Box>
+             })
+
+         }
+
+
+
 
           {/* ----------------- */}
 
           <Divider orientation="horizontal" />
 
-          <Box 
-          // border="1px solid brown" 
-          mt="20px">
-          <Stories />
+          <Box
+            // border="1px solid brown"
+            mt="20px"
+          >
+            <Stories />
           </Box>
 
           <Divider orientation="horizontal" />
 
-          <Box 
-          // border="1px solid darkpink" 
-          mt="20px" >
-          <Collection />
+          <Box
+            // border="1px solid darkpink"
+            mt="20px"
+          >
+            <Collection />
           </Box>
-
-         
-
-
         </Box>
 
-
-{/* --------- container whole -------- */}
+        {/* --------- container whole -------- */}
       </Box>
     </>
   );
