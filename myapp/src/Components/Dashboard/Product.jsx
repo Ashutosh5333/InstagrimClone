@@ -1,31 +1,36 @@
-import { Box, Button, Flex, Image, Input, Text, Wrap, WrapItem } from "@chakra-ui/react";
-import { Avatar } from '@chakra-ui/react'
-import React, { useEffect } from "react";
-import { AiOutlineEllipsis } from "react-icons/ai";
+import {Box,  Flex,  Image,  Input,  Text,  Wrap,  WrapItem,} from "@chakra-ui/react";
+import { Avatar } from "@chakra-ui/react";
+import React, { useState, useEffect } from "react";
+import { AiFillDislike, AiFillLike } from "react-icons/ai";
 import { TfiHeart } from "react-icons/tfi";
-import { FaRegComment } from "react-icons/fa";
+import { FaHeart, FaRegComment } from "react-icons/fa";
 import { FaRegBookmark } from "react-icons/fa";
 import { FiNavigation } from "react-icons/fi";
 import Ashu from "../../assets/Ashu.jpg";
 import { DotModal } from "../modal/DotModal";
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getData, getDeleteData } from "../../Redux/AppReducer/action";
+import { Addcomment, likepost, Unlikepost } from "./ProductFetch";
 
 export const Product = () => {
-   const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const [data, setdata] = useState("");
 
-   const  userdetail =useSelector((store) => store.AppReducer.productData)
+  const userdetail = useSelector((store) => store.AppReducer.productData);
+  console.log(userdetail);
+  useEffect(() => {
+    dispatch(getData);
+  }, []);
+
+  const handleDelete = (_id) => {
+    dispatch(getDeleteData(_id)).then((res) => {
+      console.log("dlete data");
+    });
+  };
+
  
-      useEffect(() =>{
-       dispatch(getData) 
-      },[])
 
-      const handleDelete = (_id) =>{
-        dispatch(getDeleteData(_id)).then((res) =>{
-          console.log("dlete data")
-        })
-      }
 
 
   return (
@@ -39,22 +44,27 @@ export const Product = () => {
         m="auto"
         width={{ base: "100%", md: "80%", lg: "90%" }}
       >
-      {userdetail.length > 0 &&
+        {userdetail.length > 0 &&
           userdetail.map((el) => {
             return (
-              <Box 
-            //    border={"1px solid black"}  
-             borderBottom={"1px solid gray"}
-               m="auto" key={el._id} p={4} gap="10px">
+              <Box
+                //    border={"1px solid black"}
+                borderBottom={"1px solid gray"}
+                m="auto"
+                key={el._id}
+                p={4}
+                gap="10px"
+              >
                 <Flex display={"flex"} justifyContent="space-between">
-                  <Flex
-                  // border={"1px solid green"}
-                  >
+                  <Flex>
                     <Wrap>
                       <WrapItem>
                         <Avatar
-                          size={{base:'xs',md:"sm"}}
-                         mr={8} name={el.postedby.name} src={el.image} />
+                          size={{ base: "xs", md: "sm" }}
+                          mr={8}
+                          name={el.postedby.name}
+                          src={el.image}
+                        />
                       </WrapItem>
                     </Wrap>
                     <Image />
@@ -64,21 +74,20 @@ export const Product = () => {
                       alignItems="center"
                       m="auto"
                       fontWeight={600}
-                      fontSize={{base:"10px", md:"15px", lg:"20px"}}
+                      fontSize={{ base: "10px", md: "15px", lg: "18px" }}
                       width={{ base: "80%", md: "70%", lg: "90%" }}
                     >
                       {el.postedby.name}
                     </Text>
                   </Flex>
 
-                  {/* ----^^^^ upper section ^^^---------- */}
+                  {/* ------ upper section ------- */}
 
                   <Flex
                   // border={"1px solid green"}
                   >
                     <Text fontSize={"30px"}>
-                    
-                      <DotModal  />
+                      <DotModal />
                     </Text>
                   </Flex>
                 </Flex>
@@ -93,13 +102,12 @@ export const Product = () => {
                     alignItems="center"
                     margin={"auto"}
                     height={"30%"}
-                       width={{ base: "80%", md: "70%", lg: "90%" }}
+                    width={{ base: "80%", md: "70%", lg: "90%" }}
                   >
                     <Image
                       src={el.pic}
                       alt="image"
-                  
-                    boxSize={{base:'200px',md:"300px",lg:"400px"}}
+                      boxSize={{ base: "200px", md: "300px", lg: "400px" }}
                       m={"auto"}
                       justifyContent={"center"}
                       alignItems="center"
@@ -108,10 +116,9 @@ export const Product = () => {
                 </Flex>
 
                 {/* ------------- bottom line save ------------------ */}
-               
+
                 <Flex
-                //   border={"1px solid black"}
-                  // p={2}
+                
                   margin={"auto"}
                   mt="10px"
                   width="80%"
@@ -120,192 +127,243 @@ export const Product = () => {
                 >
                   <Flex>
                     <Box
-                     fontSize={{base:"15px", md:"20px", lg:"25px"}}
+                      fontSize={{ base: "15px", md: "18px", lg: "25px" }}
                       display={"flex"}
                       justifyContent="space-between"
-                      gap="20px"
+                      gap="18px"
                     >
-                      <TfiHeart />
+                    
+                      {
+                        (el.likes.length>0) ?
+                      
+                      <FaHeart color={"red"} onClick={() => Unlikepost(el._id)} />
+                     :
+                      <TfiHeart onClick={() => likepost(el._id)} />
 
+                      }
+
+                        
+
+                        
                       <FaRegComment />
                       <FiNavigation />
                     </Box>
                   </Flex>
                   {/* ---------------------- */}
 
-                  <Flex  fontSize={{base:"15px", md:"20px", lg:"25px"}} >
+                  <Flex fontSize={{ base: "15px", md: "18px", lg: "25px" }}>
                     <FaRegBookmark />
                   </Flex>
                 </Flex>
 
-             
                 <Box
-                //   border={"1px solid black"}
-              
+
                   margin={"auto"}
                   width={{ base: "80%", md: "80%", lg: "80%" }}
                   mt="10px"
                   gap={10}
                 >
-                  <Text textAlign={"left"} m="2px"  fontSize={{base:"10px", md:"15px", lg:"20px"}}>
-                
+                  <Text
+                    textAlign={"left"}
+                    m="2px"
+                    fontSize={{ base: "10px", md: "15px", lg: "18px" }}
+                  >
+                    <Text>{el.likes.length} likes</Text>
                     Liked by
-                    <span  className="span"  fontSize={{base:"10px", md:"15px", lg:"20px"}}>
-                   
-                      Aadil_khan 
+                    <span
+                      className="span"
+                      fontSize={{ base: "10px", md: "15px", lg: "18px" }}
+                    >
+                      Aadil_khan
                     </span>
-
                     and
-                    <span  className="span"  fontSize={{base:"10px", md:"15px", lg:"20px"}} >
-                      
+                    <span
+                      className="span"
+                      fontSize={{ base: "10px", md: "15px", lg: "18px" }}
+                    >
                       110 others
                     </span>
                   </Text>
 
-                  <Text textAlign={"left"}   fontSize={{base:"10px", md:"15px", lg:"20px"}}>
-                    
-                    <span className="span"   fontSize={{base:"10px", md:"15px", lg:"20px"}} style={{ fontWeight: "600" }}>
+                  <Text
+                    textAlign={"left"}
+                    fontSize={{ base: "10px", md: "15px", lg: "18px" }}
+                  >
+                    <span
+                      className="span"
+                      fontSize={{ base: "10px", md: "15px", lg: "18px" }}
+                      style={{ fontWeight: "600" }}
+                    >
                       {el.postedby.name}
                     </span>
                     {el.description}
                   </Text>
                 </Box>
 
-           
                 <Flex
                   // border={"1px solid black"}
-               
+
                   margin={"auto"}
                   mt="10px"
                   width={{ base: "60%", md: "70%", lg: "80%" }}
                   display={"flex"}
                 >
-                  <Input  fontSize={{base:"10px", md:"15px", lg:"20px"}} placeholder="Add comment......." border={"none"} />
+                 <form onSubmit={(e) =>{
+                    e.preventDefault()
+                     Addcomment(e.target[0].value,el._id)
+                 }}>
+
+     <Input placeholder="Add a comment......." border={"none"} />
+   
+     </form>
                 </Flex>
               </Box>
             );
           })}
 
 
-     
+
+
+
+                {/* ------------------- Static -------------  */}
 
         <Box border={"1px solid black"} p={4} gap="10px">
+          <Flex display={"flex"} justifyContent="space-between">
+            <Flex
+            // border={"1px solid green"}
+            >
+              <Wrap>
+                <WrapItem>
+                  <Avatar
+                    mr={8}
+                    name="Dan Abrahmov"
+                    src="https://bit.ly/dan-abramov"
+                  />
+                </WrapItem>
+              </Wrap>
+              <Image />
 
-<Flex display={"flex"} justifyContent="space-between">
-  <Flex 
-  // border={"1px solid green"}
-  >
-    <Wrap  >
-      <WrapItem>
-        <Avatar mr={8}
-          name="Dan Abrahmov"
-          src="https://bit.ly/dan-abramov"
-        />
-      </WrapItem>
-    </Wrap>
-    <Image />
+              <Text
+                //  border={"1px solid red"}
+                alignItems="center"
+                m="auto"
+                fontWeight={600}
+                width={{ base: "80%", md: "60%", lg: "90%" }}
+              >
+                {" "}
+                The viral gyan{" "}
+              </Text>
+            </Flex>
 
-    <Text 
-    //  border={"1px solid red"}
-      alignItems="center" m="auto" fontWeight={600}
-     width={{ base: "80%", md: "60%", lg: "90%" }}> The viral gyan </Text>
+            {/* -------------- */}
+            <Flex
+      
+            >
+              <Text fontSize={"30px"}>
+                <DotModal />
+              </Text>
+            </Flex>
+          </Flex>
 
-  </Flex>
+          {/* "Top " */}
+          <br />
 
-  {/* -------------- */}
-  <Flex 
-  // border={"1px solid green"}
-  >
-    <Text fontSize={"30px"}>
-   
-      <DotModal />
-    </Text>
-  </Flex>
-</Flex>
+          <Flex border={"1px solid gray"} margin={"auto"} width="80%">
+            <Box
+              justifyContent={"center"}
+              alignItems="center"
+              margin={"auto"}
+              height={"30%"}
+            >
+              <Image
+                src={Ashu}
+                alt="image"
+                height="500px"
+                m={"auto"}
+                justifyContent={"center"}
+                alignItems="center"
+              />
+            </Box>
+          </Flex>
 
-{/* "Top " */}
-<br />
+    
+          <Flex
+            // border={"1px solid black"}
+            // p={2}
+            margin={"auto"}
+            mt="10px"
+            width="80%"
+            display={"flex"}
+            justifyContent="space-between"
+          >
+            <Flex>
+              <Box
+                fontSize={"25px"}
+                display={"flex"}
+                justifyContent="space-between"
+                gap="18px"
+              >
+                <TfiHeart />
 
-<Flex border={"1px solid gray"} margin={"auto"} width="80%">
-  <Box
-    justifyContent={"center"}
-    alignItems="center"
-    margin={"auto"}
-    height={"30%"}>
-    <Image
-      src={Ashu}
-      alt="image"
-      height="500px"
-      m={"auto"}
-      justifyContent={"center"}
-      alignItems="center"
-    />
-  </Box>
-</Flex>
+                <FaRegComment />
+                <FiNavigation />
+              </Box>
+            </Flex>
+            {/* ---------------------- */}
 
+            <Flex fontSize={"25px"}>
+              <FaRegBookmark />
+            </Flex>
+          </Flex>
 
-{/* ------------- bottom line save ------------------ */}
-{/* <br /> */}
-<Flex
-  // border={"1px solid black"}
-  // p={2}
-  margin={"auto"}
-  mt="10px"
-  width="80%"
-  display={"flex"}
-  justifyContent="space-between"
->
-  <Flex>
-    <Box
-      fontSize={"25px"}
-      display={"flex"}
-      justifyContent="space-between"
-      gap="20px"
-    >
-      <TfiHeart />
+          {/* <br /> */}
+          <Box
+          
+            margin={"auto"}
+            width="80%"
+            mt="10px"
+            gap={10}
+          >
+            <Text textAlign={"left"}>
+              {" "}
+              Liked by{" "}
+              <span style={{ fontSize: "15px", fontWeight: "600" }}>
+                {" "}
+                Aadil_khan{" "}
+              </span>{" "}
+              and{" "}
+              <span style={{ fontSize: "15px", fontWeight: "600" }}>
+                {" "}
+                110 others{" "}
+              </span>{" "}
+            </Text>
 
-      <FaRegComment />
-      <FiNavigation />
-    </Box>
-  </Flex>
-  {/* ---------------------- */}
+            <Text textAlign={"left"}>
+              {" "}
+              <span style={{ fontSize: "15px", fontWeight: "600" }}>
+                Ashutosh lakshakar
+              </span>{" "}
+              Be your own kind of beautiful{" "}
+            </Text>
+          </Box>
 
-  <Flex fontSize={"25px"}>
-    <FaRegBookmark />
-  </Flex>
-</Flex>
+    
+          <Flex
+           
+            margin={"auto"}
+            mt="10px"
+            width="80%"
+            display={"flex"}
+          >
+        
 
-{/* <br /> */}
-<Box 
-// border={"1px solid black"} 
-//  p={2}
-  margin={"auto"}
-  width="80%"    mt="10px" gap={10} >
-    <Text textAlign={"left"}> Liked by <span style={{fontSize:"15px",fontWeight:"600"}} > Aadil_khan </span> and <span style={{fontSize:"15px",fontWeight:"600"}} > 110 others </span> </Text>
-     
-    <Text textAlign={"left"}> <span style={{fontSize:"15px",fontWeight:"600"}} >Ashutosh lakshakar</span> Be your own kind of beautiful  </Text>
-</Box>
+            <Input placeholder="Add a comment......." border={"none"} />
+          
+          </Flex>
+        </Box>
 
-{/* <br /> */}
-<Flex  
-// border={"1px solid black"}  
-// p={2}
-  margin={"auto"}
-  mt="10px"
-  width="80%"
-  display={"flex"}>
-     <Input placeholder="Add a comment......." border={"none"} />
-</Flex>
-
-         </Box>
-
-
-
-
-
-      {/* ---------------------- whole div ---------------------  */}
+        {/* ---------------------- whole div ---------------------  */}
       </Box>
     </>
-  )
-
-}
+  );
+};

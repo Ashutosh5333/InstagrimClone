@@ -13,10 +13,7 @@ const Dashboard = () => {
        
         },[])
    
-         const handleLogOut =()=>{
-             localStorage.clear()
-              Navigate("/login")
-         }
+        
 
   return (
       <>   

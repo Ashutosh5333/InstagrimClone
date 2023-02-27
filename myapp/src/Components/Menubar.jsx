@@ -1,48 +1,60 @@
 import React from 'react'
-import {      Box, IconButton, } from '@chakra-ui/react'
-    import {
-      Menu,
-      MenuButton,
-      MenuList,
-      MenuItem,
-      MenuItemOption,
-      MenuGroup,
-      MenuOptionGroup,
-      MenuDivider,
-    } from '@chakra-ui/react'
-import { AiOutlineMenu } from 'react-icons/ai'
-import { AddIcon, EditIcon, ExternalLinkIcon, HamburgerIcon, RepeatIcon } from '@chakra-ui/icons'
+import {      Box, IconButton, useColorMode, } from '@chakra-ui/react'
+    import { Menu, MenuButton,MenuList, MenuItem, } from '@chakra-ui/react'
+
+import {  HamburgerIcon, InfoIcon, MoonIcon, SunIcon, TimeIcon } from '@chakra-ui/icons'
+import { FaRegBookmark } from 'react-icons/fa'
+import { MdOutlineSettings } from 'react-icons/md'
+import { Navigate } from 'react-router-dom'
+
 
 const Menubar = () => {
+  const {colorMode, toggleColorMode}= useColorMode()
 
-   
+  const handleLogOut =()=>{
+    localStorage.clear()
+     Navigate("/login")
+}
 
      {/* <AiOutlineMenu/>  */}
 
 
   return (
     <>
-       <Box  border={"1px solid red"} >   
-       <Menu>
+       <Box  >   
+       <Menu >
   <MenuButton
     as={IconButton}
     aria-label='Options'
     icon={<HamburgerIcon />}
-    variant='outline'
+    variant='outline' 
   />
-  <MenuList>
-    <MenuItem icon={<AddIcon />} command='⌘T'>
-      New Tab
+
+  <MenuList   width={{ base: "40%", md: "40%", lg: "20%" }} >
+
+    <MenuItem icon={<MdOutlineSettings />}   fontSize={{base:"10px", md:"15px", lg:"20px"}}>
+       Setting
     </MenuItem>
-    <MenuItem icon={<ExternalLinkIcon />} command='⌘N'>
-      New Window
+    <MenuItem icon={<TimeIcon />}   fontSize={{base:"10px", md:"15px", lg:"20px"}}>
+       Your activity
     </MenuItem>
-    <MenuItem icon={<RepeatIcon />} command='⌘⇧N'>
-      Open Closed Tab
+    <MenuItem icon={<FaRegBookmark />}   fontSize={{base:"10px", md:"15px", lg:"20px"}}>
+       Saved
     </MenuItem>
-    <MenuItem icon={<EditIcon />} command='⌘O'>
-      Open File...
+    {/* ? <MoonIcon/> :  <SunIcon/>  }  */}
+    <MenuItem  onClick={toggleColorMode}    fontSize={{base:"10px", md:"15px", lg:"20px"}}>
+    {colorMode === "light" ? <MoonIcon color="Dark" />  :  <SunIcon color="Light" />  }
     </MenuItem>
+    <MenuItem icon={<InfoIcon />}   fontSize={{base:"10px", md:"15px", lg:"20px"}}>
+      Report a problem
+    </MenuItem>
+    <MenuItem   fontSize={{base:"10px", md:"15px", lg:"20px"}}>
+         Switch Accounts
+    </MenuItem>
+    <MenuItem onClick={handleLogOut}  fontSize={{base:"10px", md:"15px", lg:"20px"}}>
+       Logout 
+    </MenuItem>
+
   </MenuList>
 </Menu>
        

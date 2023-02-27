@@ -41,8 +41,6 @@ export const DotModal = ({handleDelete}) => {
                <Divider orientation='horizontal' />
                <Text p={5}  fontWeight="600" > Add To favorites </Text>
                <Divider orientation='horizontal' />
-               <Text p={5}  fontWeight="600"> Delete </Text>
-               <Divider orientation='horizontal' />
                <Text p={5}  fontWeight="600" > Go to post </Text>
                <Divider orientation='horizontal' />
                <Text p={5}  fontWeight="600" > Share to  </Text>

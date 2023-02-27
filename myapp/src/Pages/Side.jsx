@@ -1,7 +1,7 @@
 import { Box} from "@chakra-ui/react";
 import React from "react";
 import { BsInstagram } from "react-icons/bs";
-import { AiFillHome, AiOutlineMenu } from "react-icons/ai";
+import { AiFillHome } from "react-icons/ai";
 import { MdExplore } from "react-icons/md";
 import { TfiVideoClapper } from "react-icons/tfi";
 
@@ -19,8 +19,7 @@ const Side = () => {
   return (
     <>
       <Box
-        //  border={"1px solid yellow"
-         border-right="1px solid gray"
+         borderRight="1px solid gray"
         p={1}
         display="flex"
         gap={2}
@@ -60,8 +59,8 @@ const Side = () => {
             justifyContent={"space-between"}
           >
             <Box fontSize={"2.2em"}>
-              {" "}
-              <AiFillHome />{" "}
+            
+              <AiFillHome />
             </Box>
 
             <Box
