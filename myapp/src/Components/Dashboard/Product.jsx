@@ -15,13 +15,17 @@ import { Addcomment, likepost, Unlikepost } from "./ProductFetch";
 
 export const Product = () => {
   const dispatch = useDispatch();
-  const [data, setdata] = useState("");
+  const [like, Setlike] = useState("");
+  const [com,Setcom] = useState([])
 
   const userdetail = useSelector((store) => store.AppReducer.productData);
-  console.log(userdetail);
+  // console.log(userdetail[0].comments);
+  
   useEffect(() => {
     dispatch(getData);
   }, []);
+
+
 
   const handleDelete = (_id) => {
     dispatch(getDeleteData(_id)).then((res) => {
@@ -201,13 +205,17 @@ export const Product = () => {
                 </Box>
 
                 <Flex
-                  // border={"1px solid black"}
 
                   margin={"auto"}
                   mt="10px"
                   width={{ base: "60%", md: "70%", lg: "80%" }}
                   display={"flex"}
                 >
+                 <Text>
+                  {/* <span>{el.comments[0].postedby.name} </span> */}
+                  
+               
+                   </Text>
                  <form onSubmit={(e) =>{
                     e.preventDefault()
                      Addcomment(e.target[0].value,el._id)

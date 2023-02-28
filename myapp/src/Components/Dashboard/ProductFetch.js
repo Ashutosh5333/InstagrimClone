@@ -1,5 +1,8 @@
 
+
 const token = JSON.parse(localStorage.getItem("token"));
+
+
 
 export const likepost = (_id) => {
   fetch(`https://sore-cyan-llama-robe.cyclic.app/likes/${_id}`, {
@@ -8,18 +11,16 @@ export const likepost = (_id) => {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-    // body: JSON.stringify({
-    //   postId:_id,
-    // }),
   })
     .then((res) => res.json())
     .then((dat) => {
-      console.log(dat);
+      console.log(dat)
     })
     .catch((err) => {
       console.log(err);
     });
-  //  console.log("hello")
+    //  window.location.reload()
+  
 };
 
 // ----------------  Unlikepost ------------ //
@@ -31,9 +32,6 @@ export const Unlikepost = (_id) => {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-    //   body: JSON.stringify({
-    //     postId:_id,
-    //   }),
     })
       .then((res) => res.json())
       .then((dat) => {
@@ -42,7 +40,8 @@ export const Unlikepost = (_id) => {
       .catch((err) => {
         console.log(err);
       });
-    //  console.log("hello")
+    //   window.location.reload()
+    
   };
 
 
@@ -51,7 +50,7 @@ export const Unlikepost = (_id) => {
 // ----------- comment ---------- //
  
 export  const Addcomment = (text, _id) => {
-    fetch(`https://sore-cyan-llama-robe.cyclic.app/likes/${_id}`, {
+    fetch(`https://sore-cyan-llama-robe.cyclic.app/comment/${_id}`, {
       method: "put",
       headers: {
         "Content-Type": "application/json",

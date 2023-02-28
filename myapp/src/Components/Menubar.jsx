@@ -41,9 +41,10 @@ const Menubar = () => {
     <MenuItem icon={<FaRegBookmark />}   fontSize={{base:"10px", md:"15px", lg:"20px"}}>
        Saved
     </MenuItem>
-    {/* ? <MoonIcon/> :  <SunIcon/>  }  */}
+ 
     <MenuItem  onClick={toggleColorMode}    fontSize={{base:"10px", md:"15px", lg:"20px"}}>
     {colorMode === "light" ? <MoonIcon color="Dark" />  :  <SunIcon color="Light" />  }
+    Switch appearance
     </MenuItem>
     <MenuItem icon={<InfoIcon />}   fontSize={{base:"10px", md:"15px", lg:"20px"}}>
       Report a problem
