@@ -1,7 +1,7 @@
 import {Box,  Flex,  Image,  Input,  Text,  Wrap,  WrapItem,} from "@chakra-ui/react";
 import { Avatar } from "@chakra-ui/react";
 import React, { useState, useEffect } from "react";
-import { AiFillDislike, AiFillLike } from "react-icons/ai";
+
 import { TfiHeart } from "react-icons/tfi";
 import { FaHeart, FaRegComment } from "react-icons/fa";
 import { FaRegBookmark } from "react-icons/fa";
@@ -34,8 +34,7 @@ export const Product = () => {
   };
 
  
-
-
+  
 
   return (
     <>
