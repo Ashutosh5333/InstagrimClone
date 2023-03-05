@@ -5,15 +5,21 @@ import { MdOutlineSettings } from "react-icons/md";
 import "./prof.css";
 import Side from './../../Pages/Side';
 import Stories from './../StoriesSlider/Stories';
+import { useParams } from "react-router-dom";
 
 
 
 
 export const UserProfile = () => {
+   const {userId} = useParams()
+   
+   console.log(userId)
+   
+
   return (
     <>
     <Box
-      // border="1px solid red"
+      border="1px solid red"
       className="container"
       height={"100vh"}
       display="flex"

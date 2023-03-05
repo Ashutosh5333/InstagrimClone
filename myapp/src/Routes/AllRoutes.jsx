@@ -9,7 +9,6 @@ import Explore from '../Components/Explore';
 import Reels from '../Components/Reels';
 import Messanger from '../Components/Messanger';
 import Notifications from '../Components/Notifications';
-
 import Profile from '../Components/Profile';
 import MypostFull from '../Components/Collections/MypostFull';
 import Menubar from '../Components/Menubar';
@@ -31,7 +30,7 @@ export const AllRoutes = () => {
         <Route path="/menu" element={<Menubar/>} />
         <Route path="/profile" element={<Profile/>} />
         <Route path='/profiledata'  element={<MypostFull/>} />
-        <Route path="/userprofile" element={<UserProfile/>} />
+        <Route path="/userprofile/:userId" element={<UserProfile/>} />
         
         <Route path="/dash" element={
           <PrivateRoute>

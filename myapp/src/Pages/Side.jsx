@@ -159,7 +159,7 @@ const Side = () => {
           </Box>
 
           <Box
-    
+     
             p={1}
             display={"flex"}
             mt={6}

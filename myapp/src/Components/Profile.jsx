@@ -12,9 +12,9 @@ const Profile = () => {
   const dispatch = useDispatch()
   const  userdetail = useSelector((store) => store.AppReducer.Mypost)
    console.log("Mypost", userdetail)
-    // console.log(userdetail.postedby.name)
+  
      const data = userdetail.postedby
-      // console.log("data", data)
+   
 
      useEffect(() =>{
        dispatch(GetMypost)
@@ -64,6 +64,7 @@ const Profile = () => {
               // border="1px solid blue"
               width={{ base: "90%", md: "40%", lg: "30%" }}
             >
+            
               {/* --------------------- Image section -------------------  */}
 
               <Box

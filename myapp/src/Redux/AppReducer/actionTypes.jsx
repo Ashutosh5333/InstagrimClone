@@ -27,3 +27,10 @@ export const USER_DATA_FAILURE =  "USER_DATA_FAILURE ";
 export const MYPOST_DATA_REQUEST =  "MYPOST_DATA_REQUEST";
 export const MYPOST_DATA_SUCCESS =  "MYPOST_DATA_SUCCESS";
 export const MYPOST_DATA_FAILURE =  "MYPOST_DATA_FAILURE ";
+
+
+
+export const SingleUserProfile_DATA_REQUEST =  "SingleUserProfile_DATA_REQUEST";
+export const SingleUserProfile_DATA_SUCCESS =  "SingleUserProfile_DATA_SUCCESS";
+export const SingleUserProfile_DATA_FAILURE =  "SingleUserProfile_DATA_FAILURE ";
+

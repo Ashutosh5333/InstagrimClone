@@ -57,6 +57,29 @@ const MyAdddataPostFail = () => {
   }
 }
 
+
+ const singleUserprofilerequest = () =>{
+    return {
+       type:types.SingleUserProfile_DATA_REQUEST,
+    }
+ }
+ const singleUserprofileSuccess = (payload) =>{
+   return {
+      type:types.SingleUserProfile_DATA_SUCCESS,
+      payload,
+   }
+}
+const singleUserprofilefailure = () =>{
+   return {
+      type:types.SingleUserProfile_DATA_FAILURE,
+   }
+}
+
+
+
+
+
+
  const token = JSON.parse(localStorage.getItem("token"))
 
 
@@ -187,6 +210,27 @@ export const GetMypost = (dispatch) => {
    return    dispatch(MyAdddataPostFail())
    })
 }
+
+
+
+//  ---------------   Single user Request  --------------  //
+
+export const SingleUserprofile = (userId) => (dispatch) =>{
+        dispatch(singleUserprofilerequest())
+       return  axios.get(`https://sore-cyan-llama-robe.cyclic.app/user/${userId}`,{
+         headers:{
+            "Content-Type":"application/json",
+            "Authorization":`Bearer ${token}`
+          },
+       }).then((res) =>{
+          return dispatch(singleUserprofileSuccess(res.data))
+       }).catch((err) =>{
+        return   dispatch(singleUserprofilefailure())
+       })
+}
+
+
+
 
 
 

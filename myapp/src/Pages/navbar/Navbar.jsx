@@ -45,7 +45,7 @@ const Navbar = () => {
    
 
   return (
-    <Box w='100%' p={4} border="1px solid green" color='Black'>
+   <Box w='100%' p={4} border="1px solid green" color='Black'>
 
       <Flex h={38} m="auto"
      
@@ -65,7 +65,7 @@ const Navbar = () => {
            
 
         {/* ==================== */}
-
+ 
            <Flex  mr={10} justifyContent={'right'}>  
                 <Text mt={10} color='black' alignItems={"center"} h="50">
               

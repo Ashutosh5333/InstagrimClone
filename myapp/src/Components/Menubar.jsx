@@ -1,11 +1,10 @@
 import React from 'react'
-import {      Box, IconButton, useColorMode, } from '@chakra-ui/react'
-    import { Menu, MenuButton,MenuList, MenuItem, } from '@chakra-ui/react'
-
+import { Box, IconButton, useColorMode, } from '@chakra-ui/react'
+import { Menu, MenuButton,MenuList, MenuItem, } from '@chakra-ui/react'
 import {  HamburgerIcon, InfoIcon, MoonIcon, SunIcon, TimeIcon } from '@chakra-ui/icons'
-import { FaRegBookmark } from 'react-icons/fa'
-import { MdOutlineSettings } from 'react-icons/md'
-import { Navigate } from 'react-router-dom'
+import { FaRegBookmark } from 'react-icons/fa';
+import { MdOutlineSettings } from 'react-icons/md';
+import { Navigate } from 'react-router-dom';
 
 
 const Menubar = () => {
@@ -16,8 +15,7 @@ const Menubar = () => {
      Navigate("/login")
 }
 
-     {/* <AiOutlineMenu/>  */}
-
+     
 
   return (
     <>
@@ -57,13 +55,15 @@ const Menubar = () => {
     </MenuItem>
 
   </MenuList>
-</Menu>
+
+ </Menu>
        
          
        
         </Box>
     </>
   )
+
 }
 
 export default Menubar

@@ -12,6 +12,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { getData, getDeleteData } from "../../Redux/AppReducer/action";
 import { Addcomment, likepost, Unlikepost } from "./ProductFetch";
+import { Link } from "react-router-dom";
 
 export const Product = () => {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ export const Product = () => {
   const [com,Setcom] = useState([])
 
   const userdetail = useSelector((store) => store.AppReducer.productData);
-  // console.log(userdetail[0].comments);
+   console.log(userdetail)
   
   useEffect(() => {
     dispatch(getData);
@@ -70,8 +71,6 @@ export const Product = () => {
                         />
                       </WrapItem>
                     </Wrap>
-                    <Image />
-
                     <Text
                       //  border={"1px solid red"}
                       alignItems="center"
@@ -105,16 +104,18 @@ export const Product = () => {
                     alignItems="center"
                     margin={"auto"}
                     height={"30%"}
-                    width={{ base: "80%", md: "70%", lg: "90%" }}
+                    width={{ base: "70%", md: "70%", lg: "90%" }}
                   >
+                    <Link to={`/userprofile/${el.userId}`} > 
                     <Image
                       src={el.pic}
                       alt="image"
-                      boxSize={{ base: "200px", md: "300px", lg: "400px" }}
+                      boxSize={{ base: "250px", md: "350px", lg: "400px" }}
                       m={"auto"}
                       justifyContent={"center"}
                       alignItems="center"
                     />
+                    </Link>
                   </Box>
                 </Flex>
 
@@ -160,7 +161,6 @@ export const Product = () => {
                 </Flex>
 
                 <Box
-
                   margin={"auto"}
                   width={{ base: "80%", md: "80%", lg: "80%" }}
                   mt="10px"
@@ -204,23 +204,18 @@ export const Product = () => {
                 </Box>
 
                 <Flex
-
                   margin={"auto"}
                   mt="10px"
                   width={{ base: "60%", md: "70%", lg: "80%" }}
                   display={"flex"}
                 >
-                 <Text>
-                  {/* <span>{el.comments[0].postedby.name} </span> */}
-                  
-               
-                   </Text>
                  <form onSubmit={(e) =>{
                     e.preventDefault()
                      Addcomment(e.target[0].value,el._id)
                  }}>
 
-     <Input placeholder="Add a comment......." border={"none"} />
+            <Input  width={{ base: "100%", md: "100%", lg: "100%" }} 
+            placeholder="Add a comment......." border={"none"} />
    
      </form>
                 </Flex>
