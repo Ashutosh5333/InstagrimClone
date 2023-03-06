@@ -20,22 +20,17 @@ const Side = () => {
     <>
       <Box
          borderRight="1px solid gray"
-        p={1}
-        display="flex"
-        gap={2}
-        position="fixed"
+        p={1}  display="flex"  gap={2}
+        // position="fixed"
       >
         <Box
           //  border={"5px solid blue"}
-          gap="8px"
-         
-        >
+          gap="8px">
+
           <Box
             //  border="1px solid yellow"
-            p={1}
-            display={"flex"}
-            gap="8px"
-            justifyContent={"space-between"}
+            p={1}  display={"flex"}
+            gap="8px" justifyContent={"space-between"}
           >
             <Box fontSize={"2.2em"}>
               <Link to="/dash">

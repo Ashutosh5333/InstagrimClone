@@ -1,20 +1,35 @@
-import React, { useEffect } from "react";
-import Collection from '../Collections/Collection'
+import React, { useEffect, useState } from "react";
 import {  Avatar,  Box,  Button,  Divider,  Text,  Wrap,  WrapItem,} from "@chakra-ui/react";
 import { MdOutlineSettings } from "react-icons/md";
 import "./prof.css";
 import Side from './../../Pages/Side';
-import Stories from './../StoriesSlider/Stories';
+
 import { useParams } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { SingleUserprofile } from "../../Redux/AppReducer/action";
+import Stories from "./Stories/Stories";
+import Collection from "./Collections/Collection";
 
 
 
 
 export const UserProfile = () => {
-   const {userId} = useParams()
+    const [Userprofile,SetUserprofile] = useState([])
+     const dispatch = useDispatch()
+    const {userId} = useParams()
+  
+    
+   useEffect(() =>{
+      dispatch(SingleUserprofile(userId))
+       .then((res) =>{
+         SetUserprofile(res.payload)
+        //  console.log(res.payload)
+       }).catch((err) =>{
+        console.log(err)
+       })
+   },[userId])
    
-   console.log(userId)
-   
+    console.log("single",Userprofile.user)
 
   return (
     <>
@@ -30,30 +45,20 @@ export const UserProfile = () => {
     >
       <Box
         // border="1px solid gray"
-        width="15%"
-        className="side"
-      >
+      width="15%"  className="side">
         <Side />
       </Box>
 
-      {/* -------- Side bar -------- */}
 
       <Box
         // border="1px solid black"
-        width="85%"
-        margin={"auto"}
-      >
-       
-       {/* { */}
-           {/* userdetail.length> 0 && userdetail.map((el) =>{ */}
-            {/* return  */}
+        width="85%"  margin={"auto"}>
+  
             <Box 
           // border="1px solid green"
-          display="flex"
-          justifyContent={"space-between"}
-          gap="10px"
-          className="partion"
-        >
+          display="flex"  justifyContent={"space-between"}
+          gap="10px"  className="partion">
+
           {/*------------- partition of profile section ----------- */}
 
           <Box
@@ -69,18 +74,14 @@ export const UserProfile = () => {
               mt="10px"
               alignContent={"center"}
             >
-              <Wrap
-                m="auto"
-                alignContent={"center"}
+              <Wrap  m="auto" alignContent={"center"}
                 justifyContent={"center"}
               >
                 <WrapItem>
-                  <Avatar
-                    className="image"
-                    // m="auto"
-                    ml=".6em"
+                  <Avatar className="image"
+                       ml=".6em"
                     size={{ base: "xl", md: "xl", lg: "2xl" }}
-                    // name={el.postedby.name}
+                    name={Userprofile.user.name}
                     // src={el.image}
                   />
                 </WrapItem>
@@ -91,12 +92,11 @@ export const UserProfile = () => {
               // border="1px solid black"
               width={{ base: "90%", md: "90%", lg: "80%" }}
               margin={"auto"}
-              mt="20px"
-              justifyContent={"center"}
+              mt="20px"   justifyContent={"center"}
             >
               <Box className="wish">
                 <Text textAlign={"start"} fontWeight="600">
-                  {/* {el.postedby.name} */}
+                  {Userprofile.user.name}
                 </Text>
                 <Text textAlign={"start"}> 👑Official Account🖤 </Text>
                 <Text textAlign={"start"}> 💟Wish Me On 11 January🎂 </Text>
@@ -106,7 +106,7 @@ export const UserProfile = () => {
               </Box>
             </Box>
 
-            {/* - */}
+           
           </Box>
 
           {/* ------------------- profile ------------------ */}
@@ -119,15 +119,14 @@ export const UserProfile = () => {
             <Box
               className="Edit"
               // border="1px solid red"
-              display={"flex"}
-              justifyContent="space-evenly"
+              display={"flex"}  justifyContent="space-evenly"
               width={{ base: "100%", md: "100%", lg: "100%" }}
-              margin={"auto"}
-              mt="20px"
-              gap="10px"
-            >
+              margin={"auto"}  mt="20px"
+              gap="10px"    >
               <Box className="username" margin="auto">
-                <Text className="textname">_Ashutoshlakshkara7985</Text>
+                <Text className="textname">
+                {Userprofile.user.name}
+                </Text>
               </Box>
 
               <Box
@@ -167,18 +166,15 @@ export const UserProfile = () => {
             >
               <Box className="follwer" margin="auto" fontSize={"1rem"}>
                 <Text>
-                  {" "}
                   <span style={{ fontWeight: "600" }}> 25 </span> Post{" "}
                 </Text>
               </Box>
 
               <Box className="follwer" margin="auto" fontSize={"1rem"}>
                 <Text>
-                  {" "}
                   <span style={{ fontWeight: "600" }}>
-                    {" "}
-                    865{" "}
-                  </span> Followers{" "}
+                    865
+                  </span> Followers
                 </Text>
               </Box>
 
@@ -201,7 +197,7 @@ export const UserProfile = () => {
             >
               <Box className="wishme">
                 <Text textAlign={"start"} fontWeight="600">
-                {/* {el.postedby.name} */}
+                {Userprofile.user.name}
                 </Text>
                 <Text textAlign={"start"}> 👑Official Account🖤 </Text>
                 <Text textAlign={"start"}> 💟Wish Me On 11 January🎂 </Text>
@@ -212,34 +208,27 @@ export const UserProfile = () => {
             </Box>
           </Box>
 
+        </Box>
+        
           {/* --------------------- Data upar part ---------------- */}
-        </Box>
-           {/* }) */}
-
-       {/* } */}
 
 
-
-
-        {/* ----------------- */}
+  
 
         <Divider orientation="horizontal" />
 
         <Box
-          // border="1px solid brown"
-          mt="20px"
-        >
-          <Stories />
+          // border="1px solid brown" 
+          mt="20px">
+             <Stories/>
         </Box>
 
         <Divider orientation="horizontal" />
 
-        <Box
-          // border="1px solid darkpink"
-          mt="20px"
-        >
-          <Collection />
+        <Box mt="20px">
+          <Collection/>
         </Box>
+
       </Box>
 
       {/* --------- container whole -------- */}

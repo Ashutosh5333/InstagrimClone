@@ -28,7 +28,7 @@ export const AllRoutes = () => {
         <Route  path="/msng" element={<Messanger/>} />
         <Route  path="/notify" element={<Notifications/>} />
         <Route path="/menu" element={<Menubar/>} />
-        <Route path="/profile" element={<Profile/>} />
+        <Route exact path="/profile" element={<Profile/>} />
         <Route path='/profiledata'  element={<MypostFull/>} />
         <Route path="/userprofile/:userId" element={<UserProfile/>} />
         

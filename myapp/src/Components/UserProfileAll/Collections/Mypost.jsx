@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { GetMypost } from '../../Redux/AppReducer/action';
 import { Box, Image, SimpleGrid } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
+import { GetMypost } from '../../../Redux/AppReducer/action';
 
 export const Mypost = () => {
   const dispatch = useDispatch()

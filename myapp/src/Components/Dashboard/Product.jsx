@@ -20,7 +20,8 @@ export const Product = () => {
   const [com,Setcom] = useState([])
 
   const userdetail = useSelector((store) => store.AppReducer.productData);
-   console.log(userdetail)
+ 
+  
   
   useEffect(() => {
     dispatch(getData);
