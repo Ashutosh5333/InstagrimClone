@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {  Avatar,  Box,  Button,  Divider,  Text,  Wrap,  WrapItem,} from "@chakra-ui/react";
-import { MdOutlineSettings } from "react-icons/md";
+import { HiUserAdd } from "react-icons/hi";
 import "./prof.css";
 import Side from './../../Pages/Side';
 
@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux';
 import { SingleUserprofile } from "../../Redux/AppReducer/action";
 import Stories from "./Stories/Stories";
 import Collection from "./Collections/Collection";
+import DotuserModal from "./DotuserModal";
 
 
 
@@ -81,7 +82,7 @@ export const UserProfile = () => {
                   <Avatar className="image"
                        ml=".6em"
                     size={{ base: "xl", md: "xl", lg: "2xl" }}
-                    name={Userprofile.user.name}
+                    // name={Userprofile.user.name}
                     // src={el.image}
                   />
                 </WrapItem>
@@ -96,7 +97,7 @@ export const UserProfile = () => {
             >
               <Box className="wish">
                 <Text textAlign={"start"} fontWeight="600">
-                  {Userprofile.user.name}
+                  {/* {Userprofile.user.name} */}
                 </Text>
                 <Text textAlign={"start"}> 👑Official Account🖤 </Text>
                 <Text textAlign={"start"}> 💟Wish Me On 11 January🎂 </Text>
@@ -125,7 +126,7 @@ export const UserProfile = () => {
               gap="10px"    >
               <Box className="username" margin="auto">
                 <Text className="textname">
-                {Userprofile.user.name}
+                {/* {Userprofile.user.name} */}
                 </Text>
               </Box>
 
@@ -136,11 +137,11 @@ export const UserProfile = () => {
                 gap="10px"
               >
                 <Box margin="auto">
-                  <Button className="editbutton"> Edit Profile </Button>
+                  <Button className="editbutton" colorScheme="blue" color="#fff" > Follow </Button>
                 </Box>
 
                 <Box margin="auto">
-                  <Button className="editbutton">Ad Tools</Button>
+                  <Button className="editbutton">Message</Button>
                 </Box>
               </Box>
 
@@ -150,10 +151,23 @@ export const UserProfile = () => {
                   margin="auto"
                   justifyContent={"center"}
                 >
-                  <MdOutlineSettings />
+                  <HiUserAdd />
                 </Text>
               </Box>
-            </Box>
+
+
+               <Box className="setting" margin="auto">
+               <Text
+                  fontSize={"25px"}
+                  margin="auto"
+                  justifyContent={"center"}
+                >
+                  <DotuserModal />
+                </Text>
+               </Box>
+
+
+            </Box>``
 
             {/* ---------------------------------- */}
             <Box
@@ -197,7 +211,7 @@ export const UserProfile = () => {
             >
               <Box className="wishme">
                 <Text textAlign={"start"} fontWeight="600">
-                {Userprofile.user.name}
+                {/* {Userprofile.user.name} */}
                 </Text>
                 <Text textAlign={"start"}> 👑Official Account🖤 </Text>
                 <Text textAlign={"start"}> 💟Wish Me On 11 January🎂 </Text>

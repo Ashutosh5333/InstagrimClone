@@ -14,6 +14,7 @@ import { getData, getDeleteData } from "../../Redux/AppReducer/action";
 import { Addcomment, likepost, Unlikepost } from "./ProductFetch";
 import { Link } from "react-router-dom";
 import Loading from "../../Loading";
+import LoadSpin from "./LoadSpin";
 
 export const Product = () => {
   const [isLoading, SetLoading] = useState(false);
@@ -43,16 +44,7 @@ export const Product = () => {
     <>
       <br />
       {isLoading ? (
-        <Spinner
-           margin={"auto"}
-            justifyContent={"center"}
-             right="50%"
-          thickness="4px" 
-          speed="0.65s"
-          emptyColor="gray.200"
-          color="blue.500"
-          size="xl"
-        />
+        <LoadSpin />
       ) : (
         <Box
           //  border={"1px solid red"}
