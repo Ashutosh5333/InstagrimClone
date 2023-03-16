@@ -10,6 +10,7 @@ import { SingleUserprofile } from "../../Redux/AppReducer/action";
 import Stories from "./Stories/Stories";
 import Collection from "./Collections/Collection";
 import DotuserModal from "./DotuserModal";
+import Loading from "../../Loading";
 
 
 
@@ -18,8 +19,8 @@ export const UserProfile = () => {
     const [Userprofile,SetUserprofile] = useState([])
      const dispatch = useDispatch()
     const {userId} = useParams()
+    console.log("singledata",Userprofile)
   
-    
    useEffect(() =>{
       dispatch(SingleUserprofile(userId))
        .then((res) =>{
@@ -29,12 +30,26 @@ export const UserProfile = () => {
         console.log(err)
        })
    },[userId])
+   console.log("single",Userprofile.user)
+
+  const token = JSON.parse(localStorage.getItem("token"))
+
+
+
+     const FollowUser = () =>{
+        fetch(`https://sore-cyan-llama-robe.cyclic.app/follow`,{
+           method:"put",
+           headers:{
+            "Content-Type":"application/json",
+            "Authorization":`Bearer ${token}`
+          },
+        })
+     }
    
-    console.log("single",Userprofile.user)
 
   return (
     <>
-    <Box
+      {Userprofile.length>0 ?  <Box
       border="1px solid red"
       className="container"
       height={"100vh"}
@@ -167,7 +182,7 @@ export const UserProfile = () => {
                </Box>
 
 
-            </Box>``
+            </Box>
 
             {/* ---------------------------------- */}
             <Box
@@ -247,6 +262,10 @@ export const UserProfile = () => {
 
       {/* --------- container whole -------- */}
     </Box>
+    : <Loading/>
+        
+      }
+
   </>
   )
 }

@@ -7,15 +7,14 @@ import "./style/prof.css";
 import Side from "./../Pages/Side";
 import { useDispatch, useSelector } from "react-redux";
 import { GetMypost } from "../Redux/AppReducer/action";
+import Loading from "../Loading";
 
 const Profile = () => {
   const dispatch = useDispatch()
   const  userdetail = useSelector((store) => store.AppReducer.Mypost)
-   console.log("Mypost", userdetail)
+  //  console.log("Mypost", userdetail)
   
-     const data = userdetail.postedby
-   
-
+  
      useEffect(() =>{
        dispatch(GetMypost)
      },[])
@@ -23,7 +22,8 @@ const Profile = () => {
 
   return (
     <>
-      <Box
+      {
+        userdetail.user.length>0 ?  <Box
         // border="1px solid red"
         className="container"
         height={"100vh"}
@@ -249,6 +249,11 @@ const Profile = () => {
 
         {/* --------- container whole -------- */}
       </Box>
+      : <Loading/>
+
+      }
+     
+
     </>
   );
 };

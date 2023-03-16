@@ -2,7 +2,6 @@ import {  Box,  Flex,  Image,  Input,  Spinner,  Text,Wrap,  WrapItem,
 } from "@chakra-ui/react";
 import { Avatar } from "@chakra-ui/react";
 import React, { useState, useEffect } from "react";
-
 import { TfiHeart } from "react-icons/tfi";
 import { FaHeart, FaRegComment } from "react-icons/fa";
 import { FaRegBookmark } from "react-icons/fa";
@@ -19,15 +18,15 @@ import LoadSpin from "./LoadSpin";
 export const Product = () => {
   const [isLoading, SetLoading] = useState(false);
   const dispatch = useDispatch();
-
   const userdetail = useSelector((store) => store.AppReducer.productData);
+
 
   useEffect(() => {
     SetLoading(true);
     dispatch(getData)
       .then((res) => {
         SetLoading(false);
-        console.log(res);
+        // console.log(res);
       })
       .catch((err) => {
         console.log(err);
@@ -36,7 +35,7 @@ export const Product = () => {
 
   const handleDelete = (_id) => {
     dispatch(getDeleteData(_id)).then((res) => {
-      console.log("dlete data");
+      // console.log("dlete data");
     });
   };
 

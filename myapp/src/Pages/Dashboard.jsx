@@ -27,7 +27,8 @@ const Dashboard = () => {
 
   return (
     <>
-      {isLoading ? (
+      {
+        isLoading ? (
         <Loading />
       ) : (
         <div className="dashboard">
@@ -44,7 +45,9 @@ const Dashboard = () => {
             <Suggestions />
           </div>
         </div>
-      )}
+      )
+      
+      }
     </>
   );
 };
