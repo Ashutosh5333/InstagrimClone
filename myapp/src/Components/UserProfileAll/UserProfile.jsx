@@ -11,30 +11,29 @@ import Stories from "./Stories/Stories";
 import Collection from "./Collections/Collection";
 import DotuserModal from "./DotuserModal";
 import Loading from "../../Loading";
-
-
-
+const token = JSON.parse(localStorage.getItem("token"))
 
 export const UserProfile = () => {
-    const [Userprofile,SetUserprofile] = useState([])
+  const [isLoading, SetLoading] = useState(false);
+  const [Userprofile,SetUserprofile] = useState([])
      const dispatch = useDispatch()
     const {userId} = useParams()
-    console.log("singledata",Userprofile)
+
   
    useEffect(() =>{
+     SetLoading(true)
       dispatch(SingleUserprofile(userId))
        .then((res) =>{
          SetUserprofile(res.payload)
-        //  console.log(res.payload)
+         SetLoading(false)
        }).catch((err) =>{
         console.log(err)
        })
    },[userId])
-   console.log("single",Userprofile.user)
-
-  const token = JSON.parse(localStorage.getItem("token"))
-
-
+   
+  const data = Userprofile.user
+      
+    console.log(data)
 
      const FollowUser = () =>{
         fetch(`https://sore-cyan-llama-robe.cyclic.app/follow`,{
@@ -49,10 +48,11 @@ export const UserProfile = () => {
 
   return (
     <>
-      {Userprofile.length>0 ?  <Box
+
+      <Box
       border="1px solid red"
       className="container"
-      height={"100vh"}
+      // height={"100vh"}
       display="flex"
       gap="10px"
       justifyContent={"space-between"}
@@ -69,9 +69,9 @@ export const UserProfile = () => {
       <Box
         // border="1px solid black"
         width="85%"  margin={"auto"}>
-  
-            <Box 
-          // border="1px solid green"
+       
+           <Box 
+          border="1px solid green"
           display="flex"  justifyContent={"space-between"}
           gap="10px"  className="partion">
 
@@ -97,8 +97,7 @@ export const UserProfile = () => {
                   <Avatar className="image"
                        ml=".6em"
                     size={{ base: "xl", md: "xl", lg: "2xl" }}
-                    // name={Userprofile.user.name}
-                    // src={el.image}
+                    // name={el.name}
                   />
                 </WrapItem>
               </Wrap>
@@ -112,7 +111,7 @@ export const UserProfile = () => {
             >
               <Box className="wish">
                 <Text textAlign={"start"} fontWeight="600">
-                  {/* {Userprofile.user.name} */}
+                  {/* {el.name} */}
                 </Text>
                 <Text textAlign={"start"}> 👑Official Account🖤 </Text>
                 <Text textAlign={"start"}> 💟Wish Me On 11 January🎂 </Text>
@@ -141,7 +140,7 @@ export const UserProfile = () => {
               gap="10px"    >
               <Box className="username" margin="auto">
                 <Text className="textname">
-                {/* {Userprofile.user.name} */}
+                {/* {el.name} */}
                 </Text>
               </Box>
 
@@ -226,7 +225,7 @@ export const UserProfile = () => {
             >
               <Box className="wishme">
                 <Text textAlign={"start"} fontWeight="600">
-                {/* {Userprofile.user.name} */}
+                {/* {el.name} */}
                 </Text>
                 <Text textAlign={"start"}> 👑Official Account🖤 </Text>
                 <Text textAlign={"start"}> 💟Wish Me On 11 January🎂 </Text>
@@ -239,6 +238,12 @@ export const UserProfile = () => {
 
         </Box>
         
+    
+
+    
+        
+        
+           
           {/* --------------------- Data upar part ---------------- */}
 
 
@@ -260,11 +265,10 @@ export const UserProfile = () => {
 
       </Box>
 
-      {/* --------- container whole -------- */}
+    
     </Box>
-    : <Loading/>
-        
-      }
+  
+
 
   </>
   )

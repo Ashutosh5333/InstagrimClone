@@ -43,7 +43,7 @@ const Signup = () => {
               toast({
                 position : 'top',
                 colorScheme : 'green', 
-                status : "success",
+                status : "error",
                 title:res.payload.data
             })
             }
@@ -96,14 +96,12 @@ const Signup = () => {
            isRequired/>
         </FormControl>
         <br/>
-        <FormControl>
-      
+
+        {/* <FormControl>
           <Input type="text" placeholder="UserName" 
-    
            isRequired/>
         </FormControl>
-       
-        <br/>
+        */}
         <FormControl>
     
           <Input type='password' placeholder="Password"

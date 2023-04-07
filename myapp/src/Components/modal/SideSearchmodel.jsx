@@ -10,8 +10,8 @@ const SideSearchmodel = () => {
     <>
     
       <Text onClick={onOpen}>
-           <BsSearch/>      
     {/* <Tooltip hasArrow label='Right' placement='auto'> */}
+           <BsSearch/>      
     {/* </Tooltip> */}
 
       </Text>
@@ -19,9 +19,7 @@ const SideSearchmodel = () => {
         isOpen={isOpen}
         placement='left'
         onClose={onClose}
-        finalFocusRef={btnRef}
-        // border="1px solid green" p={4} 
-      >
+        finalFocusRef={btnRef}>
         <DrawerOverlay />
 
         <DrawerContent  border="1px solid green"   >

@@ -42,7 +42,7 @@ const getLoginFail = () => {
 
 export const  Signupdata = (payload) => (dispatch) => {
   dispatch(getsignReq())
-  return axios.post(`https://sore-cyan-llama-robe.cyclic.app/signup`,payload)
+  return axios.post(`https://drab-ruby-swallow-toga.cyclic.app/signup`,payload)
      .then((res)=>{
        return dispatch(getsignSucess(res))
      })
@@ -54,7 +54,7 @@ export const  Signupdata = (payload) => (dispatch) => {
 
 export const  Loginupdata = (payload) => (dispatch) => {
    dispatch(getLoginReq())
-   return axios.post(`https://sore-cyan-llama-robe.cyclic.app/login`,payload)
+   return axios.post(`https://drab-ruby-swallow-toga.cyclic.app/login`,payload)
       .then((res)=>{
         return dispatch(getloginSucess(res))
       })

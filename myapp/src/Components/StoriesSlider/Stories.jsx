@@ -1,8 +1,6 @@
 import React from "react";
 
 import {ArrowLeftIcon, ArrowRightIcon} from "@chakra-ui/icons"
-
-
 import {statusCarousel} from "../StoriesSlider/data"
 import Avatar from "./Avatar"
 import "./styles/carousel.css"

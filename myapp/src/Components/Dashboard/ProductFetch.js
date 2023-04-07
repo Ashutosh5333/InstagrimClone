@@ -5,7 +5,7 @@ const token = JSON.parse(localStorage.getItem("token"));
 
 
 export const likepost = (_id) => {
-  fetch(`https://sore-cyan-llama-robe.cyclic.app/likes/${_id}`, {
+  fetch(`https://drab-ruby-swallow-toga.cyclic.app/likes/${_id}`, {
     method: "put",
     headers: {
       "Content-Type": "application/json",
@@ -19,18 +19,18 @@ export const likepost = (_id) => {
     .catch((err) => {
       console.log(err);
     });
-    //  window.location.reload()
+     window.location.reload()
   
 };
 
 // ----------------  Unlikepost ------------ //
 
 export const Unlikepost = (_id) => {
-    fetch(`https://sore-cyan-llama-robe.cyclic.app/unlikes/${_id}`, {
+    fetch(`https://drab-ruby-swallow-toga.cyclic.app/unlikes/${_id}`, {
       method: "put",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        "Authorization": `Bearer ${token}`,
       },
     })
       .then((res) => res.json())
@@ -40,7 +40,7 @@ export const Unlikepost = (_id) => {
       .catch((err) => {
         console.log(err);
       });
-    //   window.location.reload()
+      window.location.reload()
     
   };
 
@@ -50,11 +50,11 @@ export const Unlikepost = (_id) => {
 // ----------- comment ---------- //
  
 export  const Addcomment = (text, _id) => {
-    fetch(`https://sore-cyan-llama-robe.cyclic.app/comment/${_id}`, {
+    fetch(`https://drab-ruby-swallow-toga.cyclic.app/comment/${_id}`, {
       method: "put",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        "Authorization": `Bearer ${token}`,
       },
       body: JSON.stringify({
         _id,

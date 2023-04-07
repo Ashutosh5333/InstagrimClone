@@ -20,13 +20,15 @@ export const Product = () => {
   const dispatch = useDispatch();
   const userdetail = useSelector((store) => store.AppReducer.productData);
 
+      console.log(userdetail)
+      
 
   useEffect(() => {
     SetLoading(true);
     dispatch(getData)
       .then((res) => {
         SetLoading(false);
-        // console.log(res);
+      
       })
       .catch((err) => {
         console.log(err);
@@ -35,7 +37,7 @@ export const Product = () => {
 
   const handleDelete = (_id) => {
     dispatch(getDeleteData(_id)).then((res) => {
-      // console.log("dlete data");
+      
     });
   };
 
@@ -46,7 +48,7 @@ export const Product = () => {
         <LoadSpin />
       ) : (
         <Box
-          //  border={"1px solid red"}
+          
           padding={4}
           marginTop={"10px"}
           m="auto"

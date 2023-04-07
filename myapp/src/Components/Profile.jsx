@@ -12,8 +12,7 @@ import Loading from "../Loading";
 const Profile = () => {
   const dispatch = useDispatch()
   const  userdetail = useSelector((store) => store.AppReducer.Mypost)
-  //  console.log("Mypost", userdetail)
-  
+
   
      useEffect(() =>{
        dispatch(GetMypost)
@@ -23,7 +22,7 @@ const Profile = () => {
   return (
     <>
       {
-        userdetail.user.length>0 ?  <Box
+        userdetail.length>0 ?  <Box
         // border="1px solid red"
         className="container"
         height={"100vh"}

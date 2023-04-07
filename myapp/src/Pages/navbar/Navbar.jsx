@@ -15,13 +15,13 @@ const Navbar = () => {
  
   const dispatch = useDispatch()
   const Data = useSelector((store) => store.AppReducer.UserData)
-  //  console.log(Data) 
+
 
     useEffect(()=>{
     dispatch(GetUserData)
     },[])
     
-    // =========== 
+  
 
    const queryHandler = (val) =>{
            setQuery(val)

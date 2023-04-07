@@ -2,7 +2,7 @@ import { FormControl,  FormLabel,  Input,  Box,  Heading,  Button, Text}from '@c
 import { useToast } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import {useNavigate} from "react-router-dom"
+import {useNavigate,Link} from "react-router-dom"
 import { Loginupdata } from '../Redux/AuthReducer/action';
 
 
@@ -33,8 +33,8 @@ const Login = () => {
                   position : 'top',
                   colorScheme : 'red',
                   bg:"red",
-                  status : "success",
-                  description:"Wrong credential"
+                  status : "error",
+                  description:res.payload.data
                 })
           
              }else{
@@ -42,7 +42,7 @@ const Login = () => {
                 position : 'top',
                 colorScheme : 'green', 
                 status : "success",
-                title:"Login Successfully"
+                title:res.payload.data.msg
               })
             
               localStorage.setItem("token", JSON.stringify(res.payload.data.token))
@@ -56,14 +56,11 @@ const Login = () => {
   return (
     <> 
  <Box 
-//  border={"1px solid black"} 
+
      width={{base : "100%", md :'50%', lg : '40%'}} 
       
      margin={"auto"} mt="20px">  
-{/*      
- <Heading style={{fontSize:"1.8em", fontWeight:"600", fontFamily:"sans-serif", fontStyle:"italic" }}> 
-       Login
-       </Heading> */}
+
 
     <Box width="400px" m="auto" textAlign="center" px={8} mt={10} borderwidth={1}
     borderRadius={8} boxshadow="lg"
@@ -101,7 +98,11 @@ const Login = () => {
         <Button type="submit" fontWeight="700" width="full" colorScheme="blue" color="#fff" onClick={handleSubmit}  textAlign="center" >Log in</Button>
         <br/>
         <br/>
-          <Text style={{fontSize:"1em", color:"blue", fontWeight:"600" }}> Forgot password ? </Text>
+          <Text style={{fontSize:"1em", color:"blue", fontWeight:"600" }}> Forgot password ? 
+           <Link to="/sign">
+          <span> Create an Account</span> 
+           </Link>
+          </Text>
           <br/>
     </Box>
 

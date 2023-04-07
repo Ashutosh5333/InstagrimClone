@@ -18,7 +18,6 @@ const Dashboard = () => {
     dispatch(getData)
       .then((res) => {
         SetLoading(false);
-        console.log(res);
       })
       .catch((err) => {
         console.log(err);

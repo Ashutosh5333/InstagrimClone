@@ -126,7 +126,7 @@ const Deletedatafai = () => {
 
 export const GetUserData = (dispatch) => {
       dispatch(getuserdataReq)
-      return axios.get(`https://sore-cyan-llama-robe.cyclic.app/signupdata` ,{
+      return axios.get(`https://drab-ruby-swallow-toga.cyclic.app/insta` ,{
          headers:{
             "Content-Type":"application/json",
             "Authorization":`Bearer ${token}`
@@ -144,7 +144,7 @@ export const GetUserData = (dispatch) => {
 
 const  ADDProducts =(newdata) => (dispatch) => {
   dispatch(AdddataReq)
-  return axios.post(`https://sore-cyan-llama-robe.cyclic.app/product/create`,newdata ,{
+  return axios.post(`https://drab-ruby-swallow-toga.cyclic.app/create`,newdata ,{
    headers:{
       "Content-Type":"application/json",
       "Authorization":`Bearer ${token}`
@@ -160,7 +160,7 @@ const  ADDProducts =(newdata) => (dispatch) => {
 
   const getData = (dispatch) => {
       dispatch(getdataReq())
-  return axios.get(`https://sore-cyan-llama-robe.cyclic.app/product`,{
+  return axios.get(`https://drab-ruby-swallow-toga.cyclic.app/insta`,{
        headers:{
          "Content-Type":"application/json",
          "Authorization":`Bearer ${token}`
@@ -179,7 +179,7 @@ const  ADDProducts =(newdata) => (dispatch) => {
     
  export  const getDeleteData =(_id) => (dispatch) => {
    dispatch(DeleteDatareq())
-return axios.delete(`https://sore-cyan-llama-robe.cyclic.app/product/delete/${_id}`,{
+return axios.delete(`https://drab-ruby-swallow-toga.cyclic.app/insta/delete/${_id}`,{
     headers:{
       "Content-Type":"application/json",
       "Authorization":`Bearer ${token}`
@@ -197,7 +197,7 @@ return axios.delete(`https://sore-cyan-llama-robe.cyclic.app/product/delete/${_i
 
 export const GetMypost = (dispatch) => {
    dispatch(MydatapostReq)
-   return axios.get(`https://sore-cyan-llama-robe.cyclic.app/mypost` ,{
+   return axios.get(`https://drab-ruby-swallow-toga.cyclic.app/mypost` ,{
       headers:{
          "Content-Type":"application/json",
          "Authorization":`Bearer ${token}`
@@ -217,7 +217,7 @@ export const GetMypost = (dispatch) => {
 
 export const SingleUserprofile = (userId) => (dispatch) =>{
         dispatch(singleUserprofilerequest())
-       return  axios.get(`https://sore-cyan-llama-robe.cyclic.app/user/${userId}`,{
+       return  axios.get(`https://drab-ruby-swallow-toga.cyclic.app/user/${userId}`,{
          headers:{
             "Content-Type":"application/json",
             "Authorization":`Bearer ${token}`
