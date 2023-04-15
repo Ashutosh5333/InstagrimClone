@@ -20,7 +20,7 @@ export const Product = () => {
   const dispatch = useDispatch();
   const userdetail = useSelector((store) => store.AppReducer.productData);
 
-      console.log(userdetail)
+      // console.log(userdetail)
       
 
   useEffect(() => {

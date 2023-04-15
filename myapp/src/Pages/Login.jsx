@@ -46,7 +46,7 @@ const Login = () => {
               })
             
               localStorage.setItem("token", JSON.stringify(res.payload.data.token))
-              navigate("/dash")
+              navigate("/")
              }
          }
       })

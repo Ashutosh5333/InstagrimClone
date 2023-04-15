@@ -52,7 +52,6 @@ export const UserProfile = () => {
       <Box
       border="1px solid red"
       className="container"
-      // height={"100vh"}
       display="flex"
       gap="10px"
       justifyContent={"space-between"}
@@ -60,14 +59,12 @@ export const UserProfile = () => {
       m="auto"
     >
       <Box
-        // border="1px solid gray"
       width="15%"  className="side">
         <Side />
       </Box>
 
 
       <Box
-        // border="1px solid black"
         width="85%"  margin={"auto"}>
        
            <Box 
@@ -78,7 +75,7 @@ export const UserProfile = () => {
           {/*------------- partition of profile section ----------- */}
 
           <Box
-            // border="1px solid blue"
+         
             width={{ base: "90%", md: "40%", lg: "30%" }}
           >
             {/* --------------------- Image section -------------------  */}

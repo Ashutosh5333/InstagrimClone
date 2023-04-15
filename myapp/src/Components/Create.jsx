@@ -26,8 +26,7 @@ const Create = () => {
 
   const token = JSON.parse(localStorage.getItem("token"));
 
-
-
+ 
   useEffect(() => {
     if (url) {
       fetch(`https://drab-ruby-swallow-toga.cyclic.app/insta/create`, {

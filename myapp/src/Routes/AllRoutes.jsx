@@ -20,7 +20,12 @@ export const AllRoutes = () => {
   return (
     
       <Routes>
-        <Route path="/" element={<Home/>} />
+      
+      <Route path="/" element={
+          <PrivateRoute>
+        <Dashboard/>
+          </PrivateRoute>     } />
+        
         <Route path="/login" element={<Login/>} />
         <Route path="/sign" element={<Signup/>} />
         <Route path='/explore' element={<Explore/>} />
@@ -32,10 +37,7 @@ export const AllRoutes = () => {
         <Route path='/profiledata'  element={<MypostFull/>} />
         <Route path="/userprofile/:userId" element={<UserProfile/>} />
         
-        <Route path="/dash" element={
-          <PrivateRoute>
-        <Dashboard/>
-          </PrivateRoute>     } />
+        
         
       </Routes>
     

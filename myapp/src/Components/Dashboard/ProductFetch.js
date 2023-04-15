@@ -15,11 +15,12 @@ export const likepost = (_id) => {
     .then((res) => res.json())
     .then((dat) => {
       console.log(dat)
+      window.location.reload()
     })
     .catch((err) => {
       console.log(err);
     });
-     window.location.reload()
+  
   
 };
 
@@ -36,11 +37,12 @@ export const Unlikepost = (_id) => {
       .then((res) => res.json())
       .then((dat) => {
         console.log(dat);
+        window.location.reload()
       }) 
       .catch((err) => {
         console.log(err);
       });
-      window.location.reload()
+     
     
   };
 
