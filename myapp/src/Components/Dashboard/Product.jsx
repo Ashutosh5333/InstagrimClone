@@ -9,18 +9,19 @@ import { FiNavigation } from "react-icons/fi";
 import { DotModal } from "../modal/DotModal";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { getData, getDeleteData } from "../../Redux/AppReducer/action";
+import { getData,  } from "../../Redux/AppReducer/action";
 import { Addcomment, likepost, Unlikepost } from "./ProductFetch";
 import { Link } from "react-router-dom";
 import Loading from "../../Loading";
 import LoadSpin from "./LoadSpin";
+import { HomeSkelton } from "./HomeSkelton";
 
 export const Product = () => {
   const [isLoading, SetLoading] = useState(false);
   const dispatch = useDispatch();
   const userdetail = useSelector((store) => store.AppReducer.productData);
 
-      // console.log("insta",userdetail)
+      
       
 
   useEffect(() => {
@@ -41,7 +42,7 @@ export const Product = () => {
     <>
       <br />
       {isLoading ? (
-        <LoadSpin />
+        <HomeSkelton />
       ) : (
         <Box
           

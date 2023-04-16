@@ -17,11 +17,9 @@ export const Mypost = () => {
 
   return (
     <>
-     <Box 
-    //   border={"1px solid gray"}
-     >
+     <Box>
 
-       <SimpleGrid columns={{base:3,md:2,lg:3}} spacing={6}>
+       <SimpleGrid columns={{base:1,md:2,lg:3}} spacing={6}>
              {
               data.length>0 && data.map((el) =>{
                 return <Box key={el._id} > 
