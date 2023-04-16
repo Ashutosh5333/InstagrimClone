@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Box, Flex, Text } from "@chakra-ui/react";
-
 import { FaRegHeart } from "react-icons/fa";
-
 import { GetUserData } from "../../Redux/AppReducer/action";
 import { useDispatch, useSelector } from "react-redux";
 import Searchbar from "./Searchbar";
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [query, setQuery] = useState("");
-  const [Suggestions, Setsuggetsion] = useState([]);
+  const [Suggestions, Setsuggetsion] = useState([]); 
 
   const dispatch = useDispatch();
   const Data = useSelector((store) => store.AppReducer.UserData);
-  //  console.log(Data)
+  
 
   useEffect(() => {
     dispatch(GetUserData);
@@ -46,12 +45,15 @@ const Navbar = () => {
         justifyContent={"space-between"}
       >
         <Flex padding="5px" width={{ base: "40%", md: "23%", lg: "20%" }}>
+            <Link to="/">
           <h4
             style={{ fontSize: "25px", fontWeight: "500", fontStyle: "italic" }}
           >
             {" "}
             Instagram{" "}
           </h4>
+            </Link>
+
         </Flex>
 
         <Searchbar queryHandler={queryHandler} Suggestions={Suggestions} />

@@ -81,7 +81,7 @@ export const UserProfile = () => {
             {/* --------------------- Image section -------------------  */}
 
             <Box
-              // border="1px solid red"
+             
               width="90%"
               m="auto"
               mt="10px"

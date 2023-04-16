@@ -42,6 +42,7 @@ const Create = () => {
       })
         .then((res) => res.json())
         .then((data) => {
+          // console.log(data)
           toast({
             position : 'top',
             status : "success",

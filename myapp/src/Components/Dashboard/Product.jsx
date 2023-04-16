@@ -20,7 +20,7 @@ export const Product = () => {
   const dispatch = useDispatch();
   const userdetail = useSelector((store) => store.AppReducer.productData);
 
-      // console.log(userdetail)
+      // console.log("insta",userdetail)
       
 
   useEffect(() => {
@@ -35,11 +35,7 @@ export const Product = () => {
       });
   }, []);
 
-  const handleDelete = (_id) => {
-    dispatch(getDeleteData(_id)).then((res) => {
-      
-    });
-  };
+  
 
   return (
     <>

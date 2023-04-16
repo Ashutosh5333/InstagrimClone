@@ -10,9 +10,8 @@ const SideSearchmodel = () => {
     <>
     
       <Text onClick={onOpen}>
-    {/* <Tooltip hasArrow label='Right' placement='auto'> */}
            <BsSearch/>      
-    {/* </Tooltip> */}
+   
 
       </Text>
       <Drawer
