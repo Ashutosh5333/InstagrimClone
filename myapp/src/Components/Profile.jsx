@@ -50,7 +50,7 @@ const Profile = () => {
         >
          
            <Box key={user?._id}
-            // border="1px solid green"
+        
             display="flex"
             justifyContent={"space-between"}
             gap="10px"

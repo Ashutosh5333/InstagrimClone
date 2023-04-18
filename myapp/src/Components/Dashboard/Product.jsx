@@ -1,4 +1,4 @@
-import {  Box,  Flex,  Image,  Input,  Spinner,  Text,Wrap,  WrapItem,
+import {  Box,  Flex,  Image,  Input,  Text,Wrap,  WrapItem,
 } from "@chakra-ui/react";
 import { Avatar } from "@chakra-ui/react";
 import React, { useState, useEffect } from "react";
@@ -13,8 +13,9 @@ import { getData,  } from "../../Redux/AppReducer/action";
 import { Addcomment, likepost, Unlikepost } from "./ProductFetch";
 import { Link } from "react-router-dom";
 import Loading from "../../Loading";
-import LoadSpin from "./LoadSpin";
+
 import { HomeSkelton } from "./HomeSkelton";
+import Stories from "../StoriesSlider/Stories";
 
 export const Product = () => {
   const [isLoading, SetLoading] = useState(false);
@@ -40,12 +41,19 @@ export const Product = () => {
 
   return (
     <>
+      <Box>
+        
+       <Stories/>
+
+      </Box>
+
+
       <br />
       {isLoading ? (
         <HomeSkelton />
       ) : (
         <Box
-          
+       
           padding={4}
           marginTop={"10px"}
           m="auto"
