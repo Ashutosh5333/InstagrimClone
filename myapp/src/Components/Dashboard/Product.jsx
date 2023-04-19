@@ -227,6 +227,7 @@ export const Product = () => {
                       />
                     </form>
                   </Flex>
+                  
                 </Box>
               );
             })

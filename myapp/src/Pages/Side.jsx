@@ -18,17 +18,12 @@ import Menubar from "../Components/Menubar";
 const Side = () => {
   return (
     <>
-      <Box
-         borderRight="1px solid gray"
-        p={1}  display="flex"  gap={2}
-        // position="fixed"
-      >
-        <Box
-          //  border={"5px solid blue"}
-          gap="8px">
+      <Box  p={1}  display="flex"  gap={2}
+        position="fixed"  >
+
+        <Box gap="8px">
 
           <Box
-            //  border="1px solid yellow"
             p={1}  display={"flex"}
             gap="8px" justifyContent={"space-between"}
           >
@@ -41,7 +36,7 @@ const Side = () => {
           </Box>
 
           <Box
-            //  border="1px solid yellow"
+           
             borderRadius={"10px"}
             _hover={{
               bgGradient: "linear(to-r, gray.200, gray.200)",
@@ -49,7 +44,7 @@ const Side = () => {
             width="100%"
             p={1}
             display={"flex"}
-            mt={6}
+            mt={8}
             gap="8px"
             justifyContent={"space-between"}
           >
@@ -69,10 +64,10 @@ const Side = () => {
           </Box>
 
           <Box
-            //  border="1px solid yellow"
+        
             p={1}
             display={"flex"}
-            mt={6}
+            mt={8}
             gap="8px"
             justifyContent={"space-between"}
             borderRadius={"10px"}
@@ -99,7 +94,7 @@ const Side = () => {
         
             p={1}
             display={"flex"}
-            mt={6}
+            mt={8}
             gap="8px"
             justifyContent={"space-between"}
             borderRadius={"10px"}
@@ -124,10 +119,10 @@ const Side = () => {
           </Box>
 
           <Box
-            // border="1px solid yellow"
+           
             p={1}
             display={"flex"}
-            mt={6}
+            mt={8}
             gap="8px"
             justifyContent={"space-between"}
             borderRadius={"10px"}
@@ -157,7 +152,7 @@ const Side = () => {
      
             p={1}
             display={"flex"}
-            mt={6}
+            mt={8}
             gap="8px"
             justifyContent={"space-between"}
             borderRadius={"10px"}
@@ -184,7 +179,7 @@ const Side = () => {
       
             p={1}
             display={"flex"}
-            mt={6}
+            mt={8}
             gap="8px"
             justifyContent={"space-between"}
             borderRadius={"10px"}
@@ -210,7 +205,7 @@ const Side = () => {
         
             p={1}
             display={"flex"}
-            mt={6}
+            mt={8}
             gap="8px"
             justifyContent={"space-between"}
             borderRadius={"10px"}
@@ -234,7 +229,7 @@ const Side = () => {
           
             p={1}
             display={"flex"}
-            mt={6}
+            mt={8}
             gap="8px"
             justifyContent={"space-between"}
             borderRadius={"10px"}
@@ -258,6 +253,7 @@ const Side = () => {
             </Box>
           </Box>
         </Box>
+
       </Box>
     </>
   );

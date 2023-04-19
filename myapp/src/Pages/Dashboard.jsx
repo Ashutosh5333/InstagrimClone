@@ -36,7 +36,7 @@ const Dashboard = () => {
       
 
           <div className="database">
-            {/* <Product /> */}
+          
             <InstaPost/>
           </div>
 
