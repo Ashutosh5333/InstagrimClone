@@ -1,21 +1,44 @@
 import React from "react";
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalBody,
-  useDisclosure,
-  Box,
-  Text,
-} from "@chakra-ui/react";
+import {  Modal,  ModalOverlay,  ModalContent,  ModalBody,  useDisclosure,
+  Box,  Text,  useToast,} from "@chakra-ui/react";
 import { AiOutlineEllipsis } from "react-icons/ai";
 import { Divider } from "@chakra-ui/react";
+import { useDispatch } from "react-redux";
+import { getDeleteData } from "../../Redux/AppReducer/action";
 
-export const UserDeleteModal = () => {
+export const UserDeleteModal = ({_id}) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const finalRef = React.useRef(null);
+  const dispatch = useDispatch()
+  const toast = useToast()
 
-
+       const handleDelete = (_id) =>{
+         dispatch(getDeleteData(_id))
+         .then((res) =>{
+            console.log(res)
+            if(res.type === "DELETE_DATA_SUCCESS"){
+                if(res.type !== "DELETE_DATA_SUCCESS"){
+                   toast({
+                     position : 'top',
+                     colorScheme : 'red',
+                     bg:"red",
+                     status : "error",
+                     title:res.type
+                   })
+             
+                }else{
+                 toast({
+                   position : 'top',
+                   colorScheme : 'green', 
+                   status : "success",
+                   title:"Delete post "
+                 })
+               
+                }
+            }
+         })
+       
+       }
 
   
 
@@ -36,7 +59,7 @@ export const UserDeleteModal = () => {
         <ModalContent width={{ base: "80%", md: "80%", lg: "90%" }}>
           <ModalBody>
             <Box textAlign={"center"}>
-              <Text color={"red"} fontWeight={600} p={5}>
+              <Text color={"red"} fontWeight={600} p={5} onClick={() =>handleDelete(_id)}>
                 {" "}
                 Delete{" "}
               </Text>

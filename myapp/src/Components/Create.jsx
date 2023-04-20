@@ -118,6 +118,7 @@ const Create = () => {
                 <Input
                   placeholder="Write a caption"
                   height="80px"
+                  variant={"unstyled"}
                   border="none"
                   name="description"
                   onChange={(e) => SetDescription(e.target.value)}

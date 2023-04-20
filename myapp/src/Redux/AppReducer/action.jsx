@@ -186,7 +186,7 @@ return axios.delete(`https://drab-ruby-swallow-toga.cyclic.app/insta/delete/${_i
     },
 })
  .then((res)=>{
- return    dispatch(Deletedatasucess())
+ return    dispatch(Deletedatasucess(res))
  }).catch((e)=>{
   return    dispatch(Deletedatafai())
  })

@@ -203,6 +203,7 @@ const InstaPost = () => {
                         width={{ base: "100%", md: "100%", lg: "100%" }}
                         placeholder="Add a comment......."
                         border={"none"}
+                        variant={"unstyled"}
                       />
                     </form>
                   </Flex>

@@ -66,12 +66,10 @@ const MypostFull = () => {
 
                   {/* ----^^^^ upper section ^^^---------- */}
 
-                  <Flex
-                
-                  >
+                  <Flex>
                     <Text fontSize={"30px"}>
                     
-                      <UserDeleteModal  />
+                      <UserDeleteModal _id={el._id} />
                     </Text>
                   </Flex>
                 </Flex>
