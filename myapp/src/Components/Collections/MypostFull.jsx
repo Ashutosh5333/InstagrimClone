@@ -1,18 +1,15 @@
 import React, { useEffect } from "react";
-
 import { Box, Flex, Image, Input, Text, Wrap, WrapItem } from "@chakra-ui/react";
 import { Avatar } from '@chakra-ui/react'
-
 import { TfiHeart } from "react-icons/tfi";
 import { FaRegComment } from "react-icons/fa";
 import { FaRegBookmark } from "react-icons/fa";
 import { FiNavigation } from "react-icons/fi";
-
-import { DotModal } from "../modal/DotModal";
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { GetMypost } from "../../Redux/AppReducer/action";
 import "./my.css"
+import { UserDeleteModal } from "./UserDeleteModal";
 const MypostFull = () => {
 
     const dispatch = useDispatch()
@@ -29,7 +26,7 @@ const MypostFull = () => {
   return (
     <>
       <Box
-        // border={"1px solid red"}
+     
         padding={4}
         marginTop={"10px"}
         m="auto"
@@ -39,12 +36,12 @@ const MypostFull = () => {
           userdetail.map((el) => {
             return (
               <Box 
-            //    border={"1px solid black"}  
+            
              borderBottom={"1px solid gray"}
                m="auto" key={el._id} p={4} gap="10px">
                 <Flex display={"flex"} justifyContent="space-between">
                   <Flex
-                  // border={"1px solid green"}
+                
                   >
                     <Wrap>
                       <WrapItem>
@@ -56,7 +53,7 @@ const MypostFull = () => {
                     <Image />
 
                     <Text
-                      //  border={"1px solid red"}
+                     
                       alignItems="center"
                       m="auto"
                       fontWeight={600}
@@ -70,16 +67,15 @@ const MypostFull = () => {
                   {/* ----^^^^ upper section ^^^---------- */}
 
                   <Flex
-                  // border={"1px solid green"}
+                
                   >
                     <Text fontSize={"30px"}>
                     
-                      <DotModal  />
+                      <UserDeleteModal  />
                     </Text>
                   </Flex>
                 </Flex>
 
-                {/* "Top " */}
 
                 <br />
 
@@ -136,8 +132,6 @@ const MypostFull = () => {
 
              
                 <Box
-                //   border={"1px solid black"}
-              
                   margin={"auto"}
                   width={{ base: "80%", md: "80%", lg: "80%" }}
                   mt="10px"

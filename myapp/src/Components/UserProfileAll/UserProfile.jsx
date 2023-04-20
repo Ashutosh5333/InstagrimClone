@@ -10,7 +10,6 @@ import { SingleUserprofile } from "../../Redux/AppReducer/action";
 import Stories from "./Stories/Stories";
 import Collection from "./Collections/Collection";
 import DotuserModal from "./DotuserModal";
-import Loading from "../../Loading";
 const token = JSON.parse(localStorage.getItem("token"))
 
 export const UserProfile = () => {
@@ -33,7 +32,7 @@ export const UserProfile = () => {
    
   const data = Userprofile.user
       
-    console.log(data)
+  
 
      const FollowUser = () =>{
         fetch(`https://sore-cyan-llama-robe.cyclic.app/follow`,{

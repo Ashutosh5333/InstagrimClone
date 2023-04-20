@@ -7,7 +7,7 @@ import "./style/prof.css";
 import Side from "./../Pages/Side";
 import { useDispatch, useSelector } from "react-redux";
 import { GetMypost } from "../Redux/AppReducer/action";
-import Loading from "../Loading";
+
 
 const Profile = () => {
   const [user,SetUser]= useState("")
@@ -19,7 +19,6 @@ const Profile = () => {
      useEffect(() =>{
        dispatch(GetMypost)
        .then((res)=>{
-        // console.log( "res",res.payload[0].postedby)
         SetUser(res.payload[0].postedby)
        })
      },[])
@@ -28,13 +27,12 @@ const Profile = () => {
   return (
     <>
       <Box
-        // border="1px solid red"
         className="container"
         height={"100vh"}
         display="flex"
         gap="10px"
         justifyContent={"space-between"}
-        width={{ base: "90%", md: "80%", lg: "100%" }}
+        width={{ base: "100%", md: "100%", lg: "100%" }}
         m="auto"
       >
         <Box
@@ -113,7 +111,7 @@ const Profile = () => {
             {/* ------------------- profile ------------------ */}
 
             <Box
-              // border="1px solid red"
+              
               width={{ base: "90%", md: "80%", lg: "100%" }}
             >
              
@@ -239,8 +237,6 @@ const Profile = () => {
         {/* --------- container whole -------- */}
 
       </Box>
-
-      {/* : <Loading/> */}
 
   
      
