@@ -3,7 +3,7 @@ import "./Style/Dash.css";
 
 import Side from "./Side";
 import { Suggestions } from "./Suggestions";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getData } from "../Redux/AppReducer/action";
 import Loading from "../Loading";
 import InstaPost from "../Components/Dashboard/InstaPost";

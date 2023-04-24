@@ -1,18 +1,20 @@
-import React, { useEffect } from "react";
-import { Box, Flex, Image, Input, Text, Wrap, WrapItem } from "@chakra-ui/react";
-import { Avatar } from '@chakra-ui/react'
+import {  Avatar,  Box,   Flex,    Image,   Input,     Text,  Wrap,  WrapItem} from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
+import { Card,  CardBody } from "@chakra-ui/react";
+import { DotModal } from "../modal/DotModal";
 import { TfiHeart } from "react-icons/tfi";
-import { FaRegComment } from "react-icons/fa";
+import { FaHeart, FaRegComment } from "react-icons/fa";
 import { FaRegBookmark } from "react-icons/fa";
 import { FiNavigation } from "react-icons/fi";
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { GetMypost } from "../../Redux/AppReducer/action";
-import "./my.css"
-import { UserDeleteModal } from "./UserDeleteModal";
-const MypostFull = () => {
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { GetMypost  } from "../../Redux/AppReducer/action";
+import { HomeSkelton } from './../Dashboard/HomeSkelton';
+import { Addcomment, Unlikepost, likepost } from "../Dashboard/ProductFetch";
 
+const MypostFull = () => {
     const dispatch = useDispatch()
+    const [isLoading, SetLoading] = useState(false);
     const  userdetail = useSelector((store) => store.AppReducer.Mypost)
  
        useEffect(() =>{
@@ -25,157 +27,184 @@ const MypostFull = () => {
 
   return (
     <>
-      <Box
-     
-        padding={4}
-        marginTop={"10px"}
-        m="auto"
-        width={{ base: "60%", md: "70%", lg: "50%" }}
-      >
-        {userdetail.length > 0 &&
-          userdetail.map((el) => {
-            return (
-              <Box 
+       {
+        isLoading ? <HomeSkelton/>
+        :
+        userdetail.length >0 && userdetail.map((el) => {
+         return  <Box key={el._id} >
+    <Card  maxW={{base:"4xl", md:"4xl",lg:"2xl"}}  m="auto" >
+          <CardBody>
+          <Flex display={"flex"} justifyContent="space-between"  mb="10">
+                    <Flex>
+                      <Wrap>
+                        <WrapItem>
+                          <Avatar
+                            size={{ base: "xs", md: "sm" }}
+                            mr={8}
+                            name={el.postedby.name}
+                            src={el.image}                            
+                          />
+                        </WrapItem>
+                      </Wrap>
+                      <Text
+                        alignItems="center"
+                        m="auto"
+                        fontWeight={600}
+                        fontSize={{base: ".6rem", md: ".6rem", lg: "1rem" }}
+                      >
+                        {el.postedby.name}
+                      </Text>
+                      <Text
+                        alignItems="center"
+                        m="auto"
+                        fontWeight={600}
+                        fontSize={{ base: ".6rem", md: ".6rem", lg: ".8rem" }}
+                       ml="10"
+                      >
+                        {new Date(el.createdAt).toDateString()} 
+                        
+                      </Text>
+                    </Flex>
+
+                    <Flex>
+                      <Text fontSize={"30px"}>
+                        <DotModal />
+                      </Text>
+                    </Flex>
+                  </Flex>
+
+            <Box >
+            <Image
+              objectFit="cover"
+          
+              width="100%"
+              boxSize={{ base: "600px", md: "600px", lg: "600px" }}
+                          m={"auto"}
+                // src="https://images.unsplash.com/photo-1681097228666-f65d459530f8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDJ8RnpvM3p1T0hONnd8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"
+                 src={el.pic}
+                        alt="PostImage"
+              borderRadius="lg"
+              margin={"auto"} 
+            />
             
-             borderBottom={"1px solid gray"}
-               m="auto" key={el._id} p={4} gap="10px">
-                <Flex display={"flex"} justifyContent="space-between">
-                  <Flex
-                
+            </Box>
+
+       {/* ------------------------- */}
+
+       <Flex
+                    margin={"auto"}
+                    mt="10px"
+                    width="80%"
+                    display={"flex"}
+                    justifyContent="space-between"
                   >
-                    <Wrap>
-                      <WrapItem>
-                        <Avatar
-                          size={{base:'xs',md:"sm"}}
-                         mr={8} name={el.postedby.name} src={el.image} />
-                      </WrapItem>
-                    </Wrap>
-                    <Image />
+                    <Flex>
+                      <Box
+                        fontSize={{ base: "15px", md: "18px", lg: "25px" }}
+                        display={"flex"}
+                        justifyContent="space-between"
+                        gap="18px"
+                      >
+                        {el.likes.length > 0 ? (
+                          <FaHeart
+                            color={"red"}
+                            onClick={() => Unlikepost(el._id)}
+                          />
+                        ) : (
+                          <TfiHeart onClick={() => likepost(el._id)} />
+                        )}
+                        <FaRegComment />
+                        <FiNavigation />
+                      </Box>
+                    </Flex>
+                    {/* ---------------------- */}
+
+                    <Flex fontSize={{ base: "15px", md: "18px", lg: "25px" }}>
+                      <FaRegBookmark />
+                    </Flex>
+                  </Flex>
+
+                  <Box
+                    margin={"auto"}
+                    width={{ base: "80%", md: "80%", lg: "80%" }}
+                    mt="10px"
+                    gap={10}
+                  >
+                    <Text
+                      textAlign={"left"}
+                      m="2px"
+                      fontSize={{ base: "10px", md: "15px", lg: "18px" }}
+                    >
+                      <Text>
+                      {el.likes.length} 
+                       likes</Text>
+                      Liked by
+                      <span
+                        className="span"
+                        fontSize={{ base: "10px", md: "15px", lg: "18px" }}
+                      >
+                        Aadil_khan
+                      </span>
+                      and
+                      <span
+                        className="span"
+                        fontSize={{ base: "10px", md: "15px", lg: "18px" }}
+                      >
+                        110 others
+                      </span>
+                    </Text>
 
                     <Text
-                     
-                      alignItems="center"
-                      m="auto"
-                      fontWeight={600}
-                      fontSize={{base:"10px", md:"15px", lg:"20px"}}
-                      width={{ base: "80%", md: "70%", lg: "90%" }}
+                      textAlign={"left"}
+                      fontSize={{ base: "10px", md: "15px", lg: "18px" }}
                     >
-                      {el.postedby.name}
-                    </Text>
-                  </Flex>
-
-                  {/* ----^^^^ upper section ^^^---------- */}
-
-                  <Flex>
-                    <Text fontSize={"30px"}>
+                      <span
+                        className="span"
+                        fontSize={{ base: "10px", md: "15px", lg: "18px" }}
+                        style={{ fontWeight: "600" }}
+                      >
+                        {el.postedby.name}
                     
-                      <UserDeleteModal _id={el._id} />
+                      </span>
+                      {el.description}
                     </Text>
-                  </Flex>
-                </Flex>
-
-
-                <br />
-
-                <Flex border={"1px solid gray"} margin={"auto"} width="80%">
-                  <Box
-                    justifyContent={"center"}
-                    alignItems="center"
-                    margin={"auto"}
-                    height={"30%"}
-                       width={{ base: "80%", md: "70%", lg: "90%" }}
-                  >
-                    <Image
-                      src={el.pic}
-                      alt="image"
-                  
-                    boxSize={{base:'200px',md:"300px",lg:"400px"}}
-                      m={"auto"}
-                      justifyContent={"center"}
-                      alignItems="center"
-                    />
                   </Box>
-                </Flex>
 
-                {/* ------------- bottom line save ------------------ */}
-               
-                <Flex
-                //   border={"1px solid black"}
-                  // p={2}
-                  margin={"auto"}
-                  mt="10px"
-                  width="80%"
-                  display={"flex"}
-                  justifyContent="space-between"
-                >
-                  <Flex>
-                    <Box
-                     fontSize={{base:"15px", md:"20px", lg:"25px"}}
-                      display={"flex"}
-                      justifyContent="space-between"
-                      gap="20px"
+                  <Flex
+                    margin={"auto"}
+                    mt="10px"
+                    width={{ base: "60%", md: "70%", lg: "80%" }}
+                    display={"flex"}
+                  >
+                    <form
+                      onSubmit={(e) => {
+                        e.preventDefault();
+                        Addcomment(e.target[0].value, el._id);
+                      }}
                     >
-                      <TfiHeart />
-
-                      <FaRegComment />
-                      <FiNavigation />
-                    </Box>
+                      <Input
+                        width={{ base: "100%", md: "100%", lg: "100%" }}
+                        placeholder="Add a comment......."
+                        border={"none"}
+                        variant={"unstyled"}
+                      />
+                    </form>
                   </Flex>
-                  {/* ---------------------- */}
-
-                  <Flex  fontSize={{base:"15px", md:"20px", lg:"25px"}} >
-                    <FaRegBookmark />
-                  </Flex>
-                </Flex>
-
-             
-                <Box
-                  margin={"auto"}
-                  width={{ base: "80%", md: "80%", lg: "80%" }}
-                  mt="10px"
-                  gap={10}
-                >
-                  <Text textAlign={"left"} m="2px"  fontSize={{base:"10px", md:"15px", lg:"20px"}}>
-                
-                    Liked by
-                    <span  className="span"  fontSize={{base:"10px", md:"15px", lg:"20px"}}>
-                   
-                      Aadil_khan 
-                    </span>
-
-                    and
-                    <span  className="span"  fontSize={{base:"10px", md:"15px", lg:"20px"}} >
-                      
-                      110 others
-                    </span>
-                  </Text>
-
-                  <Text textAlign={"left"}   fontSize={{base:"10px", md:"15px", lg:"20px"}}>
-                    
-                    <span className="span"   fontSize={{base:"10px", md:"15px", lg:"20px"}} style={{ fontWeight: "600" }}>
-                      {el.postedby.name}
-                    </span>
-                    {el.description}
-                  </Text>
-                </Box>
-
+                  
            
-                <Flex
-                  // border={"1px solid black"}
-               
-                  margin={"auto"}
-                  mt="10px"
-                  width={{ base: "60%", md: "70%", lg: "80%" }}
-                  display={"flex"}
-                >
-                  <Input  fontSize={{base:"10px", md:"15px", lg:"20px"}} placeholder="Add comment......." border={"none"} />
-                </Flex>
-              </Box>
-            );
-          })}
 
-        {/* ---------------------- whole div ---------------------  */}
-      </Box>
+          </CardBody>
+      
+
+        </Card>
+
+
+    </Box>
+    
+          })
+    }
+
+    
     </>
   );
 };
