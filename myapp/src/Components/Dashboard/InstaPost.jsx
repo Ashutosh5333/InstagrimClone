@@ -49,7 +49,7 @@ const InstaPost = () => {
         :
           Instapost.length >0 && Instapost.map((el) =>{
          return  <Box key={el._id} >
-    <Card  maxW={{base:"4xl", md:"4xl",lg:"2xl"}}  m="auto" >
+    <Card  maxW={{base:"4xl", md:"4xl",lg:"2xl"}}  m="auto" mt="10">
           <CardBody>
           <Flex display={"flex"} justifyContent="space-between"  mb="10">
                     <Flex>

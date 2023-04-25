@@ -23,18 +23,14 @@ const SideSearchmodel = () => {
 
         <DrawerContent  border="1px solid green"   >
           <DrawerCloseButton />
-          <DrawerHeader>Create your account</DrawerHeader>
+          <DrawerHeader>Search</DrawerHeader>
 
           <DrawerBody>
-            <Input placeholder='Type here...' />
+            <Input placeholder='Search' fontSize={"1rem"} variant="unstyled" bgColor={"gray.100"} colorScheme='gray' p="2" />
           </DrawerBody>
 
-          <DrawerFooter>
-            <Button variant='outline' mr={3} onClick={onClose}>
-              Cancel
-            </Button>
-            <Button colorScheme='blue'>Save</Button>
-          </DrawerFooter>
+       
+
         </DrawerContent>
       </Drawer>
     </>

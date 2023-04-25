@@ -100,9 +100,9 @@ const Create = () => {
             </Box>
             <Text
               fontWeight={"600"}
-              fontSize="25px"
+              fontSize="1.2rem"
               fontFamily={"sans-serif"}
-              fontStyle={"italic"}
+            
             >
               {" "}
               New Post{" "}
