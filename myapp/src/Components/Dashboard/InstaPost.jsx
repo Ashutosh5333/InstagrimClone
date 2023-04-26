@@ -203,7 +203,7 @@ const InstaPost = () => {
                     mt="10px"
                     width={{ base: "60%", md: "70%", lg: "80%" }}
                     display={"flex"}
-                    border="3px solid red"
+                    
                   >
                     <form
                       onSubmit={(e) => {

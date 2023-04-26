@@ -1,6 +1,7 @@
 import React from 'react'
-import { Drawer,DrawerBody, DrawerFooter, DrawerHeader, DrawerOverlay,    DrawerContent,    DrawerCloseButton, useDisclosure, Text, Button, Input, Tooltip,  } from '@chakra-ui/react'
+import { Drawer,DrawerBody, DrawerFooter, DrawerHeader, DrawerOverlay,    DrawerContent,    DrawerCloseButton, useDisclosure, Text, Button, Input, Tooltip, InputRightElement, InputGroup, InputLeftElement,  } from '@chakra-ui/react'
 import { BsSearch } from 'react-icons/bs'
+import {UnlockIcon} from "@chakra-ui/icons"
 
 const SideSearchmodel = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
@@ -21,12 +22,33 @@ const SideSearchmodel = () => {
         finalFocusRef={btnRef}>
         <DrawerOverlay />
 
-        <DrawerContent  border="1px solid green"   >
-          <DrawerCloseButton />
+        <DrawerContent    >
+          {/* <DrawerCloseButton border="none" /> */}
           <DrawerHeader>Search</DrawerHeader>
 
           <DrawerBody>
-            <Input placeholder='Search' fontSize={"1rem"} variant="unstyled" bgColor={"gray.100"} colorScheme='gray' p="2" />
+          <InputGroup position="relative">
+            <InputLeftElement
+              pointerEvents="none"
+              position="absolute"
+              top="1"
+            />
+            <Input
+              size="lg"
+              placeholder={"Search"}
+            />
+            <InputRightElement width="2.5rem" position="absolute" top="-2" fontSize={"1rem"}>
+              <Button
+                h="1.75rem"
+                size="lg"
+                variant="link"
+              >
+                 <DrawerCloseButton border="none" />
+               
+              </Button>
+            </InputRightElement>
+          </InputGroup>
+              
           </DrawerBody>
 
        

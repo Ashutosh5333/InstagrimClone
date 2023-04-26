@@ -1,17 +1,15 @@
-import { Box} from "@chakra-ui/react";
+import { Box, Tooltip} from "@chakra-ui/react";
 import React from "react";
 import { BsInstagram } from "react-icons/bs";
 import { AiFillHome } from "react-icons/ai";
 import { MdExplore } from "react-icons/md";
 import { TfiVideoClapper } from "react-icons/tfi";
-
 import { CgProfile } from "react-icons/cg";
 import { Text } from "@chakra-ui/react";
 import SideSearchmodel from "../Components/modal/SideSearchmodel";
 import { Link } from "react-router-dom";
 import Create from "../Components/Create";
 import Notifications from "../Components/Notifications";
-
 import "./Style/Dash.css";
 import Menubar from "../Components/Menubar";
 
@@ -42,16 +40,17 @@ const Side = () => {
               bgGradient: "linear(to-r, gray.200, gray.200)",
             }}
             width="100%"
-            p={1}
+            p={2}
             display={"flex"}
             mt={8}
             gap="8px"
             justifyContent={"space-between"}
           >
-            <Box fontSize={"2.2em"}>
-            
+            <Tooltip hasArrow label="Home" placement="right" bg="#ffffff" color="black" p="2" ml="4">
+            <Box fontSize={"2rem"}>
               <AiFillHome />
             </Box>
+            </Tooltip>
 
             <Box
               className="sidename"
@@ -65,7 +64,7 @@ const Side = () => {
 
           <Box
         
-            p={1}
+            p={2}
             display={"flex"}
             mt={8}
             gap="8px"
@@ -76,10 +75,12 @@ const Side = () => {
             }}
             width="100%"
           >
-         
-            <Box fontSize={"2.2em"}>
+             <Tooltip hasArrow label="Search" placement="right" bg="#ffffff" color="black" p="2" ml="4">
+            <Box fontSize={"2rem"}>
               <SideSearchmodel />
             </Box>
+            </Tooltip>
+
             <Box
               className="sidename"
               // border={"2px solid red"}
@@ -92,7 +93,7 @@ const Side = () => {
 
           <Box
         
-            p={1}
+            p={2}
             display={"flex"}
             mt={8}
             gap="8px"
@@ -103,11 +104,13 @@ const Side = () => {
             }}
             width="100%"
           >
+              <Tooltip hasArrow label="Explore" placement="right" bg="#ffffff" color="black" p="2" ml="4">
             <Link to="/explore">
-              <Box fontSize={"2.2em"}>
+              <Box fontSize={"2rem"}>
                 <MdExplore />
               </Box>
             </Link>
+            </Tooltip>
             <Box
               className="sidename"
        
@@ -120,7 +123,7 @@ const Side = () => {
 
           <Box
            
-            p={1}
+            p={2}
             display={"flex"}
             mt={8}
             gap="8px"
@@ -131,12 +134,14 @@ const Side = () => {
             }}
             width="100%"
           >
+              <Tooltip hasArrow label="Reels" placement="right" bg="#ffffff" color="black" p="2" ml="4">
             <Link to="/reel">
-              <Box fontSize={"2.2em"}>
+              <Box fontSize={"2rem"}>
                 {" "}
                 <TfiVideoClapper />{" "}
               </Box>
             </Link>
+</Tooltip>
 
             <Box
               className="sidename"
@@ -150,7 +155,7 @@ const Side = () => {
 
           <Box
      
-            p={1}
+            p={2}
             display={"flex"}
             mt={8}
             gap="8px"
@@ -161,9 +166,11 @@ const Side = () => {
             }}
             width="100%"
           >
-            <Box fontSize={"2.2em"}>
+          <Tooltip hasArrow label="Create" placement="right" bg="#ffffff" color="black" p="2" ml="4">
+            <Box fontSize={"2rem"}>
               <Create />
             </Box>
+            </Tooltip>
 
             <Box className="sidename" fontSize="1.1em" margin={"auto"}>
               <Text
@@ -177,7 +184,7 @@ const Side = () => {
 
           <Box
       
-            p={1}
+            p={2}
             display={"flex"}
             mt={8}
             gap="8px"
@@ -188,9 +195,13 @@ const Side = () => {
             }}
             width="100%"
           >
-            <Box fontSize={"2.2em"}>
+          <Tooltip hasArrow label="Notifications" placement="right" bg="#ffffff" color="black" p="2" ml="4">
+
+            <Box fontSize={"2rem"}>
               <Notifications />
             </Box>
+            </Tooltip>
+
             <Box className="sidename" fontSize="1.1em" margin={"auto"}>
               <Text
            
@@ -203,7 +214,7 @@ const Side = () => {
 
           <Box
         
-            p={1}
+            p={2}
             display={"flex"}
             mt={8}
             gap="8px"
@@ -214,11 +225,14 @@ const Side = () => {
             }}
             width="100%"
           >
+          <Tooltip hasArrow label="Profile" placement="right" bg="#ffffff" color="black" p="2" ml="4">
+
             <Link to="/profile">
-              <Box fontSize={"2.2em"}>
+              <Box fontSize={"2rem"}>
                 <CgProfile />
               </Box>
             </Link>
+            </Tooltip>
 
             <Box className="sidename" fontSize="1.1em" margin={"auto"}>
               <Text textAlign={"left"}> Profile </Text>
@@ -227,7 +241,7 @@ const Side = () => {
 
           <Box
           
-            p={1}
+            p={2}
             display={"flex"}
             mt={8}
             gap="8px"
@@ -238,11 +252,14 @@ const Side = () => {
             }}
             width="100%"
           >
-            <Box fontSize={"2.2em"}>
+          <Tooltip hasArrow label="Menu" placement="right" bg="#ffffff" color="black" p="2" ml="4">
+
+            <Box fontSize={"2rem"}>
            
               <Menubar />
-              {/* <AiOutlineMenu/>  */}
+       
             </Box>
+            </Tooltip>
             <Box
          
               fontSize="1.1em"
