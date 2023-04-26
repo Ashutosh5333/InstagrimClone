@@ -3,11 +3,7 @@ import {
   Modal,
   ModalOverlay,
   ModalContent,
-  ModalBody,
-  useDisclosure,
-  Box,
-  Text,
-} from "@chakra-ui/react";
+  ModalBody,  useDisclosure,Box,  Text,} from "@chakra-ui/react";
 import { AiOutlineEllipsis } from "react-icons/ai";
 import { Divider } from "@chakra-ui/react";
 

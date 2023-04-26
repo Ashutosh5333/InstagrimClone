@@ -17,7 +17,7 @@ const InstaPost = () => {
     const [isLoading, SetLoading] = useState(false);
     const dispatch = useDispatch();
     const Instapost = useSelector((store) => store.AppReducer.productData);
-    // console.log(Instapost)
+    console.log("instadata" ,Instapost)
         
         
   
@@ -185,6 +185,17 @@ const InstaPost = () => {
                       </span>
                       {el.description}
                     </Text>
+                   <Text  textAlign={"left"}
+                    noOfLines={2} gap="5"
+                      fontSize={{ base: "10px", md: "15px", lg: "18px" }}> 
+                       <span  className="span"
+                        fontSize={{ base: "10px", md: "15px", lg: "18px" }}
+                        style={{ fontWeight: "600" }}  >
+                           {el.comments[0].postedby.name}
+                       </span>
+                        {el.comments[0].text}
+                      </Text>
+
                   </Box>
 
                   <Flex
@@ -192,6 +203,7 @@ const InstaPost = () => {
                     mt="10px"
                     width={{ base: "60%", md: "70%", lg: "80%" }}
                     display={"flex"}
+                    border="3px solid red"
                   >
                     <form
                       onSubmit={(e) => {

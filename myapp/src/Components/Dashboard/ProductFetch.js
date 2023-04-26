@@ -64,8 +64,8 @@ export  const Addcomment = (text, _id) => {
       }),
     })
       .then((res) => res.json())
-      .then((dat) => {
-        console.log(dat);
+      .then((data) => {
+        console.log("comment" ,data);
       })
       .catch((err) => {
         console.log(err);
