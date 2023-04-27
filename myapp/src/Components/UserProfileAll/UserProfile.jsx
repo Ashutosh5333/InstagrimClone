@@ -5,7 +5,7 @@ import "./prof.css";
 import Side from './../../Pages/Side';
 
 import { useParams } from "react-router-dom";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { SingleUserprofile } from "../../Redux/AppReducer/action";
 import Stories from "./Stories/Stories";
 import Collection from "./Collections/Collection";
@@ -14,10 +14,12 @@ const token = JSON.parse(localStorage.getItem("token"))
 
 export const UserProfile = () => {
   const [isLoading, SetLoading] = useState(false);
-  const [Userprofile,SetUserprofile] = useState([])
+  const [Userprofile,SetUserprofile] = useState("")
      const dispatch = useDispatch()
     const {userId} = useParams()
 
+    const Singleuser = useSelector((store) => store.AppReducer.Singleuser)
+    
   
    useEffect(() =>{
      SetLoading(true)
@@ -30,8 +32,8 @@ export const UserProfile = () => {
        })
    },[userId])
    
-  const data = Userprofile.user
-      
+    const data = Singleuser?.user
+    
   
 
      const FollowUser = () =>{
@@ -49,12 +51,11 @@ export const UserProfile = () => {
     <>
 
       <Box
-      border="1px solid red"
       className="container"
       display="flex"
       gap="10px"
       justifyContent={"space-between"}
-      width={{ base: "90%", md: "80%", lg: "100%" }}
+      width={{ base: "100%", md: "100%", lg: "100%" }}
       m="auto"
     >
       <Box
@@ -66,21 +67,15 @@ export const UserProfile = () => {
       <Box
         width="85%"  margin={"auto"}>
        
-           <Box 
-          border="1px solid green"
-          display="flex"  justifyContent={"space-between"}
+           <Box   display="flex"  justifyContent={"space-between"}
           gap="10px"  className="partion">
 
           {/*------------- partition of profile section ----------- */}
 
           <Box
-         
-            width={{ base: "90%", md: "40%", lg: "30%" }}
-          >
-            {/* --------------------- Image section -------------------  */}
-
-            <Box
-             
+            width={{ base: "90%", md: "40%", lg: "30%" }}>
+      
+            <Box       
               width="90%"
               m="auto"
               mt="10px"
@@ -91,23 +86,22 @@ export const UserProfile = () => {
               >
                 <WrapItem>
                   <Avatar className="image"
-                       ml=".6em"
-                    size={{ base: "xl", md: "xl", lg: "2xl" }}
-                    // name={el.name}
+                    
+                    size={{ base: "2xl", md: "2xl", lg: "2xl" }}
+                    name={data?.name}
                   />
                 </WrapItem>
               </Wrap>
             </Box>
             {/* --------------------- */}
             <Box
-              // border="1px solid black"
               width={{ base: "90%", md: "90%", lg: "80%" }}
               margin={"auto"}
               mt="20px"   justifyContent={"center"}
             >
               <Box className="wish">
                 <Text textAlign={"start"} fontWeight="600">
-                  {/* {el.name} */}
+                  {data?.name}
                 </Text>
                 <Text textAlign={"start"}> 👑Official Account🖤 </Text>
                 <Text textAlign={"start"}> 💟Wish Me On 11 January🎂 </Text>
@@ -123,20 +117,17 @@ export const UserProfile = () => {
           {/* ------------------- profile ------------------ */}
 
           <Box
-            // border="1px solid red"
-            width={{ base: "90%", md: "80%", lg: "100%" }}
-          >
+            width={{ base: "90%", md: "80%", lg: "100%" }}>
            
             <Box
               className="Edit"
-              // border="1px solid red"
               display={"flex"}  justifyContent="space-evenly"
               width={{ base: "100%", md: "100%", lg: "100%" }}
               margin={"auto"}  mt="20px"
               gap="10px"    >
               <Box className="username" margin="auto">
                 <Text className="textname">
-                {/* {el.name} */}
+                {data?.name}
                 </Text>
               </Box>
 
@@ -214,14 +205,13 @@ export const UserProfile = () => {
             </Box>
 
             <Box
-              // border="1px solid black"
               width={{ base: "60%", md: "90%", lg: "80%" }}
               margin={"auto"}
               mt="10px"
             >
               <Box className="wishme">
                 <Text textAlign={"start"} fontWeight="600">
-                {/* {el.name} */}
+                {data?.name}
                 </Text>
                 <Text textAlign={"start"}> 👑Official Account🖤 </Text>
                 <Text textAlign={"start"}> 💟Wish Me On 11 January🎂 </Text>
@@ -240,15 +230,14 @@ export const UserProfile = () => {
         
         
            
-          {/* --------------------- Data upar part ---------------- */}
+      {/* --------------------- Data upar part ---------------- */}
 
 
   
 
         <Divider orientation="horizontal" />
 
-        <Box
-          // border="1px solid brown" 
+        <Box 
           mt="20px">
              <Stories/>
         </Box>
@@ -256,7 +245,7 @@ export const UserProfile = () => {
         <Divider orientation="horizontal" />
 
         <Box mt="20px">
-          <Collection/>
+          <Collection  />
         </Box>
 
       </Box>

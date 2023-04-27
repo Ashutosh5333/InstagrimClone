@@ -12,12 +12,13 @@ import { getData,  } from "../../Redux/AppReducer/action";
 import { Addcomment, likepost, Unlikepost } from "./ProductFetch";
 import Stories from "../StoriesSlider/Stories";
 import { HomeSkelton } from "./HomeSkelton";
+import { Link } from "react-router-dom";
 
 const InstaPost = () => {
     const [isLoading, SetLoading] = useState(false);
     const dispatch = useDispatch();
     const Instapost = useSelector((store) => store.AppReducer.productData);
-    console.log("instadata" ,Instapost)
+    // console.log("instadata" ,Instapost)
         
         
   
@@ -51,6 +52,7 @@ const InstaPost = () => {
          return  <Box key={el._id} >
     <Card  maxW={{base:"4xl", md:"4xl",lg:"2xl"}}  m="auto" mt="10">
           <CardBody>
+          <Link to={`/userprofile/${el.userId}`}>
           <Flex display={"flex"} justifyContent="space-between"  mb="10">
                     <Flex>
                       <Wrap>
@@ -89,6 +91,8 @@ const InstaPost = () => {
                       </Text>
                     </Flex>
                   </Flex>
+             </Link>
+
 
             <Box >
             <Image

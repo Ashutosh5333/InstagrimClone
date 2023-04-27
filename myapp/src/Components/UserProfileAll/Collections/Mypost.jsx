@@ -2,23 +2,24 @@ import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { Box, Image, SimpleGrid } from '@chakra-ui/react';
-import { GetMypost } from '../../../Redux/AppReducer/action';
+import { Link } from 'react-router-dom';
+
 
 export const Mypost = () => {
-  const dispatch = useDispatch()
-  const  data = useSelector((store) => store.AppReducer.Mypost)
-  
 
-     useEffect(() =>{
-       dispatch(GetMypost)
-     },[])
 
+  const Singleuser = useSelector((store) => store.AppReducer.Singleuser)
+  console.log("Singleuser" ,Singleuser)
+
+   const data = Singleuser.pos
+   console.log(data)
 
   return (
     <>
-     <Box >
-
-       {/* <SimpleGrid columns={{base:3,md:2,lg:3}} spacing={6}>
+     {
+       data.length >0 ? 
+      <Box >
+       <SimpleGrid columns={{base:3,md:2,lg:3}} spacing={6}>
              {
               data.length>0 && data.map((el) =>{
                 return <Box key={el._id} > 
@@ -28,12 +29,15 @@ export const Mypost = () => {
                      
                  </Box>
               })
-
              }
+       </SimpleGrid>
+     </Box> : <Box>
+        loading ................
+        
+        </Box>
 
-       </SimpleGrid> */}
-
-     </Box>
+     }
+    
     </>
   )
 }

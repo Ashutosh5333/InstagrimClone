@@ -22,6 +22,8 @@ const Collection = () => {
   );
   const [tabIndex, setTabIndex] = useState(0);
 
+  
+
   return (
     <>
       <Tabs
@@ -99,7 +101,7 @@ const Collection = () => {
 
         <TabPanels p="2rem">
           <TabPanel>
-            <Mypost />
+            <Mypost/>
           </TabPanel>
           <TabPanel> my Reels</TabPanel>
           <TabPanel>Saved data </TabPanel>

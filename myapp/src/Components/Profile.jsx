@@ -22,7 +22,7 @@ const Profile = () => {
         SetUser(res.payload[0].postedby)
        })
      },[])
-  // console.log( "user",user)
+
 
   return (
     <>
@@ -192,7 +192,6 @@ const Profile = () => {
               </Box>
 
               <Box
-                // border="1px solid black"
                 width={{ base: "60%", md: "90%", lg: "80%" }}
                 margin={"auto"}
                 mt="10px"

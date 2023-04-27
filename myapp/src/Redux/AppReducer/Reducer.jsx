@@ -5,7 +5,8 @@ import * as types from "./actionTypes"
      isLoading:false,
      isError:false,
      UserData:[],
-     Mypost:[]
+     Mypost:[],
+     Singleuser:[]
  }
 
 
@@ -33,6 +34,27 @@ export const reducer = ( state=intailState,action ) => {
               isError: true,
               productData: [],
             };
+            
+            case types.SingleUserProfile_DATA_REQUEST :
+              return {
+                ...state,
+                isLoading: true,
+              };
+            case types.SingleUserProfile_DATA_SUCCESS:
+              return {
+                ...state,
+                isLoading: false,
+                isError: false,
+                Singleuser: payload,
+              };
+        
+            case types.SingleUserProfile_DATA_FAILURE:
+              return {
+                ...state,
+                isLoading: false,
+                isError: true,
+                Singleuser: [],
+              };
                    // ============= userdata 
                    case  types.USER_DATA_REQUEST : 
                    return {
