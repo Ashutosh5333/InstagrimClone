@@ -14,12 +14,13 @@ const Profile = () => {
   const dispatch = useDispatch()
   const  userdetail = useSelector((store) => store.AppReducer.Mypost)
  
-   
+      //  console.log(userdetail)  
   
      useEffect(() =>{
        dispatch(GetMypost)
        .then((res)=>{
-        SetUser(res.payload[0].postedby)
+         console.log(res)
+        SetUser(res.payload[0]?.postedby)
        })
      },[])
 

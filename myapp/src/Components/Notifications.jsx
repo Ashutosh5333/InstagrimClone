@@ -23,9 +23,7 @@ const Notifications = () => {
 
   return (
     <>
-      {/* <Button ref={btnRef} colorScheme='teal' onClick={onOpen}>
-        Open
-      </Button> */}
+ 
 
         <Box  ref={btnRef} onClick={onOpen}>
         <AiOutlineHeart/> 

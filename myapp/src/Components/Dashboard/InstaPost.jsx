@@ -16,10 +16,12 @@ import { Link } from "react-router-dom";
 
 const InstaPost = () => {
     const [isLoading, SetLoading] = useState(false);
+  
     const dispatch = useDispatch();
     const Instapost = useSelector((store) => store.AppReducer.productData);
-    // console.log("instadata" ,Instapost)
+    console.log("instadata" ,Instapost)
         
+    // console.log("instadata" ,Instapost.comments)
         
   
     useEffect(() => {
@@ -52,8 +54,9 @@ const InstaPost = () => {
          return  <Box key={el._id} >
     <Card  maxW={{base:"4xl", md:"4xl",lg:"2xl"}}  m="auto" mt="10">
           <CardBody>
-          <Link to={`/userprofile/${el.userId}`}>
           <Flex display={"flex"} justifyContent="space-between"  mb="10">
+
+          <Link to={`/userprofile/${el.userId}`}>
                     <Flex>
                       <Wrap>
                         <WrapItem>
@@ -84,6 +87,7 @@ const InstaPost = () => {
                         
                       </Text>
                     </Flex>
+             </Link>
 
                     <Flex>
                       <Text fontSize={"30px"}>
@@ -91,7 +95,6 @@ const InstaPost = () => {
                       </Text>
                     </Flex>
                   </Flex>
-             </Link>
 
 
             <Box >
@@ -101,8 +104,7 @@ const InstaPost = () => {
               width="100%"
               boxSize={{ base: "600px", md: "600px", lg: "600px" }}
                           m={"auto"}
-                // src="https://images.unsplash.com/photo-1681097228666-f65d459530f8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDJ8RnpvM3p1T0hONnd8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"
-                 src={el.pic}
+                       src={el.pic}
                         alt="PostImage"
               borderRadius="lg"
               margin={"auto"} 
@@ -126,7 +128,11 @@ const InstaPost = () => {
                         justifyContent="space-between"
                         gap="18px"
                       >
-                        {el.likes.length > 0 ? (
+                       {/* {el.userId} */}
+                        {/* {el.likes} */}
+                        {/* el.likes === el.userId  */}
+
+                        {el.likes.includes(el.userId) ? (
                           <FaHeart
                             color={"red"}
                             onClick={() => Unlikepost(el._id)}
@@ -195,9 +201,9 @@ const InstaPost = () => {
                        <span  className="span"
                         fontSize={{ base: "10px", md: "15px", lg: "18px" }}
                         style={{ fontWeight: "600" }}  >
-                           {el.comments[0].postedby.name}
+                           {el.comments[0]?.postedby.name}
                        </span>
-                        {el.comments[0].text}
+                        {el.comments[0]?.text}
                       </Text>
 
                   </Box>

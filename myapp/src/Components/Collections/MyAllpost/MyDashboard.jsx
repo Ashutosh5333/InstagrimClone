@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./post.css"
 import MypostFull from '../MypostFull';
 import Side from '../../../Pages/Side';

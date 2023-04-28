@@ -12,7 +12,7 @@ const Menubar = () => {
 
   const handleLogOut =()=>{
     localStorage.clear()
-     Navigate("/login")
+     window.location.reload()
 }
 
      

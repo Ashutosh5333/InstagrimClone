@@ -20,7 +20,8 @@ export const UserProfile = () => {
 
     const Singleuser = useSelector((store) => store.AppReducer.Singleuser)
     
-  
+      // console.log("Singleuser",Singleuser)
+      
    useEffect(() =>{
      SetLoading(true)
       dispatch(SingleUserprofile(userId))

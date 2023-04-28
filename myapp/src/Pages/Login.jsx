@@ -26,7 +26,7 @@ const Login = () => {
   const handleSubmit = () =>{
       dispatch(Loginupdata(post))
       .then((res) =>{
-         console.log(res)
+        //  console.log(res)
          if(res.type === "GET_LOGIN_SUCCESS"){
              if(res.payload.data.msg !== "Login sucessfull"){
                 toast({
@@ -46,6 +46,7 @@ const Login = () => {
               })
             
               localStorage.setItem("token", JSON.stringify(res.payload.data.token))
+              localStorage.setItem("user",JSON.stringify(res.payload))
               navigate("/")
              }
          }
