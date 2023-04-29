@@ -126,7 +126,7 @@ const Deletedatafai = () => {
 
 export const GetUserData = (dispatch) => {
       dispatch(getuserdataReq)
-      return axios.get(`https://drab-ruby-swallow-toga.cyclic.app/insta` ,{
+      return axios.get(`https://insta-293s.onrender.com/insta` ,{
          headers:{
             "Content-Type":"application/json",
             "Authorization":`Bearer ${token}`
@@ -144,7 +144,7 @@ export const GetUserData = (dispatch) => {
 
 const  ADDProducts =(newdata) => (dispatch) => {
   dispatch(AdddataReq)
-  return axios.post(`https://drab-ruby-swallow-toga.cyclic.app/create`,newdata ,{
+  return axios.post(`https://insta-293s.onrender.com/create`,newdata ,{
    headers:{
       "Content-Type":"application/json",
       "Authorization":`Bearer ${token}`
@@ -157,10 +157,11 @@ const  ADDProducts =(newdata) => (dispatch) => {
    })
 }
 
-
+// https://drab-ruby-swallow-toga.cyclic.app
+// https://insta-293s.onrender.com/
   const getData = (dispatch) => {
       dispatch(getdataReq())
-  return axios.get(`https://drab-ruby-swallow-toga.cyclic.app/insta`,{
+  return axios.get(`https://insta-293s.onrender.com/insta`,{
        headers:{
          "Content-Type":"application/json",
          "Authorization":`Bearer ${token}`
@@ -179,7 +180,7 @@ const  ADDProducts =(newdata) => (dispatch) => {
     
  export  const getDeleteData =(_id) => (dispatch) => {
    dispatch(DeleteDatareq())
-return axios.delete(`https://drab-ruby-swallow-toga.cyclic.app/insta/delete/${_id}`,{
+return axios.delete(`https://insta-293s.onrender.com/insta/delete/${_id}`,{
     headers:{
       "Content-Type":"application/json",
       "Authorization":`Bearer ${token}`
@@ -197,7 +198,7 @@ return axios.delete(`https://drab-ruby-swallow-toga.cyclic.app/insta/delete/${_i
 
 export const GetMypost = (dispatch) => {
    dispatch(MydatapostReq)
-   return axios.get(`https://drab-ruby-swallow-toga.cyclic.app/mypost` ,{
+   return axios.get(`https://insta-293s.onrender.com/mypost` ,{
       headers:{
          "Content-Type":"application/json",
          "Authorization":`Bearer ${token}`
@@ -217,7 +218,7 @@ export const GetMypost = (dispatch) => {
 
 export const SingleUserprofile = (userId) => (dispatch) =>{
         dispatch(singleUserprofilerequest())
-       return  axios.get(`https://drab-ruby-swallow-toga.cyclic.app/user/${userId}`,{
+       return  axios.get(`https://insta-293s.onrender.com/user/${userId}`,{
          headers:{
             "Content-Type":"application/json",
             "Authorization":`Bearer ${token}`

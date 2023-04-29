@@ -5,7 +5,7 @@ const token = JSON.parse(localStorage.getItem("token"));
 
 
 export const likepost = (_id) => {
-  fetch(`https://drab-ruby-swallow-toga.cyclic.app/likes/${_id}`, {
+  fetch(`https://insta-293s.onrender.com/likes/${_id}`, {
     method: "put",
     headers: {
       "Content-Type": "application/json",
@@ -27,7 +27,7 @@ export const likepost = (_id) => {
 // ----------------  Unlikepost ------------ //
 
 export const Unlikepost = (_id) => {
-    fetch(`https://drab-ruby-swallow-toga.cyclic.app/unlikes/${_id}`, {
+    fetch(`https://insta-293s.onrender.com/unlikes/${_id}`, {
       method: "put",
       headers: {
         "Content-Type": "application/json",
@@ -52,7 +52,7 @@ export const Unlikepost = (_id) => {
 // ----------- comment ---------- //
  
 export  const Addcomment = (text, _id) => {
-    fetch(`https://drab-ruby-swallow-toga.cyclic.app/comment/${_id}`, {
+    fetch(`https://insta-293s.onrender.com/comment/${_id}`, {
       method: "put",
       headers: {
         "Content-Type": "application/json",

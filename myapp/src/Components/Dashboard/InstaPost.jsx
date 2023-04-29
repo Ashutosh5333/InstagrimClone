@@ -1,6 +1,6 @@
-import {  Avatar,  Box,   Flex,    Image,   Input,   Stack,  Text,  Wrap,  WrapItem, useToast,} from "@chakra-ui/react";
+import {  Avatar,  Box,   Flex,    Image,   Input,   Text,  Wrap,  WrapItem,} from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-import { Card,  CardBody, CardFooter } from "@chakra-ui/react";
+import { Card,  CardBody } from "@chakra-ui/react";
 import { DotModal } from "../modal/DotModal";
 import { TfiHeart } from "react-icons/tfi";
 import { FaHeart, FaRegComment } from "react-icons/fa";
@@ -19,11 +19,12 @@ const InstaPost = () => {
   
     const dispatch = useDispatch();
     const Instapost = useSelector((store) => store.AppReducer.productData);
-    console.log("instadata" ,Instapost)
+    // console.log("instadata" ,Instapost)
         
-    // console.log("instadata" ,Instapost.comments)
-        
-  
+   
+      const data =  JSON.parse(localStorage.getItem("user"))
+      
+         
     useEffect(() => {
       SetLoading(true);
       dispatch(getData)
@@ -102,12 +103,14 @@ const InstaPost = () => {
               objectFit="cover"
           
               width="100%"
-              boxSize={{ base: "600px", md: "600px", lg: "600px" }}
-                          m={"auto"}
+               height={"100%"}
+              // boxSize={{ base: "600px", md: "600px", lg: "600px" }}
                        src={el.pic}
                         alt="PostImage"
-              borderRadius="lg"
-              margin={"auto"} 
+              borderRadius="lg"    m={"auto"}
+              //  width="500px"
+                // height={"500px"}
+
             />
             
             </Box>
@@ -132,7 +135,7 @@ const InstaPost = () => {
                         {/* {el.likes} */}
                         {/* el.likes === el.userId  */}
 
-                        {el.likes.includes(el.userId) ? (
+                        {el.likes.includes(data?._id) ? (
                           <FaHeart
                             color={"red"}
                             onClick={() => Unlikepost(el._id)}

@@ -1,7 +1,7 @@
 import React from 'react'
-import { Drawer,DrawerBody, DrawerFooter, DrawerHeader, DrawerOverlay,    DrawerContent,    DrawerCloseButton, useDisclosure, Text, Button, Input, Tooltip, InputRightElement, InputGroup, InputLeftElement,  } from '@chakra-ui/react'
+import { Drawer,DrawerBody, DrawerHeader, DrawerOverlay,    DrawerContent,    DrawerCloseButton, useDisclosure, Text, Button, Input, InputRightElement, InputGroup, InputLeftElement,  } from '@chakra-ui/react'
 import { BsSearch } from 'react-icons/bs'
-import {UnlockIcon} from "@chakra-ui/icons"
+
 
 const SideSearchmodel = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()

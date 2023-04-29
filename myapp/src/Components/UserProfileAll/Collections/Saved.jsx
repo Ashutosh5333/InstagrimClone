@@ -1,8 +1,9 @@
+import { Box } from '@chakra-ui/react'
 import React from 'react'
 
 const Saved = () => {
   return (
-    <div>Saved</div>
+    <Box>Saved</Box>
   )
 }
 

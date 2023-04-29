@@ -46,7 +46,7 @@ const Login = () => {
               })
             
               localStorage.setItem("token", JSON.stringify(res.payload.data.token))
-              localStorage.setItem("user",JSON.stringify(res.payload))
+              localStorage.setItem("user",JSON.stringify(res.payload.data.data))
               navigate("/")
              }
          }
