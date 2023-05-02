@@ -7,6 +7,7 @@ import "./style/prof.css";
 import Side from "./../Pages/Side";
 import { useDispatch, useSelector } from "react-redux";
 import { GetMypost } from "../Redux/AppReducer/action";
+import Changeprofile from "./Changeprofile";
 
 
 const Profile = () => {
@@ -19,7 +20,7 @@ const Profile = () => {
      useEffect(() =>{
        dispatch(GetMypost)
        .then((res)=>{
-         console.log(res)
+        //  console.log(res)
         SetUser(res.payload[0]?.postedby)
        })
      },[])
@@ -77,14 +78,18 @@ const Profile = () => {
                   justifyContent={"center"}
                 >
                   <WrapItem>
-                    <Avatar
+                   <Changeprofile 
+                      name={user?.name}
+                      src={user?.image}
+                   />
+                    {/* <Avatar
                       className="image"
                       // m="auto"
                       ml=".6em"
                       size={{ base: "xl", md: "xl", lg: "2xl" }}
                       name={user?.name}
                       src={user?.image}
-                    />
+                    /> */}
                   </WrapItem>
                 </Wrap>
               </Box>

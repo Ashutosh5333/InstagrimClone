@@ -12,7 +12,7 @@ export const Mypost = () => {
   // console.log("Singleuser" ,Singleuser)
 
    const data = Singleuser.pos
-   console.log(data)
+  //  console.log(data)
 
      
 
@@ -57,31 +57,3 @@ export const Mypost = () => {
 
   )
 }
-
-/**
- *  {
-      data.length>0 ?
-      <Box>
-<SimpleGrid columns={{base:1,md:2,lg:3}} spacing={6}>
-  {
-     data.length > 0 && data.map((el) =>{
-      return   <Card maxW="xl" key={el._id}>
-      <Link to="/profiledata">
-         <Image  src={el.pic}
-         alt="Mypost"
-                 width="100%"
-                  height="80vh"
-                 />
-     </Link>
-     </Card>
-     })
-
-  }
-   
-</SimpleGrid>
-</Box>
-:
-<Box>
-<ImageSkelton/>
-</Box>
- */

@@ -64,8 +64,9 @@ const InstaPost = () => {
                           <Avatar
                             size={{ base: "xs", md: "sm" }}
                             mr={8}
+                           
                             name={el.postedby.name}
-                            src={el.image}                            
+                            src={el.postedby.image}                            
                           />
                         </WrapItem>
                       </Wrap>

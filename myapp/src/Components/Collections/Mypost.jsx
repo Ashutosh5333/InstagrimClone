@@ -28,7 +28,10 @@ export const Mypost = () => {
         <Link to="/profiledata">
            <Image  src={el.pic}
            alt="Mypost"
-                   objectFit="cover"  width="100%"/>
+                  //  objectFit="cover"
+                     width="100%"
+                      height={"400px"}
+                     />
        </Link>
        </Card>
        })
