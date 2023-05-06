@@ -3,6 +3,28 @@ import axios from "axios"
 
 
 
+// -------------  All users data  --------------- //
+
+
+const userdataReq = () =>{
+   return {
+      type: types.USER_DATA_REQUEST
+   }
+} 
+const userdataSucess = (payload) => {
+   return {
+      type :types.USER_DATA_SUCCESS,
+      payload,
+   }
+}
+const userdataFail = () => {
+  return {
+      type :types.USER_DATA_FAILURE
+  }
+}
+
+
+
 const getdataReq = () =>{
     return {
        type: types.GET_DATA_REQUEST
@@ -19,6 +41,7 @@ const getdataFail = () => {
        type :types.GET_DATA_FAILURE
    }
 }
+
 // -------- ADD DATA---------- 
 
 const AdddataReq = () =>{
@@ -119,6 +142,27 @@ const Deletedatafai = () => {
       type :types.DELETE_DATA_FAILURE
   }
   }
+
+   // ==================== All Users Data  ================= //
+
+   
+
+export const AllUserData = (dispatch) => {
+   dispatch(userdataReq)
+   return axios.get(`https://insta-293s.onrender.com/user` ,{
+      headers:{
+         "Content-Type":"application/json",
+         "Authorization":`Bearer ${token}`
+       },
+   })
+   .then((res)=>{
+   return   dispatch(userdataSucess(res.data))
+   })
+   .catch((e)=>{  
+   return    dispatch(userdataFail())
+   })
+}
+
 
 
   // ============    Get User Data searchbar  =================  //

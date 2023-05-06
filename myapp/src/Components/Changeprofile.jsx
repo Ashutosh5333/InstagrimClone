@@ -13,7 +13,7 @@ const Changeprofile = ({name,src}) => {
     const [image, SetImage] = useState("");
     const [url ,SetUrl] = useState("") 
 
-    console.log( "image url",image)
+
 
     useEffect((_id) => {
       if (url) {
@@ -25,7 +25,7 @@ const Changeprofile = ({name,src}) => {
         })
           .then((res) => res.json())
           .then((data) => {
-           console.log(data)
+           console.log( "uploadde",data);
             toast({
               position : 'top',
               status : "success",
@@ -44,12 +44,9 @@ const Changeprofile = ({name,src}) => {
       }
     }, [url]);
   
-
- 
-     
-     useEffect(() =>{
-          // if(image){
-        const data = new FormData();
+     const UploadPost = () =>{
+       console.log("hello")
+         const data = new FormData();
       data.append("file", image);
       data.append("upload_preset", "insta-Clone");
       data.append("cloud_name", "dgvfiwlap");
@@ -65,8 +62,13 @@ const Changeprofile = ({name,src}) => {
         .catch((err) => {
           console.log(err);
         });
-          // }
-     },[])
+     }
+ 
+     
+
+
+      
+   
     
   
   return (
@@ -101,8 +103,7 @@ const Changeprofile = ({name,src}) => {
                   <input
                     type="file"
                     style={{ display: "none", margin: "auto" }}
-                    name="url"
-                    //  onChange={(e) => console.log(e.target.value) }
+                    name="image"
                     onChange={(e) => SetImage(e.target.files[0])}
                   />
                 </label>
@@ -114,9 +115,13 @@ const Changeprofile = ({name,src}) => {
               </Text>
              
               <Divider orientation="horizontal" />
-              <Text p={5} fontWeight="600" letterSpacing={1} onClick={onClose}>
+              <Text p={5} fontWeight="600" color="red"  letterSpacing={1} onClick={onClose}>
                 Cancel
               </Text>
+              <Text p={5} fontWeight="600" color="Skyblue"  letterSpacing={1} onClick={UploadPost}>
+                Post
+              </Text>
+
             </Box>
           </ModalBody>
         </ModalContent>

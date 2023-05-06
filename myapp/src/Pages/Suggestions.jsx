@@ -1,18 +1,36 @@
 import { Avatar, Box, Text, Wrap, WrapItem } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { AllUserData } from "../Redux/AppReducer/action";
 
 
 export const Suggestions = () => {
+   const [data,SetData] = useState([])
+   const dispatch  = useDispatch()
+   const userdata = JSON.parse(localStorage.getItem("user"))
+
+
+    
+     useEffect(() =>{
+       dispatch(AllUserData)
+        .then((res) =>{
+           SetData(res.payload)
+      
+        }).catch((err) =>{
+           console.log(err)
+        })
+     },[])
+
+
+
   return (
     <>
       <Box width="90%" margin={"auto"} 
-      // border="1px solid red" 
       >
 
 {/* --------------------------------------- */}
 
         <Box
-          // border={"1px solid blue"}
           mt="4"
           display="flex"
           justifyContent={"space-between"}
@@ -21,23 +39,20 @@ export const Suggestions = () => {
           {/* --------------------------- */}
 
             <Box 
-            // border="1px solid blue"
              display={"flex"} justifyContent="center" alignContent={"center"} textAlign="center" > 
             <Wrap p="2">
               <WrapItem>
                 <Avatar
                   size="lg"
-                  name="Segun Adebayo"
-                  src="https://bit.ly/ryan-florence"
+                  name={userdata?.name}
                 />{" "}
               </WrapItem>
             </Wrap>
              
              <Box 
-            //  border={"1px solid brown"} 
              margin="auto" textAlign={"start"} > 
-             <Text alignItems={"center"}  fontWeight="600" textAlign="center" margin={"auto"} > _Ashutoshlakshkar7985 </Text>
-             <Text fontSize="15" color={"gray"} > Ashu </Text>
+             <Text alignItems={"center"}  fontWeight="600" textAlign="center" margin={"auto"} > {userdata?.email} </Text>
+             <Text fontSize="15" color={"gray"} > {userdata?.name} </Text>
              </Box>
 
             </Box>
@@ -51,7 +66,7 @@ export const Suggestions = () => {
         
 
           <Box
-            // border={"1px solid blue"}
+  
             display="flex" mt={6}
             justifyContent={"space-between"}
           >
@@ -66,12 +81,12 @@ export const Suggestions = () => {
 
         {/* ---------------------------------- */}
 
-        <Box
-        //  border={"1px solid brown"} 
-        mt="4">
+        {
 
-          <Box
-            // border={"1px solid blue"}
+data.length >0 && data.map((el) =>{
+ return  <Box>
+
+ <Box
             display="flex"
             justifyContent={"space-between"}
           >
@@ -83,16 +98,16 @@ export const Suggestions = () => {
               <WrapItem>
                 <Avatar
                   size="md"
-                  name="Segun Adebayo"
-                  src="https://bit.ly/ryan-florence"
+                  name= {el.name}
+                   src={el.image}
+                  
                 />{" "}
               </WrapItem>
             </Wrap>
              
              <Box 
-            //  border="1px solid brown" 
              textAlign="start" margin={"auto"}> 
-             <Text alignItems={"center"} fontWeight="600" margin={"auto"} > _Ashutoshlakshkar7985 </Text>
+             <Text alignItems={"center"} fontWeight="600" margin={"auto"} >{el.name} </Text>
              <Text color={"gray"} > New on Instagram </Text>
             </Box>
 
@@ -103,221 +118,12 @@ export const Suggestions = () => {
 
           </Box>
 
-            {/* ----------------2------------ */}
+ </Box>
 
-            <Box
-            // border={"1px solid blue"}
-            display="flex"
-            justifyContent={"space-between"}
-          >
-         
-        
-            <Box  display={"flex"} justifyContent="center" alignContent={"center"} textAlign="center" > 
+})
 
-            <Wrap p="4">
-              <WrapItem>
-                <Avatar
-                  size="md"
-                  name="Segun Adebayo"
-                  src="https://bit.ly/prosper-baba"
-                />{" "}
-              </WrapItem>
-            </Wrap>
-             
-             <Box 
-            //  border="1px solid brown" 
-             textAlign="start" margin={"auto"}> 
-             <Text alignItems={"center"} fontWeight="600" margin={"auto"} > _Ashutoshlakshkar7985 </Text>
-             <Text color={"gray"} > New on Instagram </Text>
-            </Box>
+}
 
-            </Box>
-
-
-            <Box margin={"auto"}  color="#27c4f5"> Follow </Box>
-
-          </Box>
-
-            
-          <Box
-            // border={"1px solid blue"}
-            display="flex"
-            justifyContent={"space-between"}
-          >
-         
-        
-            <Box  display={"flex"} justifyContent="center" alignContent={"center"} textAlign="center" > 
-
-            <Wrap p="4">
-              <WrapItem>
-                <Avatar
-                  size="md"
-                  name="Segun Adebayo"
-                  src="https://bit.ly/code-beast"
-                />{" "}
-              </WrapItem>
-            </Wrap>
-             
-             <Box 
-            //  border="1px solid brown" 
-             textAlign="start" margin={"auto"}> 
-             <Text alignItems={"center"} fontWeight="600" margin={"auto"} > _Ashutoshlakshkar7985 </Text>
-             <Text color={"gray"} > New on Instagram </Text>
-            </Box>
-
-            </Box>
-
-
-            <Box margin={"auto"}  color="#27c4f5"> Follow </Box>
-
-          </Box>
-
-
-          <Box
-            // border={"1px solid blue"}
-            display="flex"
-            justifyContent={"space-between"}
-          >
-         
-        
-            <Box  display={"flex"} justifyContent="center" alignContent={"center"} textAlign="center" > 
-
-            <Wrap p="4">
-              <WrapItem>
-                <Avatar
-                  size="md"
-                  name="Segun Adebayo"
-                  src="https://bit.ly/ryan-florence"
-                />{" "}
-              </WrapItem>
-            </Wrap>
-             
-             <Box 
-            //  border="1px solid brown" 
-             textAlign="start" margin={"auto"}> 
-             <Text alignItems={"center"} fontWeight="600" margin={"auto"} > _Ashutoshlakshkar7985 </Text>
-             <Text color={"gray"} > New on Instagram </Text>
-            </Box>
-
-            </Box>
-
-
-            <Box margin={"auto"}  color="#27c4f5"> Follow </Box>
-
-          </Box>
-
-
-
-          <Box
-            // border={"1px solid blue"}
-            display="flex"
-            justifyContent={"space-between"}
-          >
-         
-        
-            <Box  display={"flex"} justifyContent="center" alignContent={"center"} textAlign="center" > 
-
-            <Wrap p="4">
-              <WrapItem>
-                <Avatar
-                  size="md"
-                  name="Segun Adebayo"
-                  src="https://bit.ly/sage-adebayo"
-                />{" "}
-              </WrapItem>
-            </Wrap>
-             
-             <Box 
-            //  border="1px solid brown" 
-             textAlign="start" margin={"auto"}> 
-             <Text alignItems={"center"} fontWeight="600" margin={"auto"} > _Ashutoshlakshkar7985 </Text>
-             <Text color={"gray"} > New on Instagram </Text>
-            </Box>
-
-            </Box>
-
-
-            <Box margin={"auto"}  color="#27c4f5"> Follow </Box>
-
-          </Box>
-
-
-
-
-          <Box
-            // border={"1px solid blue"}
-            display="flex"
-            justifyContent={"space-between"}
-          >
-         
-        
-            <Box  display={"flex"} justifyContent="center" alignContent={"center"} textAlign="center" > 
-
-            <Wrap p="4">
-              <WrapItem>
-                <Avatar
-                  size="md"
-                  name="Segun Adebayo"
-                  src="'https://bit.ly/prosper-baba"
-                />{" "}
-              </WrapItem>
-            </Wrap>
-             
-             <Box 
-            //  border="1px solid brown" 
-             textAlign="start" margin={"auto"}> 
-             <Text alignItems={"center"} fontWeight="600" margin={"auto"} > _Ashutoshlakshkar7985 </Text>
-             <Text color={"gray"} > New on Instagram </Text>
-            </Box>
-
-            </Box>
-
-
-            <Box margin={"auto"}  color="#27c4f5"> Follow </Box>
-
-          </Box>
-
-
-
-
-          <Box
-            // border={"1px solid blue"}
-            display="flex"
-            justifyContent={"space-between"}
-          >
-         
-        
-            <Box  display={"flex"} justifyContent="center" alignContent={"center"} textAlign="center" > 
-
-            <Wrap p="4">
-              <WrapItem>
-                <Avatar
-                  size="md"
-                  name="Segun Adebayo"
-                  src="'https://bit.ly/prosper-baba"
-                />{" "}
-              </WrapItem>
-            </Wrap>
-             
-             <Box 
-            //  border="1px solid brown" 
-             textAlign="start" margin={"auto"}> 
-             <Text alignItems={"center"} fontWeight="600" margin={"auto"} > _Ashutoshlakshkar7985 </Text>
-             <Text color={"gray"} > New on Instagram </Text>
-            </Box>
-
-            </Box>
-
-
-            <Box margin={"auto"}  color="#27c4f5"> Follow </Box>
-
-          </Box>
-
-
-
-   {/* ------------- */}
-
-        </Box>
 
 {/* ----------------- */}
 
