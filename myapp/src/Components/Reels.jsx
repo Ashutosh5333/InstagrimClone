@@ -1,11 +1,17 @@
 import React from 'react'
 import { Box } from '@chakra-ui/react';
+import Igreel from './IgReels/Igreel';
+
+
+
 const Reels = () => {
 
 
   return (
-    <Box>
-    Reels
+    <Box border="1px solid red">
+         
+             <Igreel/>
+
     </Box>
   )
   

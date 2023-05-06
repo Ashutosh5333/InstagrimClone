@@ -1,0 +1,12 @@
+html{
+    scroll-snap-type:y mandatory;
+}
+
+.videos::-webkit-scrollbar{
+  display: none;
+}
+
+.videos{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
