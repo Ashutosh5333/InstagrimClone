@@ -9,7 +9,7 @@ import { ArrowLeftIcon, ArrowRightIcon } from '@chakra-ui/icons';
 const Videoheader = () => {
 
   return (
-    <Box border={"3px solid red"} display={"flex"} justifyContent={"space-between"}
+    <Box display={"flex"} justifyContent={"space-between"}
     alignItems={"center"} position={"absolute"} width={"100%"} color={"white"} p="4"
      >
 

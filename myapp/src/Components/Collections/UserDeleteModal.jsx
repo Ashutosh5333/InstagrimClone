@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {  Modal,  ModalOverlay,  ModalContent,  ModalBody,  useDisclosure,
   Box,  Text,  useToast,} from "@chakra-ui/react";
 import { AiOutlineEllipsis } from "react-icons/ai";
 import { Divider } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
-import { getDeleteData } from "../../Redux/AppReducer/action";
+import { GetMypost, getDeleteData } from "../../Redux/AppReducer/action";
 
 export const UserDeleteModal = ({_id}) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -12,11 +12,14 @@ export const UserDeleteModal = ({_id}) => {
   const dispatch = useDispatch()
   const toast = useToast()
 
+       
+  
+
        const handleDelete = (_id) =>{
          dispatch(getDeleteData(_id))
          .then((res) =>{
             console.log(res)
-            if(res.type === "DELETE_DATA_SUCCESS"){
+            if(res.type === "DELETE_DATA_SUCCESS") {
                 if(res.type !== "DELETE_DATA_SUCCESS"){
                    toast({
                      position : 'top',
@@ -33,7 +36,7 @@ export const UserDeleteModal = ({_id}) => {
                    status : "success",
                    title:"Delete post "
                  })
-               
+                  dispatch(GetMypost)
                 }
             }
          })

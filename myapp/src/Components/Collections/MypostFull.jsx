@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 import { GetMypost  } from "../../Redux/AppReducer/action";
 import { HomeSkelton } from './../Dashboard/HomeSkelton';
 import { Addcomment, Unlikepost, likepost } from "../Dashboard/ProductFetch";
+import { UserDeleteModal } from "./UserDeleteModal";
 
 const MypostFull = () => {
     const dispatch = useDispatch()
@@ -68,7 +69,7 @@ const MypostFull = () => {
 
                     <Flex>
                       <Text fontSize={"30px"}>
-                        <DotModal />
+                        <UserDeleteModal _id={el._id} />
                       </Text>
                     </Flex>
                   </Flex>

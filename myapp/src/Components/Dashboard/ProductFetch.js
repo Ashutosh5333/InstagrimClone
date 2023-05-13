@@ -1,6 +1,10 @@
+import React  from 'react-redux';
 
+import { useDispatch } from 'react-redux';
+import { getData } from '../../Redux/AppReducer/action';
 
 const token = JSON.parse(localStorage.getItem("token"));
+
 
 
 
@@ -15,6 +19,7 @@ export const likepost = (_id) => {
     .then((res) => res.json())
     .then((dat) => {
       console.log(dat)
+        // dispatch(getData)
       window.location.reload()
     })
     .catch((err) => {
@@ -73,3 +78,16 @@ export  const Addcomment = (text, _id) => {
   };
 
  
+  export const ProductFetch = () =>{
+
+
+    
+  const dispatch = useDispatch()
+
+
+
+      return <>
+
+
+      </>
+  }

@@ -8,7 +8,7 @@ const Reels = () => {
 
 
   return (
-    <Box border="1px solid red">
+    <Box>
          
              <Igreel/>
 
