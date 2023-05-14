@@ -7,7 +7,8 @@ import * as types from "./actionTypes"
      UserData:[],
      Mypost:[],
      Singleuser:[],
-     Alluser:[]
+     Alluser:[],
+     AllReel:[]
  }
 
 
@@ -106,6 +107,12 @@ export const reducer = ( state=intailState,action ) => {
                    ...state,
                 
                    Alluser:payload
+               }
+
+                 case  types.AllREEL_DATA_SUCCESS: 
+               return {
+                   ...state,
+                   AllReel:payload
                }
 
        

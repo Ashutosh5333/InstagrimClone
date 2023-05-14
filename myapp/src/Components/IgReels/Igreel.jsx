@@ -1,10 +1,24 @@
 import { Box, Image, Img, Text } from '@chakra-ui/react'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Ig.css";
 import VideoCard from './VideoCard';
+import { useDispatch, useSelector } from 'react-redux';
+import { AllReelData } from './../../Redux/AppReducer/action';
+
+
+
+
 
 const Igreel = () => {
+ const [reels ,SetReels] = useState([])
+  const dispatch = useDispatch()
 
+   const Reels = useSelector((store) => store.AppReducer.AllReel)
+       console.log( "Reel" , Reels)
+    
+         useEffect(() =>{
+             dispatch(AllReelData)
+         },[])
 
   return (
     <Box  display={"grid"} placeItems={"center"} height="100vh"

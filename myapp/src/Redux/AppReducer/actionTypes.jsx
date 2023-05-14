@@ -34,3 +34,8 @@ export const SingleUserProfile_DATA_REQUEST =  "SingleUserProfile_DATA_REQUEST";
 export const SingleUserProfile_DATA_SUCCESS =  "SingleUserProfile_DATA_SUCCESS";
 export const SingleUserProfile_DATA_FAILURE =  "SingleUserProfile_DATA_FAILURE ";
 
+
+
+export const AllREEL_DATA_REQUEST =  "AllREEL_DATA_REQUEST";
+export const AllREEL_DATA_SUCCESS =  "AllREEL_DATA_SUCCESS";
+export const AllREEL_DATA_FAILURE =  "AllREEL_DATA_FAILURE ";

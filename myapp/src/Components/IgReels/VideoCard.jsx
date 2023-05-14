@@ -49,44 +49,6 @@ const VideoCard = ({avatarSrc,like, share ,channel,song,url}) => {
 
 {/* ------------------------ */}
 
-
-{/* <div className="card">
-<video
-  className='videoplyer'
-  ref={videoref}
-   onClick={onPresss}
-   src="https://www.statuslagao.com/whatsapp/videos/new/new-whatsapp-status-video-376.mp4"
-   alt='igreels'
-   loop
- /> 
-</div> */}
-
-{/* ----------------- */}
-{/* 
-<div className="card">
-<video
-  className='videoplyer'
-  ref={videoref}
-   onClick={onPresss}
-   src="https://www.statuslagao.com/whatsapp/videos/new/new-whatsapp-status-video-644.mp4"
-   alt='igreels'
-   loop
- /> 
-</div> */}
-
-{/* ------------- */}
-{/* 
-<div className="card">
-<video
-  className='videoplyer'
-  ref={videoref}
-   onClick={onPresss}
-   src="https://www.statuslagao.com/whatsapp/videos/new/new-whatsapp-status-video-585.mp4"
-   alt='igreels'
-   loop
- /> 
-</div> */}
-
      </>
   
 

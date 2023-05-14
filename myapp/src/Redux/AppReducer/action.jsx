@@ -2,6 +2,25 @@ import * as types from "./actionTypes"
 import axios from "axios"
 
 
+   //  --------------- All Reel Data -------------- //
+      
+const  ReeldataReq = () =>{
+   return {
+      type: types.AllREEL_DATA_REQUEST
+   }
+} 
+const  ReeldataSucess = (payload) => {
+   return {
+      type :types.AllREEL_DATA_SUCCESS,
+      payload,
+   }
+}
+const  ReeldataFail = () => {
+  return {
+      type :types.AllREEL_DATA_FAILURE
+  }
+}
+
 
 // -------------  All users data  --------------- //
 
@@ -142,6 +161,26 @@ const Deletedatafai = () => {
       type :types.DELETE_DATA_FAILURE
   }
   }
+
+   // ===============     All Reel data  ============= //
+   
+
+export const AllReelData = (dispatch) => {
+   dispatch(ReeldataReq)
+   return axios.get(`https://insta-293s.onrender.com/allReel` ,{
+      headers:{
+         "Content-Type":"application/json",
+         "Authorization":`Bearer ${token}`
+       },
+   })
+   .then((res)=>{
+   return   dispatch(ReeldataSucess(res.data))
+   })
+   .catch((e)=>{  
+   return    dispatch(ReeldataFail())
+   })
+}
+
 
    // ==================== All Users Data  ================= //
 

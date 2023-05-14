@@ -42,8 +42,8 @@ const VideoFooter = ({avatarSrc,channel,song}) => {
 
         </Box>
         
-         <Box border="2px solid black" position={"absolute"}>
-
+         <Box border="2px solid black" position={"absolute"} bottom={"0"}>
+         {/* <SiApplemusic  fontSize={"2rem"}  mt="5" /> */}
 
          </Box>
     
