@@ -20,12 +20,12 @@ const Collection = () => {
         <TabList justifyContent={"center"}>
 
           <Box 
-        //   border="1px solid black"
+     
            m="10px" display={"flex"} 
             justifyContent="space-between"
            alignContent="center" >
             <Box alignItems={"center"} 
-            //   border="1px solid yellow"
+        
                m="auto" >
              <Text fontSize={"1.2rem"}>
               <AiOutlineTable />
@@ -39,13 +39,13 @@ const Collection = () => {
          
          
           <Box
-        //   border="1px solid black" 
+     
            m="10px"
            display={"flex"} 
             justifyContent="space-between"
            alignContent="center" >
             <Box alignItems={"center"} 
-            //   border="1px solid yellow"
+       
                m="auto" >
              <Text fontSize={"1.2rem"}>
              <TfiVideoClapper />
@@ -58,12 +58,12 @@ const Collection = () => {
 
 
           <Box 
-        //   border="1px solid black" 
+  
            m="10px" display={"flex"} 
             justifyContent="space-between"
            alignContent="center" >
             <Box alignItems={"center"} 
-            //   border="1px solid yellow"
+        
                m="auto" >
              <Text fontSize={"1.2rem"}>
              <FaRegBookmark />
@@ -76,15 +76,12 @@ const Collection = () => {
 
           
           <Box 
-        
-        //   border="1px solid black" 
-
           m="10px"
            display={"flex"} 
             justifyContent="space-between"
            alignContent="center" >
             <Box alignItems={"center"} 
-            //   border="1px solid yellow"
+        
                m="auto" >
              <Text fontSize={"1.2rem"}>
               <CgProfile />

@@ -31,7 +31,8 @@ const VideoCard = ({avatarSrc,like, share ,channel,song,url}) => {
           className='videoplyer'
           ref={videoref}
            onClick={onPresss}
-           src="https://www.statuslagao.com/whatsapp/videos/new/new-whatsapp-status-video-330.mp4"
+          //  src="https://www.statuslagao.com/whatsapp/videos/new/new-whatsapp-status-video-330.mp4"
+             src={url}
            alt='igreels'
            loop
          /> 

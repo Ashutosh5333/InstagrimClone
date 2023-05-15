@@ -16,11 +16,9 @@ export const DELETE_DATA_FAILURE = "DELETE_DATA_FAILURE";
 
 
 
-
 export const USER_DATA_REQUEST =  "USER_DATA_REQUEST";
 export const USER_DATA_SUCCESS =  "USER_DATA_SUCCESS";
 export const USER_DATA_FAILURE =  "USER_DATA_FAILURE ";
-
 
 
 
@@ -29,13 +27,18 @@ export const MYPOST_DATA_SUCCESS =  "MYPOST_DATA_SUCCESS";
 export const MYPOST_DATA_FAILURE =  "MYPOST_DATA_FAILURE ";
 
 
-
 export const SingleUserProfile_DATA_REQUEST =  "SingleUserProfile_DATA_REQUEST";
 export const SingleUserProfile_DATA_SUCCESS =  "SingleUserProfile_DATA_SUCCESS";
 export const SingleUserProfile_DATA_FAILURE =  "SingleUserProfile_DATA_FAILURE ";
 
 
-
 export const AllREEL_DATA_REQUEST =  "AllREEL_DATA_REQUEST";
 export const AllREEL_DATA_SUCCESS =  "AllREEL_DATA_SUCCESS";
 export const AllREEL_DATA_FAILURE =  "AllREEL_DATA_FAILURE ";
+
+
+// ======== Single User Data  ======== //
+
+export const SingleUserDATA_REQUEST =  "SingleUserDATA_REQUEST";
+export const SingleUserDATA_SUCCESS =  "SingleUserDATA_SUCCESS";
+export const SingleUserDATA_FAILURE =  "SingleUserDATA_FAILURE ";

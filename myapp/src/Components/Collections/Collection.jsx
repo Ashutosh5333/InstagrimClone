@@ -44,7 +44,7 @@ const Collection = () => {
                 <AiOutlineTable />
               </Text>
             </Box>
-            <Box  display={{base:"none"}} >
+            <Box   >
               <Tab>Post</Tab>
             </Box>
           </Box>
@@ -60,7 +60,7 @@ const Collection = () => {
                 <TfiVideoClapper />
               </Text>
             </Box>
-            <Box  display={{base:"none",md:"",lg:""}}>
+            <Box >
               <Tab>Reels</Tab>
             </Box>
           </Box>
@@ -76,7 +76,7 @@ const Collection = () => {
                 <FaRegBookmark />
               </Text>
             </Box>
-            <Box  display={{base:"none"}}>
+            <Box>
               <Tab>Saved</Tab>
             </Box>
           </Box>
@@ -92,7 +92,7 @@ const Collection = () => {
                 <CgProfile />
               </Text>
             </Box>
-            <Box  display={{base:"none"}}>
+            <Box >
             
               <Tab>Tagged</Tab>
             </Box>

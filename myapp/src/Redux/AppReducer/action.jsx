@@ -118,6 +118,27 @@ const singleUserprofilefailure = () =>{
 }
 
 
+   // ==========  Single user data  Only  ===========  //
+
+   const  singleuserdataReq = () =>{
+      return {
+         type: types.SingleUserDATA_REQUEST
+      }
+   } 
+   const  singleuserdataSucess = (payload) => {
+      return {
+         type :types.SingleUserDATA_SUCCESS,
+         payload,
+      }
+   }
+   const  singleuserdataFail = () => {
+     return {
+         type :types.SingleUserDATA_FAILURE
+     }
+   }
+   
+
+
 
 
 
@@ -242,6 +263,7 @@ const  ADDProducts =(newdata) => (dispatch) => {
 
 // https://drab-ruby-swallow-toga.cyclic.app
 // https://insta-293s.onrender.com/
+
   const getData = (dispatch) => {
       dispatch(getdataReq())
   return axios.get(`https://insta-293s.onrender.com/insta`,{
@@ -301,7 +323,7 @@ export const GetMypost = (dispatch) => {
 
 export const SingleUserprofile = (userId) => (dispatch) =>{
         dispatch(singleUserprofilerequest())
-       return  axios.get(`https://insta-293s.onrender.com/user/${userId}`,{
+       return  axios.get(`https://drab-ruby-swallow-toga.cyclic.app/user/${userId}`,{
          headers:{
             "Content-Type":"application/json",
             "Authorization":`Bearer ${token}`
@@ -311,6 +333,24 @@ export const SingleUserprofile = (userId) => (dispatch) =>{
        }).catch((err) =>{
         return   dispatch(singleUserprofilefailure())
        })
+}
+
+
+//  ======================= Only single user All Data  ===================== //
+
+
+export const SingleUserData = (userId) => (dispatch) =>{
+   dispatch(singleuserdataReq())
+  return  axios.get(`https://drab-ruby-swallow-toga.cyclic.app/insta/${userId}`,{
+    headers:{
+       "Content-Type":"application/json",
+       "Authorization":`Bearer ${token}`
+     },
+  }).then((res) =>{
+     return dispatch(singleuserdataSucess(res.data))
+  }).catch((err) =>{
+   return   dispatch(singleuserdataFail())
+  })
 }
 
 

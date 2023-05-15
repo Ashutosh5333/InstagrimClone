@@ -3,10 +3,9 @@ import {  Avatar,  Box,  Button,  Divider,  Text,  Wrap,  WrapItem,} from "@chak
 import { HiUserAdd } from "react-icons/hi";
 import "./prof.css";
 import Side from './../../Pages/Side';
-
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-import { SingleUserprofile } from "../../Redux/AppReducer/action";
+import { SingleUserData, SingleUserprofile } from "../../Redux/AppReducer/action";
 import Stories from "./Stories/Stories";
 import Collection from "./Collections/Collection";
 import DotuserModal from "./DotuserModal";
@@ -14,18 +13,28 @@ const token = JSON.parse(localStorage.getItem("token"))
 
 export const UserProfile = () => {
   const [isLoading, SetLoading] = useState(false);
+   const [data,SetData] = useState("")
   const [Userprofile,SetUserprofile] = useState("")
      const dispatch = useDispatch()
     const {userId} = useParams()
+       
+      
+        useEffect(() =>{
+          dispatch(SingleUserData(userId))
+          .then((res) =>{
+            console.log(res)
+          }).catch((err) =>{
+             console.log(err)
+          })
+        },[userId])
 
-    const Singleuser = useSelector((store) => store.AppReducer.Singleuser)
-    
-      // console.log("Singleuser",Singleuser)
+   
       
    useEffect(() =>{
      SetLoading(true)
       dispatch(SingleUserprofile(userId))
        .then((res) =>{
+        //  console.log(res)
          SetUserprofile(res.payload)
          SetLoading(false)
        }).catch((err) =>{
@@ -33,8 +42,8 @@ export const UserProfile = () => {
        })
    },[userId])
    
-    const data = Singleuser?.user
-    
+    // const data = Singleuser
+    //  console.log(data)
   
 
      const FollowUser = () =>{

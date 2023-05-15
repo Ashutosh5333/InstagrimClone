@@ -131,7 +131,7 @@ const Profile = () => {
                 gap="10px"
               >
                 <Box className="username" margin="auto">
-                  <Text className="textname">_Ashutoshlakshkara7985</Text>
+                  <Text className="textname"> {user?.name}</Text>
                 </Box>
 
                 <Box

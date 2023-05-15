@@ -46,7 +46,7 @@ const Side = () => {
             gap="8px"
             justifyContent={"space-between"}
           >
-            <Tooltip hasArrow label="Home" placement="right" bg="#ffffff" color="black" p="2" ml="4">
+            <Tooltip hasArrow label="Home"  placement="right" bg="#ffffff" color="black" p="2" ml="4">
             <Box fontSize={"2rem"}>
               <AiFillHome />
             </Box>

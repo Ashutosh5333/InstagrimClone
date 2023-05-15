@@ -1,19 +1,20 @@
-import React from 'react'
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { Box, Card, Image, SimpleGrid } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import ImageSkelton from '../../Collections/ImageSkelton';
+import { SingleUserprofile, getData  } from '../../../Redux/AppReducer/action';
 
 
 export const Mypost = () => {
+  const dispatch = useDispatch()
 
-
-  const Singleuser = useSelector((store) => store.AppReducer.Singleuser)
-  // console.log("Singleuser" ,Singleuser)
-
-   const data = Singleuser.pos
-  //  console.log(data)
-
+  const  data = useSelector((store) => store.AppReducer.productData)
+    //  console.log(data)
+    
+        useEffect(() =>{
+          dispatch(getData)
+        },[])
      
 
   return (
@@ -26,7 +27,7 @@ export const Mypost = () => {
            {
 
             data?.length>0  && data?.map((el) =>{
-           return   <Card>
+           return   <Card key={el._id}>
 
            <Link to="/profiledata">
          <Image  src={el?.pic}
