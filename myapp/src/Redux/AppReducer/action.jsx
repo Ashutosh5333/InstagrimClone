@@ -323,7 +323,7 @@ export const GetMypost = (dispatch) => {
 
 export const SingleUserprofile = (userId) => (dispatch) =>{
         dispatch(singleUserprofilerequest())
-       return  axios.get(`https://drab-ruby-swallow-toga.cyclic.app/user/${userId}`,{
+       return  axios.get(`https://insta-293s.onrender.com/user/${userId}`,{
          headers:{
             "Content-Type":"application/json",
             "Authorization":`Bearer ${token}`
@@ -341,7 +341,7 @@ export const SingleUserprofile = (userId) => (dispatch) =>{
 
 export const SingleUserData = (userId) => (dispatch) =>{
    dispatch(singleuserdataReq())
-  return  axios.get(`https://drab-ruby-swallow-toga.cyclic.app/insta/${userId}`,{
+  return  axios.get(`https://insta-293s.onrender.com/insta/${userId}`,{
     headers:{
        "Content-Type":"application/json",
        "Authorization":`Bearer ${token}`

@@ -9,14 +9,16 @@ const Reels = () => {
 
 
   return (
-    <Box  display={"flex"} justifyContent={"space-between"}>
+    <Box  display={"flex"} justifyContent={"space-between"}
+    //  bg="black"
+    >
 
          <Box  width={"20%"}>
            <Side/>
          </Box>
 
           <Box   width={"80%"}>
-
+          
              <Igreel/>
 
           </Box>

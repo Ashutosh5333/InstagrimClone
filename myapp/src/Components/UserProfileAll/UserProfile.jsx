@@ -22,7 +22,7 @@ export const UserProfile = () => {
         useEffect(() =>{
           dispatch(SingleUserData(userId))
           .then((res) =>{
-            console.log(res)
+            // console.log(res)
           }).catch((err) =>{
              console.log(err)
           })
@@ -36,6 +36,7 @@ export const UserProfile = () => {
        .then((res) =>{
         //  console.log(res)
          SetUserprofile(res.payload)
+         SetData(res.payload)
          SetLoading(false)
        }).catch((err) =>{
         console.log(err)

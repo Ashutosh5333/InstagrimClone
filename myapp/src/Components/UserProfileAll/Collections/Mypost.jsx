@@ -9,12 +9,10 @@ import { SingleUserprofile, getData  } from '../../../Redux/AppReducer/action';
 export const Mypost = () => {
   const dispatch = useDispatch()
 
-  const  data = useSelector((store) => store.AppReducer.productData)
+  const  data = useSelector((store) => store.AppReducer.SingleData)
     //  console.log(data)
     
-        useEffect(() =>{
-          dispatch(getData)
-        },[])
+       
      
 
   return (

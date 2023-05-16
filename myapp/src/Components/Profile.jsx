@@ -5,25 +5,15 @@ import Stories from "./StoriesSlider/Stories";
 import Collection from "./Collections/Collection";
 import "./style/prof.css";
 import Side from "./../Pages/Side";
-import { useDispatch, useSelector } from "react-redux";
-import { GetMypost } from "../Redux/AppReducer/action";
+
 import Changeprofile from "./Changeprofile";
 
 
 const Profile = () => {
-  const [user,SetUser]= useState("")
-  const dispatch = useDispatch()
-  const  userdetail = useSelector((store) => store.AppReducer.Mypost)
  
-      //  console.log(userdetail)  
+      const user = JSON.parse(localStorage.getItem("user"))
+       
   
-     useEffect(() =>{
-       dispatch(GetMypost)
-       .then((res)=>{
-        //  console.log(res)
-        SetUser(res.payload[0]?.postedby)
-       })
-     },[])
 
 
   return (
