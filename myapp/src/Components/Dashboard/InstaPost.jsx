@@ -30,12 +30,12 @@ const InstaPost = () => {
       dispatch(getData)
         .then((res) => {
           SetLoading(false);
-        
+      
         })
         .catch((err) => {
           console.log(err);
-        });
-    }, []);
+        })
+    }, [])
   
     
 

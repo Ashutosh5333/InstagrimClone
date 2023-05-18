@@ -1,20 +1,21 @@
 import React from 'react'
 import { Box } from '@chakra-ui/react';
 import Side from '../Pages/Side';
+import ExploreCard from './Explorec/ExploreCard';
 
 const Explore = () => {
     
 
   return (
     <>
-    <Box border="3px solid red" width="100vw" display={"flex"} justifyContent={"space-between"} gap="5" m="auto" height={"100vh"}>
+    <Box  width="100vw" display={"flex"} justifyContent={"space-between"} gap="5" m="auto" >
 
       <Box  width="15%"> 
           <Side/>
       </Box>
 
-      <Box border="2px solid blue" width="80%">
-
+      <Box  width="80%">
+          <ExploreCard/>
       </Box>
     </Box>
     </>

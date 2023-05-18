@@ -94,7 +94,7 @@ const Create = () => {
         <ModalOverlay />
 
         <ModalContent>
-          <Box display="flex" justifyContent={"space-between"}>
+          <Box display="flex" justifyContent={"space-between"} p="5">
             <Box fontSize={"35px"}>
               <BiArrowBack />
             </Box>
@@ -107,8 +107,9 @@ const Create = () => {
               {" "}
               New Post{" "}
             </Text>
-            <Button fontSize={"35px"} color="blue" onClick={handleSubmit}>
-              <TiTickOutline />
+            <Button  color="blue" onClick={handleSubmit}>
+         
+              Post
             </Button>
           </Box>
 
