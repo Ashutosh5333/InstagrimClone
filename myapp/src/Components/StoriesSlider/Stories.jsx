@@ -7,6 +7,8 @@ import "./styles/carousel.css"
 
 const Stories = () => {
 
+        
+
   const handleSlide = (direction)=>{
     const slider = document.getElementsByClassName('carousel-body')[0];
     if (direction === "left")

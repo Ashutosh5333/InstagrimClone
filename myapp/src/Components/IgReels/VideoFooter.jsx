@@ -9,15 +9,17 @@ const VideoFooter = ({avatarSrc,channel,song}) => {
 
 
   return (
-    <Box >
+    <Box>
        
         <Box  position={"absolute"} bottom={"4"}
         color="white" display={"flex"}   width={"100%"} mb="10" p="2"
         >
           <Avatar  src={avatarSrc} size="xs" m="5" />
+           
            <Text m="2"> {channel} - <Button color="black" 
            textTransform={"inherit"}
-           > Follow </Button>  </Text>
+           > Follow </Button>  
+           </Text>
         </Box>
 
   
@@ -27,24 +29,22 @@ const VideoFooter = ({avatarSrc,channel,song}) => {
          width="100%" mt="20"  
            display={"flex"} justifyContent={"space-around"}
         >
-        <SiApplemusic  fontSize={"2rem"}  mt="5" />
+        <SiApplemusic  color='black' fontSize={"2rem"}  mt="5" />
 
 
           <Box  width={"60%"} bg="none" >
           <Ticker isNewsTicker={true}>
           
-        <NewsTicker   title={song}   />
+        {/* <NewsTicker   title={song}   /> */}
 
          </Ticker>
           </Box>
         
         {/* --------------------- */}
-
         </Box>
         
          <Box border="2px solid black" position={"absolute"} bottom={"0"}>
-         {/* <SiApplemusic  fontSize={"2rem"}  mt="5" /> */}
-
+       
          </Box>
     
     

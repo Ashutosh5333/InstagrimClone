@@ -17,6 +17,7 @@ const Explore = () => {
       <Box  width="80%">
           <ExploreCard/>
       </Box>
+           
     </Box>
     </>
   )

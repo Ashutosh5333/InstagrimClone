@@ -25,7 +25,7 @@ const Igreel = () => {
 
    
     <Box  display={"grid"} placeItems={"center"} height="100vh"
-     backgroundColor={"black"} 
+    //  backgroundColor={"black"} 
     >
       
        <Box mt="5" >
@@ -36,7 +36,9 @@ const Igreel = () => {
        {/* ---------- videos--------- */}
 
  
-        <Box className='videos'  position={"relative"}
+        <Box
+         border="2px solid black"
+         className='videos'  position={"relative"}
          height={"75vh"} width={"60%"} borderRadius={"20px"}
           maxWidth={"400px"} 
           maxHeight={"1200px"}

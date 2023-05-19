@@ -21,10 +21,10 @@ const ExploreCard = () => {
         {
         data.length>0 ?
         <Box>
-<SimpleGrid columns={{base:1,md:2,lg:3}} spacing={6}>
+<SimpleGrid columns={{base:1,md:2,lg:3}} spacing={1}>
     {
        data.length > 0 && data.map((el) =>{
-        return   <Card maxW="xl" key={el._id}>
+        return   <Box maxW="2xl" key={el._id}>
         <Link to="/profiledata">
            <Image  src={el.pic}
            alt="Mypost"
@@ -33,7 +33,7 @@ const ExploreCard = () => {
                       height={"400px"}
                      />
        </Link>
-       </Card>
+       </Box>
        })
 
     }

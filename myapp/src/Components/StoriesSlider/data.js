@@ -12,7 +12,8 @@ export const statusCarousel = [
         src:'https://bit.ly/prosper-baba'
     }, 
     {
-        name:'Christian Nwamba', src:'https://bit.ly/code-beast'
+        name:'Christian Nwamba', 
+        src:'https://bit.ly/code-beast'
     }, 
     {
         name:"Ryan Florence",
