@@ -30,11 +30,9 @@ const Stories = () => {
 
             </div>
             <div className="carousel-body">
-                {
-                    statusCarousel.map((item,index)=>{
-                        return <Avatar key={index} image={item} />
-                    })
-                }
+        
+                 <Avatar />
+                  
             </div>
         </section>
 

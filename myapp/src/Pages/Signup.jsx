@@ -1,4 +1,4 @@
-import {FormControl, Box,  Heading,  Text,} from '@chakra-ui/react'
+import {FormControl, Box,  Heading,  Text, Image,} from '@chakra-ui/react'
 import {  Button,  Card,  CardBody,  Input,  InputGroup,  InputLeftElement,  InputRightElement,  VStack,  useColorModeValue,useToast,} from "@chakra-ui/react";
 import { CiUser } from "react-icons/ci";
 import { EmailIcon, UnlockIcon, ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
@@ -64,11 +64,12 @@ const Signup = () => {
 
         <CardBody>
         
-       <Heading textAlign={"center"} style={{fontSize:"1.8em", fontWeight:"600", fontFamily:"sans-serif", fontStyle:"italic" }}
+       {/* <Heading textAlign={"center"} style={{fontSize:"1.8em", fontWeight:"600", fontFamily:"sans-serif", fontStyle:"italic" }}
        mb="5"
        > Instagram
+       </Heading> */}
        
-       </Heading>
+       <Image width={"200px"} height="12vh" m="auto" mb="5" src="https://github.com/mihir0699/Instagram-Clone/blob/master/src/images/insta_image.png?raw=true" />
            <Text  textAlign={"center"}  fontSize="15px" fontWeight="650" color="gray"
            mb="5"
            > Sign up to see photos and videos from your friends </Text>
@@ -174,70 +175,3 @@ Privacy Policy and Cookies Policy . </span> </Text>
 }
 
 export default Signup
-
-/**
- *   
-    <Box  className='Signup'
-    // border={"1px solid black"} 
-     width={{base : "100%", md :'50%', lg : '40%'}} 
-      
-     margin={"auto"} mt="20px">  
-
-
-
-
-
-    <Box width="400px" m="auto" textAlign="center" px={8} mt={5} borderwidth={1}
-    borderRadius={8} boxshadow="lg" mb={10}
-     >
-
-       <Heading style={{fontSize:"1.8em", fontWeight:"600", fontFamily:"sans-serif", fontStyle:"italic" }}> Instagram
-       
-       </Heading>
-           <Text  style={{fontSize:"15px", fontWeight:"650", color:"gray"}}> Sign up to see photos and videos from your friends </Text>
-
-        
-         <Button fontSize={"1.2em"} fontWeight="600" width="full" background={"blue.500"}  colorScheme="blue" color="#fff" > Login in with Facebook </Button>
-         
-         <br/>
-         <br/>
-        <FormControl>
-         
-          <Input type="email" placeholder="Email" 
-          
-          onChange={handleChange} 
-           name="email"
-           isRequired/>
-        </FormControl>
-        <br/>
-        <FormControl>
-        
-          <Input type="name" placeholder="Full Name" 
-             name="name"
-             onChange={handleChange} 
-           isRequired/>
-        </FormControl>
-        <br/>
-
-       
-        <FormControl>
-    
-          <Input type='password' placeholder="Password"
-           
-          onChange={handleChange} 
-           name="password"
-           isRequired/>
-        </FormControl>
-     
-
-              <br/>
-        <Button width="full"  fontSize={"1.2em"} fontWeight="600" type="submit" onClick={handleSubmit} textAlign="center" background={"blue.500"}  colorScheme="blue">Sign up </Button>
-
-           <Text style={{fontSize:"15px", fontWeight:"500", color:"gray"}}> By Signing up, you agree to our  </Text>
-           <Text> <span style={{fontSize:"20px", fontWeight:"600", color:"gray"}}>Terms & Privacy Policy</span> </Text>
-    </Box>
-
-     
-</Box>
-
- */

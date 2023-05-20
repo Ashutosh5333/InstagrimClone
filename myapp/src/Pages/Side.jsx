@@ -1,4 +1,4 @@
-import { Box, Tooltip} from "@chakra-ui/react";
+import { Box, Image, Tooltip} from "@chakra-ui/react";
 import React from "react";
 import { BsInstagram } from "react-icons/bs";
 import { AiFillHome } from "react-icons/ai";
@@ -27,7 +27,8 @@ const Side = () => {
           >
             <Box fontSize={"2.2em"}>
               <Link to="/">
-                <BsInstagram />
+                {/* <BsInstagram /> */}
+                 <Image width={"100px"} src="https://github.com/mihir0699/Instagram-Clone/blob/master/src/images/insta_image.png?raw=true" />
               </Link>
             </Box>
             <Box> </Box>
