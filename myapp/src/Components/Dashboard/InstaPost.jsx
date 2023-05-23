@@ -9,7 +9,7 @@ import { FiNavigation } from "react-icons/fi";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { getData,  } from "../../Redux/AppReducer/action";
-import { Addcomment, likepost, Unlikepost } from "./ProductFetch";
+import { Addcomment } from "./ProductFetch";
 import Stories from "../StoriesSlider/Stories";
 import { HomeSkelton } from "./HomeSkelton";
 import { Link } from "react-router-dom";
@@ -19,10 +19,10 @@ const InstaPost = () => {
   
     const dispatch = useDispatch();
     const Instapost = useSelector((store) => store.AppReducer.productData);
-    // console.log("instadata" ,Instapost)
-        
+    
+    const token = JSON.parse(localStorage.getItem("token"));
+    const data =  JSON.parse(localStorage.getItem("user"))
    
-      const data =  JSON.parse(localStorage.getItem("user"))
       
          
     useEffect(() => {
@@ -37,8 +37,46 @@ const InstaPost = () => {
         })
     }, [])
   
-    
+    const likepost = (_id) => {
+      fetch(`https://insta-293s.onrender.com/likes/${_id}`, {
+        method: "put",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then((res) => res.json())
+        .then((dat) => {
+          // console.log(dat)
+            dispatch(getData)
+          // window.location.reload()
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      
+      
+    };
 
+    const Unlikepost = (_id) => {
+      fetch(`https://insta-293s.onrender.com/unlikes/${_id}`, {
+        method: "put",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`,
+        },
+      })
+        .then((res) => res.json())
+        .then((dat) => {
+          dispatch(getData)
+          // window.location.reload()
+        }) 
+        .catch((err) => {
+          console.log(err);
+        });
+       
+      
+    };
 
 
   return (
@@ -132,9 +170,7 @@ const InstaPost = () => {
                         justifyContent="space-between"
                         gap="18px"
                       >
-                       {/* {el.userId} */}
-                        {/* {el.likes} */}
-                        {/* el.likes === el.userId  */}
+                      
 
                         {el.likes.includes(data?._id) ? (
                           <FaHeart
@@ -148,6 +184,7 @@ const InstaPost = () => {
                         <FiNavigation />
                       </Box>
                     </Flex>
+
                     {/* ---------------------- */}
 
                     <Flex fontSize={{ base: "15px", md: "18px", lg: "25px" }}>

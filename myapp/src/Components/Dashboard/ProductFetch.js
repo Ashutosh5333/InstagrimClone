@@ -1,7 +1,4 @@
-import React  from 'react-redux';
 
-import { useDispatch } from 'react-redux';
-import { getData } from '../../Redux/AppReducer/action';
 
 const token = JSON.parse(localStorage.getItem("token"));
 
@@ -18,15 +15,13 @@ export const likepost = (_id) => {
   })
     .then((res) => res.json())
     .then((dat) => {
-      console.log(dat)
+      // console.log(dat)
         // dispatch(getData)
-      window.location.reload()
+      // window.location.reload()
     })
     .catch((err) => {
       console.log(err);
     });
-  
-  
 };
 
 // ----------------  Unlikepost ------------ //
@@ -41,8 +36,8 @@ export const Unlikepost = (_id) => {
     })
       .then((res) => res.json())
       .then((dat) => {
-        console.log(dat);
-        window.location.reload()
+        
+        // window.location.reload()
       }) 
       .catch((err) => {
         console.log(err);
@@ -70,24 +65,15 @@ export  const Addcomment = (text, _id) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("comment" ,data);
+        // console.log("comment" ,data);
+        // window.location.reload()
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err)
       });
   };
 
  
-  export const ProductFetch = () =>{
+  
 
 
-    
-  const dispatch = useDispatch()
-
-
-
-      return <>
-
-
-      </>
-  }
