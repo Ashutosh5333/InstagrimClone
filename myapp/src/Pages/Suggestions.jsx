@@ -84,7 +84,7 @@ export const Suggestions = () => {
         {
 
 data.length >0 && data.map((el) =>{
- return  <Box key={el._id}>
+ return  <Box key={el._id} >
 
  <Box
             display="flex"

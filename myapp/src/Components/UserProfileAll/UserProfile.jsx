@@ -43,20 +43,29 @@ export const UserProfile = () => {
        })
    },[userId])
    
-    // const data = Singleuser
-    //  console.log(data)
-  
+  //  https://insta-293s.onrender.com
 
-     const FollowUser = () =>{
-        fetch(`https://sore-cyan-llama-robe.cyclic.app/follow`,{
+     const FollowUser = (userId) =>{
+      
+        fetch(`https://insta-293s.onrender.com/follow`,{
            method:"put",
            headers:{
             "Content-Type":"application/json",
             "Authorization":`Bearer ${token}`
           },
+          body:JSON.stringify({
+            followId:userId  
+          })
         })
-     }
+        .then(res =>res.json())
+        .then(dat => {
+          console.log(dat)
+        }).catch((err) =>{
+          console.log(err)
+        })   
+  }
    
+  // console.log(data._id)
 
   return (
     <>
@@ -149,7 +158,9 @@ export const UserProfile = () => {
                 gap="10px"
               >
                 <Box margin="auto">
-                  <Button className="editbutton" colorScheme="blue" color="#fff" > Follow </Button>
+                  <Button className="editbutton" colorScheme="blue" color="#fff"
+                  onClick={() =>FollowUser(data._id)  }
+                   > Follow </Button>
                 </Box>
 
                 <Box margin="auto">

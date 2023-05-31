@@ -16,14 +16,14 @@ import { Link } from "react-router-dom";
 
 const InstaPost = () => {
     const [isLoading, SetLoading] = useState(false);
-  
+    const [like,SetLikes] = useState([])
     const dispatch = useDispatch();
     const Instapost = useSelector((store) => store.AppReducer.productData);
     
     const token = JSON.parse(localStorage.getItem("token"));
     const data =  JSON.parse(localStorage.getItem("user"))
    
-      
+  //  console.log( "likes" ,like)   
          
     useEffect(() => {
       SetLoading(true);
@@ -47,9 +47,9 @@ const InstaPost = () => {
       })
         .then((res) => res.json())
         .then((dat) => {
-          // console.log(dat)
+    
             dispatch(getData)
-          // window.location.reload()
+          
         })
         .catch((err) => {
           console.log(err);
@@ -68,8 +68,9 @@ const InstaPost = () => {
       })
         .then((res) => res.json())
         .then((dat) => {
+      
           dispatch(getData)
-          // window.location.reload()
+         
         }) 
         .catch((err) => {
           console.log(err);
@@ -78,6 +79,27 @@ const InstaPost = () => {
       
     };
 
+    const Addcomment = (text, _id) => {
+      fetch(`https://insta-293s.onrender.com/comment/${_id}`, {
+        method: "put",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          _id,
+          text,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          dispatch(getData)
+        })
+        .catch((err) => {
+          console.log(err)
+        });
+        
+    };
 
   return (
     <>
