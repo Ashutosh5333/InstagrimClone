@@ -27,7 +27,7 @@ const Login = () => {
   const handleSubmit = () =>{
       dispatch(Loginupdata(post))
       .then((res) =>{
-        //  console.log(res)
+         console.log("res from login",res)
          if(res.type === "GET_LOGIN_SUCCESS"){
              if(res.payload.data.msg !== "Login sucessfull"){
                 toast({
@@ -51,6 +51,8 @@ const Login = () => {
               navigate("/")
              }
          }
+      }).catch((err)=>{
+        console.log("error*********",err)
       })
   }
 
