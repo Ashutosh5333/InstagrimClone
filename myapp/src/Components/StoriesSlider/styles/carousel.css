@@ -1,3 +1,4 @@
+
 .avatar-box{
     width: 60px;
     height: 60px;
@@ -19,6 +20,7 @@
 .carousel-status{
     padding: 16px 0px;
 }
+
 .carousel-body{
     display: flex;
     flex-direction: row;
@@ -50,10 +52,13 @@
     text-overflow: ellipsis;
     width: 60px;
 }
+
 .check{
+    width: 100%;
     position: relative;
-    /* border:2px solid red */
+    border:2px solid red
 }
+
 .arrow-btn{
     width: 25px;
     height: 25px;

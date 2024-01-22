@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { getData } from "../Redux/AppReducer/action";
 import Loading from "../Loading";
 import InstaPost from "../Components/Dashboard/InstaPost";
+import { Box, Flex } from "@chakra-ui/react";
 
 const Dashboard = () => {
   const [isLoading, SetLoading] = useState(false);
@@ -25,29 +26,38 @@ const Dashboard = () => {
 
   return (
     <>
-      {
-        isLoading ? (
+      {isLoading ? (
         <Loading />
       ) : (
-        <div className="dashboard">
-          <div className="Sidebar">
+        <Box border={"2px solid blue"} width={"100%"} > 
+
+        <Flex
+          justifyContent={"space-around"}
+          gap={10}
+        >
+          <Box 
+           className="Sidebar"
+          display={{ sm: "none", md: "none", lg: "block" }} 
+           width={{sm:"",md:"",lg:"15%"}}>
             <Side />
-          </div>
-      
+          </Box>
 
-          <div className="database">
-          
-            <InstaPost/>
-          </div>
+          <Box margin={"auto"} width={{ sm: "100%", md: "90%", lg: "60%" }}>
+            <InstaPost />
+          </Box>
 
-          <div className="Suggest">
+          <Box
+          className="Suggest"
+            display={{ sm: "none", md: "none", lg: "block" }}
+            border={"2px solid black"}
+          >
             <Suggestions />
-          </div>
+          </Box>
 
-        </div>
-      )
-      
-      }
+        </Flex>
+
+        </Box>
+      )}
     </>
   );
 };

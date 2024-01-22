@@ -1,9 +1,9 @@
 import React from "react";
-
 import {ArrowLeftIcon, ArrowRightIcon} from "@chakra-ui/icons"
 import {statusCarousel} from "../StoriesSlider/data"
 import Avatar from "./Avatar"
 import "./styles/carousel.css"
+import { Box } from "@chakra-ui/react";
 
 const Stories = () => {
 
@@ -19,7 +19,10 @@ const Stories = () => {
 
   return (
     <>
-      <section className='check'>
+      <Box 
+      //  width={"auto"}
+      width={{sm:"100%",md:"100%",lg:"100%"}} 
+      className='check'>
             <div className='arrow-btn left-icon' onClick={()=>handleSlide('left')}>
              
                 <ArrowLeftIcon/>
@@ -34,7 +37,7 @@ const Stories = () => {
                  <Avatar />
                   
             </div>
-        </section>
+        </Box>
 
     </>
   );

@@ -1,6 +1,5 @@
-import { Box, Image, Tooltip } from "@chakra-ui/react";
+import { Box, Image, Tooltip, useMediaQuery } from "@chakra-ui/react";
 import React from "react";
-// import { BsInstagram } from "react-icons/bs";
 import { AiFillHome } from "react-icons/ai";
 import { MdExplore } from "react-icons/md";
 import { TfiVideoClapper } from "react-icons/tfi";
@@ -14,9 +13,12 @@ import "./Style/Dash.css";
 import Menubar from "../Components/Menubar";
 
 const Side = () => {
+  const [isLargeScreen] = useMediaQuery("(min-width:1000px)");
+
   return (
     <>
-      <Box p={1} border={"2px solid red"} display="flex" gap={2} position="fixed">
+      <Box p={1} border={"2px solid red"} 
+      display="flex" gap={2} position="fixed">
         <Box gap="8px">
           <Box
             p={1}
@@ -37,17 +39,25 @@ const Side = () => {
 
           <Box
             borderRadius={"10px"}
-            _hover={{
-              bgGradient: "linear(to-r, gray.200, gray.200)",
-            }}
+            // _hover={{
+            //   bgGradient: "linear(to-r, gray.200, gray.200)",
+            // }}
+            _hover={
+              isLargeScreen
+                ? {
+                    bgGradient: "linear(to-r, gray.200, gray.200)",
+                  }
+                : {}
+            }
             width="100%"
             p={2}
             display={"flex"}
-            mt={8}
+            mt={6}
             gap="8px"
             justifyContent={"space-between"}
           >
             <Tooltip
+               display={{sm:"block",md:"block",lg:"none"}}
               hasArrow
               label="Home"
               placement="right"
@@ -56,7 +66,7 @@ const Side = () => {
               p="2"
               ml="4"
             >
-              <Box fontSize={"2rem"}>
+              <Box fontSize={"1.5rem"}>
                 <AiFillHome />
               </Box>
             </Tooltip>
@@ -74,7 +84,7 @@ const Side = () => {
           <Box
             p={2}
             display={"flex"}
-            mt={8}
+            mt={6}
             gap="8px"
             justifyContent={"space-between"}
             borderRadius={"10px"}
@@ -84,6 +94,7 @@ const Side = () => {
             width="100%"
           >
             <Tooltip
+                display={{sm:"block",md:"block",lg:"none"}}
               hasArrow
               label="Search"
               placement="right"
@@ -92,7 +103,7 @@ const Side = () => {
               p="2"
               ml="4"
             >
-              <Box fontSize={"2rem"}>
+              <Box fontSize={"1.5rem"}>
                 <SideSearchmodel />
               </Box>
             </Tooltip>
@@ -110,7 +121,7 @@ const Side = () => {
           <Box
             p={2}
             display={"flex"}
-            mt={8}
+            mt={6}
             gap="8px"
             justifyContent={"space-between"}
             borderRadius={"10px"}
@@ -120,6 +131,7 @@ const Side = () => {
             width="100%"
           >
             <Tooltip
+               display={{sm:"block",md:"block",lg:"none"}}
               hasArrow
               label="Explore"
               placement="right"
@@ -129,7 +141,7 @@ const Side = () => {
               ml="4"
             >
               <Link to="/explore">
-                <Box fontSize={"2rem"}>
+                <Box fontSize={"1.5rem"}>
                   <MdExplore />
                 </Box>
               </Link>
@@ -142,7 +154,7 @@ const Side = () => {
           <Box
             p={2}
             display={"flex"}
-            mt={8}
+            mt={6}
             gap="8px"
             justifyContent={"space-between"}
             borderRadius={"10px"}
@@ -152,6 +164,7 @@ const Side = () => {
             width="100%"
           >
             <Tooltip
+               display={{sm:"block",md:"block",lg:"none"}}
               hasArrow
               label="Reels"
               placement="right"
@@ -161,7 +174,7 @@ const Side = () => {
               ml="4"
             >
               <Link to="/reel">
-                <Box fontSize={"2rem"}>
+                <Box fontSize={"1.5rem"}>
                   {" "}
                   <TfiVideoClapper />{" "}
                 </Box>
@@ -176,7 +189,7 @@ const Side = () => {
           <Box
             p={2}
             display={"flex"}
-            mt={8}
+            mt={6}
             gap="8px"
             justifyContent={"space-between"}
             borderRadius={"10px"}
@@ -186,6 +199,7 @@ const Side = () => {
             width="100%"
           >
             <Tooltip
+               display={{sm:"block",md:"block",lg:"none"}}
               hasArrow
               label="Create"
               placement="right"
@@ -194,7 +208,7 @@ const Side = () => {
               p="2"
               ml="4"
             >
-              <Box fontSize={"2rem"}>
+              <Box fontSize={"1.5rem"}>
                 <Create />
               </Box>
             </Tooltip>
@@ -207,7 +221,7 @@ const Side = () => {
           <Box
             p={2}
             display={"flex"}
-            mt={8}
+            mt={6}
             gap="8px"
             justifyContent={"space-between"}
             borderRadius={"10px"}
@@ -217,6 +231,7 @@ const Side = () => {
             width="100%"
           >
             <Tooltip
+               display={{sm:"block",md:"block",lg:"none"}}
               hasArrow
               label="Notifications"
               placement="right"
@@ -225,7 +240,7 @@ const Side = () => {
               p="2"
               ml="4"
             >
-              <Box fontSize={"2rem"}>
+              <Box fontSize={"1.5rem"}>
                 <Notifications />
               </Box>
             </Tooltip>
@@ -238,7 +253,7 @@ const Side = () => {
           <Box
             p={2}
             display={"flex"}
-            mt={8}
+            mt={6}
             gap="8px"
             justifyContent={"space-between"}
             borderRadius={"10px"}
@@ -248,6 +263,7 @@ const Side = () => {
             width="100%"
           >
             <Tooltip
+               display={{sm:"block",md:"block",lg:"none"}}
               hasArrow
               label="Profile"
               placement="right"
@@ -257,7 +273,7 @@ const Side = () => {
               ml="4"
             >
               <Link to="/profile">
-                <Box fontSize={"2rem"}>
+                <Box fontSize={"1.5rem"}>
                   <CgProfile />
                 </Box>
               </Link>
@@ -271,7 +287,7 @@ const Side = () => {
           <Box
             p={2}
             display={"flex"}
-            mt={8}
+            mt={4}
             gap="8px"
             justifyContent={"space-between"}
             borderRadius={"10px"}
@@ -281,6 +297,7 @@ const Side = () => {
             width="100%"
           >
             <Tooltip
+               display={{sm:"block",md:"block",lg:"none"}}
               hasArrow
               label="Menu"
               placement="right"
@@ -289,7 +306,7 @@ const Side = () => {
               p="2"
               ml="4"
             >
-              <Box fontSize={"2rem"}>
+              <Box fontSize={"1.5rem"}>
                 <Menubar />
               </Box>
             </Tooltip>
