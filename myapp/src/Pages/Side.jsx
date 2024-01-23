@@ -17,13 +17,13 @@ const Side = () => {
 
   return (
     <>
-      <Box p={1} border={"2px solid red"} 
+      <Box p={1} 
       display="flex" gap={2} position="fixed">
-        <Box gap="8px">
+        <Box gap="20px">
           <Box
             p={1}
             display={"flex"}
-            gap="8px"
+            gap="20px"
             justifyContent={"space-between"}
           >
             <Box fontSize={"2.2em"}>
@@ -53,7 +53,7 @@ const Side = () => {
             p={2}
             display={"flex"}
             mt={6}
-            gap="8px"
+            gap="20px"
             justifyContent={"space-between"}
           >
             <Tooltip
@@ -77,15 +77,15 @@ const Side = () => {
               fontWeight={"600"}
               margin={"auto"}
             >
-              <Text textAlign={"left"}>Home </Text>
+              <Text textAlign={"end"}>Home </Text>
             </Box>
           </Box>
 
-          <Box
+          {/* <Box
             p={2}
             display={"flex"}
             mt={6}
-            gap="8px"
+            gap="20px"
             justifyContent={"space-between"}
             borderRadius={"10px"}
             _hover={{
@@ -116,13 +116,13 @@ const Side = () => {
             >
               <Text textAlign="left">Search </Text>
             </Box>
-          </Box>
+          </Box> */}
 
           <Box
             p={2}
             display={"flex"}
             mt={6}
-            gap="8px"
+            gap="20px"
             justifyContent={"space-between"}
             borderRadius={"10px"}
             _hover={{
@@ -155,7 +155,7 @@ const Side = () => {
             p={2}
             display={"flex"}
             mt={6}
-            gap="8px"
+            gap="20px"
             justifyContent={"space-between"}
             borderRadius={"10px"}
             _hover={{
@@ -190,7 +190,7 @@ const Side = () => {
             p={2}
             display={"flex"}
             mt={6}
-            gap="8px"
+            gap="20px"
             justifyContent={"space-between"}
             borderRadius={"10px"}
             _hover={{
@@ -222,7 +222,7 @@ const Side = () => {
             p={2}
             display={"flex"}
             mt={6}
-            gap="8px"
+            gap="20px"
             justifyContent={"space-between"}
             borderRadius={"10px"}
             _hover={{
@@ -254,7 +254,7 @@ const Side = () => {
             p={2}
             display={"flex"}
             mt={6}
-            gap="8px"
+            gap="20px"
             justifyContent={"space-between"}
             borderRadius={"10px"}
             _hover={{
@@ -288,7 +288,7 @@ const Side = () => {
             p={2}
             display={"flex"}
             mt={4}
-            gap="8px"
+            gap="20px"
             justifyContent={"space-between"}
             borderRadius={"10px"}
             _hover={{

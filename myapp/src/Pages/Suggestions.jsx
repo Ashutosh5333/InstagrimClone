@@ -1,7 +1,8 @@
-import { Avatar, Box, Text, Wrap, WrapItem } from "@chakra-ui/react";
+import { Avatar, Box, Flex ,Text, Wrap, WrapItem } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AllUserData } from "../Redux/AppReducer/action";
+
 
 export const Suggestions = () => {
   const [data, SetData] = useState([]);
@@ -57,66 +58,53 @@ export const Suggestions = () => {
             </Box>
           </Box>
 
-          <Box margin={"auto"} fontWeight="400" color="#27c4f5">
-            {" "}
-            Switch{" "}
-          </Box>
+        
         </Box>
 
-        {/* ============ */}
+      
 
         <Box display="flex" mt={6} justifyContent={"space-between"}>
           <Box>
-            <Text color={"gray"} fontWeight="500" fontSize={"1em"}>
+            <Text color={"gray"} fontWeight="400" fontSize={".9em"}>
               {" "}
               Suggestions for you{" "}
             </Text>{" "}
           </Box>
-
-          <Box fontWeight="450"> See All </Box>
         </Box>
 
-        {/* ---------------------------------- */}
 
-        {data.length > 0 &&
-          data.map((el) => {
-            return (
-              <Box key={el._id}>
-                <Box display="flex" justifyContent={"space-between"}>
-                  <Box
-                    display={"flex"}
-                    justifyContent="center"
-                    alignContent={"center"}
-                    textAlign="center"
-                  >
-                    <Wrap p="4">
-                      <WrapItem>
-                        <Avatar size="md" name={el.name} src={el.image} />{" "}
-                      </WrapItem>
-                    </Wrap>
 
-                    <Box textAlign="start" margin={"auto"}>
-                      <Text
-                        alignItems={"center"}
-                        fontWeight="600"
-                        margin={"auto"}
-                      >
-                        {el.name}{" "}
-                      </Text>
-                      <Text color={"gray"}> New on Instagram </Text>
-                    </Box>
-                  </Box>
+{data.length > 0 &&
+  data.map((el) => {
+    return (
+      <Flex key={el._id} justifyContent="space-between" width="100%" align="center">
+        <Flex align="center">
+          <Wrap p="2">
+            <WrapItem>
+              <Avatar size="md" name={el.name} src={el.image} />
+            </WrapItem>
+          </Wrap>
+          <Box textAlign="start" marginLeft="2">
+            <Text
+              fontWeight="500"
+              fontSize="0.8rem"
+            >
+              {el.name}
+            </Text>
+            <Text color="gray" fontSize="0.7rem">
+              New on Instagram
+            </Text>
+          </Box>
+        </Flex>
 
-                  <Box margin={"auto"} color="#27c4f5">
-                    {" "}
-                    Follow{" "}
-                  </Box>
-                </Box>
-              </Box>
-            );
-          })}
+        <Box textAlign={"end"} p={2} color="#27c4f5">
+          Follow
+        </Box>
+      </Flex>
+    );
+  })}
 
-        {/* ----------------- */}
+    
       </Box>
     </>
   );

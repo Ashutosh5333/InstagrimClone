@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./Style/Dash.css";
-
 import Side from "./Side";
 import { Suggestions } from "./Suggestions";
 import { useDispatch } from "react-redux";
@@ -29,16 +28,18 @@ const Dashboard = () => {
       {isLoading ? (
         <Loading />
       ) : (
-        <Box border={"2px solid blue"} width={"100%"} > 
+        <Box  width={"100%"} > 
 
         <Flex
           justifyContent={"space-around"}
           gap={10}
         >
           <Box 
-           className="Sidebar"
-          display={{ sm: "none", md: "none", lg: "block" }} 
-           width={{sm:"",md:"",lg:"15%"}}>
+          border={"2px solid red"}
+         className="Sidebar"
+           display={{ sm: "none", md: "none", lg: "block" }} 
+           width={{sm:"",md:"",lg:"20%"}}
+           >
             <Side />
           </Box>
 
