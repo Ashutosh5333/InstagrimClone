@@ -14,8 +14,10 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { MdOutlineCreateNewFolder } from "react-icons/md";
-import { TiTickOutline } from "react-icons/ti";
+import { TiLocationArrow, TiTickOutline } from "react-icons/ti";
 import { BiArrowBack } from "react-icons/bi";
+import { useDispatch } from "react-redux";
+import { getData } from "../Redux/AppReducer/action";
 
 const Create = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -23,13 +25,14 @@ const Create = () => {
   const [description, SetDescription] = useState("");
   const [image, SetImage] = useState("");
   const [url, SetUrl] = useState("");
+  const dispatch = useDispatch()
 
   const token = JSON.parse(localStorage.getItem("token"));
 
  
   useEffect(() => {
     if (url) {
-      fetch(`https://drab-ruby-swallow-toga.cyclic.app/insta/create`, {
+      fetch(`https://insta-293s.onrender.com/insta/create`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",
@@ -42,7 +45,8 @@ const Create = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          // console.log(data)
+          console.log(data)
+           dispatch(getData())
           toast({
             position : 'top',
             status : "success",
@@ -95,28 +99,29 @@ const Create = () => {
 
         <ModalContent>
           <Box display="flex" justifyContent={"space-between"} p="5">
-            <Box fontSize={"35px"}>
+            <Box fontSize={"1.5rem"}>
               <BiArrowBack />
             </Box>
             <Text
-              fontWeight={"600"}
-              fontSize="1.2rem"
+              fontWeight={"500"}
+              fontSize="1rem"
               fontFamily={"sans-serif"}
             
             >
               {" "}
               New Post{" "}
             </Text>
-            <Button  color="blue" onClick={handleSubmit}>
-         
+             <TiLocationArrow fontSize={"1.5rem"} onClick={handleSubmit} />
+            {/* <Button  color="blue" onClick={handleSubmit}>
               Post
-            </Button>
+            </Button> */}
           </Box>
 
           <ModalBody>
             <Box>
               <Box height="80px">
                 <Input
+                   p={4}
                   placeholder="Write a caption"
                   height="80px"
                   variant={"unstyled"}
@@ -130,13 +135,14 @@ const Create = () => {
                 borderRadius={10}
                 margin={"auto"}
                 mt="4"
-                fontWeight={"500"}
+                fontWeight={"400"}
+                p={2}
                 color="#fff"
                 fontSize={"1em"}
                 backgroundColor={"blue.500"}
               >
                 <label style={{ margin: "auto", textAlign: "center" }}>
-                  <h4> Select from gallery </h4>
+                  <h4> Select Image </h4>
 
                   <input
                     type="file"

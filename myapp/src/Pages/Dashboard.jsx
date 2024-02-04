@@ -35,7 +35,7 @@ const Dashboard = () => {
           gap={10}
         >
           <Box 
-          border={"2px solid red"}
+          // border={"2px solid red"}
          className="Sidebar"
            display={{ sm: "none", md: "none", lg: "block" }} 
            width={{sm:"",md:"",lg:"20%"}}
